@@ -1,8 +1,9 @@
 <template>
-  <footer class="bg-neutral text-neutral-content pt-10 pb-3">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
-      <img src="/img/byIcon.png" alt="Loading" class="w-16 h-9 my-auto " />
-      <div class="flex flex-col flex-1 md:flex-row md:justify-center  gap-8 flex-grow">
+  <footer
+    class="relative bg-[url('/img/footer.jpg')] bg-cover bg-[center_20%] bg-no-repeat text-neutral-content h-64 flex flex-col justify-between">
+    <div class="container mx-auto flex flex-col flex-1 md:flex-row justify-center items-center gap-8 py-10">
+      <img src="/img/byIcon.png" alt="Loading" class="w-16 h-9 my-auto" />
+      <div class="flex flex-col flex-1 md:flex-row md:justify-center gap-8 flex-grow">
         <div class="flex-2 mx-20">
           <h6 class="font-bold mb-2">联系我们：</h6>
           <div class="w-fit">
@@ -70,7 +71,7 @@
             <li><nuxt-link to="/thank" class="link link-hover text-sm">致谢</nuxt-link></li>
           </ul>
         </div>
-        <div class="flex-2 ">
+        <div class="flex-2">
           <CommunityLink>
             <h6 class="font-bold mb-2">社区</h6>
           </CommunityLink>
@@ -83,7 +84,7 @@
         </div>
       </div>
     </div>
-    <div class="text-center text-xs mt-8">
+    <div class="text-center text-xs text-black">
       <p>© 2003-2025 碧瑶 世界 未来</p>
     </div>
   </footer>
