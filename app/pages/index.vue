@@ -300,13 +300,13 @@ useSeoMeta(page.value?.seo || {});
 
 .prose th,
 .prose td {
-  border: 1px solid #e5e7eb;
+  border: 1px solid black;
   padding: 0.75rem;
   text-align: left;
 }
 
 .prose th {
-  background-color: #f9fafb;
+  background-color: gray;
 }
 
 /* 暗黑模式样式 */
