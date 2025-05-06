@@ -5,7 +5,7 @@ import { join } from "path";
 
 export default defineEventHandler(async () => {
   // 获取 public/data/ana.json 的路径
-  const filePath = join(process.cwd(), "data", "ana.json");
+  const filePath = join(process.cwd(), "public", "data", "ana.json");
 
   try {
     // 读取文件内容
