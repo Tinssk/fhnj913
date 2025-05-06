@@ -15,6 +15,11 @@ defineProps({
     required: false,
     default: "h-120",
   },
+  textCol: {
+    type: String,
+    required: false,
+    default: "text-black",
+  }
 });
 const route = useRoute()
 const router = useRouter()
@@ -79,8 +84,8 @@ router.afterEach((to, from) => {
           {{ title }}
         </h1>
         <!-- 右下角偏上段落 -->
-        <p v-if="randomLineCheck"
-          class="absolute right-20 bottom-20 translate-y-1/3 text-black text-xl font-light text-right w-200 leading-relaxed z-10">
+        <p v-if="randomLineCheck" :class="[`${textCol}`]"
+          class="absolute right-20 bottom-20 translate-y-1/3  text-xl font-light text-right w-200 leading-relaxed z-10">
           {{ randomLine }}
         </p>
       </div>

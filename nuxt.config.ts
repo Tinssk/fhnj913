@@ -59,6 +59,7 @@ export default defineNuxtConfig({
         /^\/posts\/.+/, // ❌ 不生成 /posts/* 的 HTML 文件
       ],
     },
+    preset: "node",
   },
   vite: {
     plugins: [tailwindcss()],
