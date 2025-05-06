@@ -52,13 +52,6 @@ export default defineNuxtConfig({
   css: ["@/assets/css/main.css"],
 
   nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/robots.txt"],
-      ignore: [
-        /^\/posts\/.+/, // ❌ 不生成 /posts/* 的 HTML 文件
-      ],
-    },
     preset: "node-server",
   },
   vite: {
