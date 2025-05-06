@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = ".output/public"   # 静态资源目录
+  functions = ".output/server" # 可选，仅当你打算用 functions 的形式部署
 
 [[redirects]]
   from = "/*"
