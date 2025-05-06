@@ -30,6 +30,9 @@ if (process.server && data.value?.segments && Array.isArray(data.value.segments)
   const random = segments[Math.floor(Math.random() * segments.length)]
   randomLine.value = `—— ${random}`
 }
+else {
+  console.log("语录数据获取失败")
+}
 function loadAndPickRandomSegment() {
   if (data.value?.segments && Array.isArray(data.value.segments)) {
     segments = data.value.segments
@@ -37,7 +40,7 @@ function loadAndPickRandomSegment() {
     randomLine.value = `—— ${random}`
   }
   else {
-    randomLineCheck.value = false
+    console.log("语录数据获取失败")
   }
 }
 //检测当切换页面时,触发一次浮动动画与语录
@@ -80,7 +83,6 @@ router.afterEach((to, from) => {
           class="absolute right-20 bottom-20 translate-y-1/3 text-black text-xl font-light text-right w-200 leading-relaxed z-10">
           {{ randomLine }}
         </p>
-        <div v-else>数据获取失败</div>
       </div>
     </div>
   </div>
