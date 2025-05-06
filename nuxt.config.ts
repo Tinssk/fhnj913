@@ -4,7 +4,7 @@ import remarkBreaks from "remark-breaks"; // ✅ 引入插件本体
 export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
   devtools: { enabled: false },
-
+  ssr: true,
   modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt"],
 
   app: {
