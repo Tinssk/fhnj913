@@ -30,7 +30,7 @@ if (process.server && data.value?.segments && Array.isArray(data.value.segments)
   const random = segments[Math.floor(Math.random() * segments.length)]
   randomLine.value = `—— ${random}`
 }
-else {
+else if (process.server) {
   console.log("语录数据获取失败")
 }
 function loadAndPickRandomSegment() {
