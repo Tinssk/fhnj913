@@ -52,7 +52,10 @@ export default defineNuxtConfig({
   css: ["@/assets/css/main.css"],
 
   nitro: {
-    preset: "node",
+    prerender: {
+      crawlLinks: true,
+      routes: ["/robots.txt"],
+    },
   },
   vite: {
     plugins: [tailwindcss()],

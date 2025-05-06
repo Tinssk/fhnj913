@@ -1,4 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = ".output/public"   # 静态资源目录
-  functions = ".output/server" # 服务端代码路径
