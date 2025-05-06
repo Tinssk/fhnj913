@@ -18,9 +18,31 @@ defineProps({
 });
 const route = useRoute()
 const contentRef = ref(null)
-//检测当切换页面时,触发一次浮动动画
+const randomLine = ref('')
+const randomLineCheck = ref(true)
+let segments = []
+// 加载随机段落
+const { data } = await useFetch('/api/random-ana', { server: true })
+// 首次加载：只在服务端执行随机选取，避免 hydration 后再次变动
+if (process.server && data.value?.segments && Array.isArray(data.value.segments)) {
+  segments = data.value.segments
+  const random = segments[Math.floor(Math.random() * segments.length)]
+  randomLine.value = `—— ${random}`
+}
+function loadAndPickRandomSegment() {
+  if (data.value?.segments && Array.isArray(data.value.segments)) {
+    segments = data.value.segments
+    const random = segments[Math.floor(Math.random() * segments.length)]
+    randomLine.value = `—— ${random}`
+  }
+  else {
+    randomLineCheck.value = false
+  }
+}
+//检测当切换页面时,触发一次浮动动画与语录
 watch(() => route.fullPath, () => {
   const el = contentRef.value
+  loadAndPickRandomSegment()
   if (el) {
     el.classList.remove('animate-fadeUp')
     void el.offsetWidth // 触发重排
@@ -38,15 +60,17 @@ watch(() => route.fullPath, () => {
     mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
   " />
-
-
-
-      <div ref="contentRef" class="absolute top-1/2 left-1/2 animate-fadeUp">
+      <div ref="contentRef" class="absolute top-0 w-full h-full animate-fadeUp">
         <!-- 标题 -->
         <h1 v-if="title"
-          class=" transform -translate-x-1/2 -translate-y-1/2 text-5xl font-bold text-white text-center z-20">
+          class=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-5xl font-bold text-white text-center z-20">
           {{ title }}
         </h1>
+        <!-- 右下角偏上段落 -->
+        <p v-if="randomLineCheck"
+          class="absolute right-20 bottom-20 translate-y-1/3 text-black text-xl font-light text-right w-200 leading-relaxed z-10">
+          {{ randomLine }}
+        </p>
       </div>
     </div>
   </div>

@@ -6,6 +6,9 @@
 .cache
 dist
 
+#dev
+js/
+
 # Node dependencies
 node_modules
 

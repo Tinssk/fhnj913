@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "碧瑶", // default fallback title
+      title: "碧瑶の狐岐资料馆", // default fallback title
       meta: [{ name: "referrer", content: "no-referrer" }],
       htmlAttrs: {
         lang: "zh-CN",

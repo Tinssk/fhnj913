@@ -22,7 +22,6 @@
 
 
 <script setup lang="ts">
-import { ref } from 'vue'
 
 const showBox = ref(false)
 const currentIndex = ref(-1)

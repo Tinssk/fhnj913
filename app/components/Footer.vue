@@ -128,6 +128,7 @@
             <li><nuxt-link to="/" class="link link-hover text-sm">首页</nuxt-link></li>
             <li><nuxt-link to="/about" class="link link-hover text-sm">关于我们</nuxt-link></li>
             <li><nuxt-link to="/thank" class="link link-hover text-sm">致谢</nuxt-link></li>
+            <li><nuxt-link to="/thank" class="link link-hover text-sm">相关声明</nuxt-link></li>
           </ul>
         </div>
         <div class="flex-2">

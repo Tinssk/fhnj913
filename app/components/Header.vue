@@ -9,7 +9,8 @@
         <nuxt-link to="/" class="flex items-center space-x-3">
           <img src="/img/byIcon2.png" alt="图标" :class="{ 'border-2 border-white': !isTop }"
             class="w-14 h-14 rounded-full" />
-          <h1 class="text-2xl font-semibold tracking-wide">碧瑶个人空间</h1>
+          <h1 class="text-2xl font-semibold tracking-wide">碧瑶の狐岐资料馆
+          </h1>
         </nuxt-link>
       </div>
       <!-- 导航栏 -->
