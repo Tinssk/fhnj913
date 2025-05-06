@@ -4,13 +4,12 @@ import remarkBreaks from "remark-breaks"; // ✅ 引入插件本体
 export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
   devtools: { enabled: false },
-  ssr: true,
   modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt"],
 
   app: {
     head: {
-      title: "碧瑶の狐岐资料馆", // default fallback title
       meta: [{ name: "referrer", content: "no-referrer" }],
+      title: "碧瑶の狐岐资料馆", // default fallback title
       htmlAttrs: {
         lang: "zh-CN",
       },
@@ -44,9 +43,7 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      "postcss-nested": {},
       "@csstools/postcss-oklab-function": { preserve: true }, //适配旧版本浏览器的颜色
-      "postcss-custom-media": {},
     },
   },
   css: ["@/assets/css/main.css"],

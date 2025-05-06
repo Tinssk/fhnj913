@@ -309,6 +309,15 @@ useSeoMeta(page.value?.seo || {});
   -ms-user-select: none;
 }
 
+.prose .by15 {
+  float: none !important;
+  /* 取消浮动，必须覆盖原 float:right */
+  width: 300px !important;
+  /* 明确覆盖宽度 */
+  margin: 1rem auto;
+  /* 可选：使其水平居中 */
+}
+
 .prose table {
   width: 100%;
   border-collapse: collapse;

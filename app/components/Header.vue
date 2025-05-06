@@ -5,26 +5,24 @@
     class="fixed top-0 w-full h-16 transition-all duration-500 text-white z-20 border-b border-white/10">
     <div class="container mx-auto h-full flex items-center justify-between px-6 lg:px-20 relative">
       <!-- Logo 区域 -->
-      <div class="flex items-center flex-2">
-        <nuxt-link to="/" class="flex items-center space-x-3">
-          <img src="/img/byIcon2.png" alt="图标" :class="{ 'border-2 border-white': !isTop }"
-            class="w-14 h-14 rounded-full" />
-          <h1 class="text-2xl font-semibold tracking-wide">碧瑶の狐岐资料馆
-          </h1>
+      <div class="flex items-start relative overflow-visible flex-2">
+        <nuxt-link to="/" class="flex items-start space-x-3 transform translate-y-1/6">
+          <img src="/img/title.png" alt="标题图片" class="w-full max-h-full rounded-full" />
         </nuxt-link>
       </div>
+
+
       <!-- 导航栏 -->
       <nav class="flex-5 hidden lg:flex flex-nowrap justify-around items-center space-x-6">
         <div class="nav-dot dot-green">
           <nuxt-link to="/"
-            class=" text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">主页</nuxt-link>
+            class="text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">主页</nuxt-link>
         </div>
 
         <!-- 同人合集 Dropdown -->
-        <div class="nav-dot dot-amber relative group ">
-          <button class=" text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-['']
-          after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1
-          after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full">
+        <div class="nav-dot dot-amber relative group">
+          <button
+            class="text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full">
             同人合集
             <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +71,7 @@
 
         <div class="nav-dot dot-indigo">
           <nuxt-link to="/about"
-            class=" text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">关于</nuxt-link>
+            class="text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">关于</nuxt-link>
         </div>
       </nav>
 
@@ -96,7 +94,12 @@
               placeholder="搜索网站内容" ref="searchInput" />
           </div>
           <button @click="handleSearch"
-            class="h-9 bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white text-sm font-medium py-1 px-6 transition-all duration-300 focus:outline-none focus:ring-0 rounded-full mr-0.5 hover:shadow-lg hover:scale-105">搜索</button>
+            class="h-9 bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white text-sm font-medium py-1 px-6 transition-transform duration-300 focus:outline-none focus:ring-0 rounded-full mr-0.5 hover:shadow-lg transform hover:scale-105 will-change-transform">
+            搜索
+          </button>
+
+
+
         </div>
       </div>
       <!-- 女书logo -->
