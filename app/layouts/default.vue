@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 const route = useRoute();
+const router = useRouter();
 const banner = ref(typeof route.meta?.banner === "string" ? route.meta.banner : "");
 const title = ref(typeof route.meta?.title === "string" ? route.meta.title : "");
 const wrapperHeight = ref(typeof route.meta?.wrapperHeight === "string" ? route.meta.wrapperHeight : "h-120");
@@ -33,6 +34,13 @@ watch(
   },
   { immediate: true }
 );
+router.afterEach((to, from) => {
+  // 如果点击的是当前路径（不含 hash）
+  if (to.fullPath === from.fullPath) {
+    // 滚动到顶部
+    window.scrollTo({ top: 0 })
+  }
+})
 </script>
 
 <style scoped></style>

@@ -63,6 +63,67 @@
   }
 }
 
+@layer components {
+  .nav-dot {
+    @apply relative pl-6;
+  }
+  .nav-dot::before {
+    content: "";
+    @apply absolute left-1 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full;
+    background-color: var(--dot-color);
+  }
+
+  /* 更多圆点颜色类定义 */
+  .dot-red {
+    --dot-color: theme("colors.red.500");
+  }
+  .dot-orange {
+    --dot-color: theme("colors.orange.500");
+  }
+  .dot-amber {
+    --dot-color: theme("colors.amber.500");
+  }
+  .dot-yellow {
+    --dot-color: theme("colors.yellow.400");
+  }
+  .dot-lime {
+    --dot-color: theme("colors.lime.500");
+  }
+  .dot-green {
+    --dot-color: theme("colors.green.500");
+  }
+  .dot-emerald {
+    --dot-color: theme("colors.emerald.500");
+  }
+  .dot-teal {
+    --dot-color: theme("colors.teal.500");
+  }
+  .dot-cyan {
+    --dot-color: theme("colors.cyan.500");
+  }
+  .dot-sky {
+    --dot-color: theme("colors.sky.500");
+  }
+  .dot-blue {
+    --dot-color: theme("colors.blue.500");
+  }
+  .dot-indigo {
+    --dot-color: theme("colors.indigo.500");
+  }
+  .dot-violet {
+    --dot-color: theme("colors.violet.500");
+  }
+  .dot-purple {
+    --dot-color: theme("colors.purple.500");
+  }
+  .dot-pink {
+    --dot-color: theme("colors.pink.500");
+  }
+  .dot-rose {
+    --dot-color: theme("colors.rose.500");
+  }
+}
+
 html,
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;

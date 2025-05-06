@@ -18,4 +18,5 @@ watch(() => route.fullPath, () => {
     el.classList.add('animate-fadeUp')
   }
 })
+
 </script>

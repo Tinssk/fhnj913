@@ -117,6 +117,7 @@ onMounted(() => {
     if (sections.value.length > 0) {
       currentId.value = sections.value[0].id;
     }
+
   });
 
   window.addEventListener("scroll", onScroll);
@@ -161,7 +162,6 @@ function scrollToSection(id) {
       behavior: "smooth",
     });
 
-    history.replaceState(null, "", `#${id}`);
     currentId.value = id;
   }
 }
