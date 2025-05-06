@@ -17,6 +17,7 @@ defineProps({
   },
 });
 const route = useRoute()
+const router = useRouter()
 const contentRef = ref(null)
 const randomLine = ref('')
 const randomLineCheck = ref(true)
@@ -43,10 +44,18 @@ function loadAndPickRandomSegment() {
 watch(() => route.fullPath, () => {
   const el = contentRef.value
   loadAndPickRandomSegment()
+
   if (el) {
     el.classList.remove('animate-fadeUp')
     void el.offsetWidth // 触发重排
     el.classList.add('animate-fadeUp')
+  }
+})
+router.afterEach((to, from) => {
+  // 如果点击的是当前路径（不含 hash）
+  if (to.fullPath === from.fullPath) {
+    // 滚动到顶部
+    loadAndPickRandomSegment()
   }
 })
 </script>
