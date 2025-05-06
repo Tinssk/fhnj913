@@ -2,8 +2,3 @@
   command = "npm run build"
   publish = ".output/public"   # 静态资源目录
   functions = ".output/server" # 服务端代码路径
-
-[[redirects]]
-  from = "/_nuxt/*"
-  to = "/_nuxt/:splat"
-  status = 200
