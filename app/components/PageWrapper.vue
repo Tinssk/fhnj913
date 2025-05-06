@@ -80,6 +80,7 @@ router.afterEach((to, from) => {
           class="absolute right-20 bottom-20 translate-y-1/3 text-black text-xl font-light text-right w-200 leading-relaxed z-10">
           {{ randomLine }}
         </p>
+        <div v-else>数据获取失败</div>
       </div>
     </div>
   </div>
