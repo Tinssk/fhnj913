@@ -34,7 +34,7 @@ watch(() => route.fullPath, () => {
     <!-- Banner 区域：设置固定高度，并保持图片的原始比例，同时裁剪下部，保留上部 -->
     <div v-if="banner" :class="[`${wrapperHeight}`, 'relative w-full overflow-hidden z-10']">
       <!-- 图片 -->
-      <img :src="banner" alt="页面头图" class="w-full h-full object-cover object-top shadow-inner-2xl" style="
+      <img :src="banner" alt="页面头图" class="w-full h-full object-cover object-top shadow-inner-2xl wrappimg" style="
     mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
   " />
@@ -51,3 +51,14 @@ watch(() => route.fullPath, () => {
     </div>
   </div>
 </template>
+<style scoped>
+.wrappimg {
+  /*图片无法选中 */
+  user-select: none;
+  -webkit-user-drag: none;
+  /* 禁止拖动 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+</style>

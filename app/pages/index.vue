@@ -188,6 +188,11 @@ function onScroll() {
   // 页面最上方，强制高亮第一个目录
   if (!current && sections.value.length > 0) {
     current = sections.value[0].id;
+    //同时也罢目录滚动到顶部
+    const directoryContainer = document.querySelector('.sticky'); // 获取目录容器
+    if (directoryContainer) {
+      directoryContainer.scrollTop = 0; // 将目录滚动到顶部
+    }
   }
   // 检查是否滚动到页面底部
   const scrollHeight = document.documentElement.scrollHeight;
@@ -287,9 +292,20 @@ useSeoMeta(page.value?.seo || {});
 }
 
 .prose img {
-  max-width: 100%;
+  float: right;
+  width: 450px;
   height: auto;
-  margin: 1.5rem 0;
+  margin: 1.5rem 1rem;
+  max-width: 100%;
+  border-radius: 8px;
+
+  /*图片无法选中 */
+  user-select: none;
+  -webkit-user-drag: none;
+  /* 禁止拖动 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .prose table {
