@@ -2,11 +2,10 @@
 
 import { readFile } from "fs/promises";
 import { join } from "path";
-import { config } from "../../config.js";
 
 export default defineEventHandler(async () => {
   // 获取 public/data/ana.json 的路径
-  const filePath = join(process.cwd(), config.anaJsonPath);
+  const filePath = join(process.cwd(), "public", "data", "ana.json");
 
   try {
     // 读取文件内容
