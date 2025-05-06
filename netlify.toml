@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".output/public"   # 静态资源目录
+
+[[redirects]]
+  from = "/*"
+  to = "/.output/server/index.mjs"
+  status = 200
