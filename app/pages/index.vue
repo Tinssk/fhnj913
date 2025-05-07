@@ -295,7 +295,7 @@ useSeoMeta(page.value?.seo || {});
   float: right;
   width: 450px;
   height: auto;
-  margin: 1.5rem 1rem;
+  margin: 1rem 1rem;
   max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),

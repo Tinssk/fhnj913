@@ -29,6 +29,7 @@ const randomLineCheck = ref(true)
 let segments = []
 // 加载随机段落
 const { data } = await useFetch('/api/random-ana', { server: true })
+console.log(data)
 // 首次加载：只在服务端执行随机选取，避免 hydration 后再次变动
 if (process.server && data.value?.segments && Array.isArray(data.value.segments)) {
   segments = data.value.segments
