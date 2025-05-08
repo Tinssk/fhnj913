@@ -1,4 +1,10 @@
+declare const process: any;
+
 export default fromNodeMiddleware((req, res, next) => {
+  // 判断是否启用密码验证
+  if (process.env.USE_PASSWORD !== "true") {
+    return next(); // 不启用验证，直接放行
+  }
   // 1. 调试日志（可选）
   console.log("[Auth Middleware] Path:", req.url, "| Cookies:", req.headers.cookie);
 
