@@ -1,6 +1,5 @@
 <template>
-  <div class="flex">
-    <!-- 文章目录 -->
+  <div>
     <div class="w-1/5 p-4 bg-emerald-100 text-black rounded-xl shadow-md">
       <div
         class="sticky top-25 h-screen p-4 max-h-[80vh] overflow-y-auto rounded-md scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
@@ -41,41 +40,16 @@
         </ul>
       </div>
     </div>
-
-    <!-- 右侧内容 -->
-    <div class="w-4/5 p-4">
-      <ContentRenderer v-if="page" :value="page"
-        class="prose prose-lg text-black max-w-none prose-headings:scroll-mt-16 prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-xl prose-img:shadow-lg prose-table:border-collapse" />
-    </div>
   </div>
 </template>
 
-<script setup>
-definePageMeta({
-  banner: "/img/header/index-header.jpg",
-  title: "碧瑶角色介绍",
-  wrapperHeight: "h-120",
-});
-
-const route = useRoute();
-const { data: page } = await useAsyncData(`role`, () => {
-  return queryCollection("content").path(route.path).first();
-});
-if (!page.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Page not found",
-  });
-}
-// 提取页面中的标题作为目录
-const toc = page.value?.body?.toc || [];
-const sections = ref([]);
-
-if (toc.links && Array.isArray(toc.links[0].children)) {
-  sections.value = toc.links[0].children;
-} else {
-  sections.value = [];
-}
+<script lang="js" setup>
+defineProps({
+  sections: {
+    required: true,
+    default: [],
+  },
+})
 // 当前激活的目录 id
 const currentId = ref("");
 // 添加折叠状态数组
@@ -178,133 +152,6 @@ function onScroll() {
 
   currentId.value = current;
 }
-useSeoMeta(page.value?.seo || {});
-
 </script>
-<style>
-/* Markdown内容样式 */
-.prose h1 {
-  font-size: 2rem;
-}
 
-.prose h3 {
-  border-left: 8px solid #21bb6b;
-  padding-left: 1rem;
-  color: #2563eb;
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
-}
-
-.prose h4 {
-  color: #4b5563;
-  margin-top: 1.25rem;
-  font-size: 1.25rem;
-}
-
-.prose p {
-  text-indent: 2em;
-  /* 首行缩进两个中文字符宽度 */
-  margin-bottom: 1rem;
-  line-height: 1.8;
-}
-
-.prose ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose ol {
-  list-style-type: decimal;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose code {
-  background-color: #f3f4f6;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
-  font-family: monospace;
-  font-size: 0.9em;
-}
-
-.prose pre {
-  background-color: #1e293b;
-  color: #e2e8f0;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-}
-
-.prose blockquote {
-  border-left: 4px solid #e5e7eb;
-  padding-left: 1rem;
-  font-style: italic;
-  margin: 1.5rem 0;
-  color: #6b7280;
-}
-
-.prose blockquote p {
-  text-indent: 0;
-  /* 引用块取消首行缩进 */
-}
-
-.prose img {
-  float: right;
-  width: 450px;
-  height: auto;
-  margin: 1rem 1rem;
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  /*图片无法选中 */
-  user-select: none;
-  -webkit-user-drag: none;
-  /* 禁止拖动 */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.prose .by15 {
-  float: none !important;
-  /* 取消浮动，必须覆盖原 float:right */
-  width: 300px !important;
-  /* 明确覆盖宽度 */
-  margin: 1rem auto;
-  /* 可选：使其水平居中 */
-}
-
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-}
-
-.prose th,
-.prose td {
-  border: 1px solid black;
-  padding: 0.75rem;
-  text-align: left;
-}
-
-.prose th {
-  background-color: gray;
-}
-
-/* 暗黑模式样式 */
-.dark .prose code {
-  background-color: #374151;
-  color: #e5e7eb;
-}
-
-.dark .prose blockquote {
-  border-left-color: #4b5563;
-  color: #9ca3af;
-}
-
-.dark .prose th {
-  background-color: #1f2937;
-}
-</style>
+<style></style>

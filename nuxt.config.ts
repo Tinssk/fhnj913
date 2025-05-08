@@ -3,7 +3,12 @@ import tailwindcss from "@tailwindcss/vite";
 import remarkBreaks from "remark-breaks"; // ✅ 引入插件本体
 export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
-  devtools: { enabled: false },
+  devtools: { enabled: true },
+  devServer: {
+    host: "0.0.0.0",
+    port: 3000,
+  },
+
   modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt"],
 
   app: {
@@ -26,7 +31,7 @@ export default defineNuxtConfig({
         remarkPlugins: { "remark-breaks": {} },
         // 允许使用单个换行作为 <br>
         toc: {
-          depth: 2,
+          depth: 3,
           searchDepth: 2,
         },
         // 👇 启用 breaks
@@ -57,7 +62,6 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: ["marmot-sterling-strongly.ngrok-free.app"],
       strictPort: true, // 如果端口被占用，则直接失败
       cors: true, // 允许跨域访问
     },
