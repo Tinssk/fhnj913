@@ -8,12 +8,6 @@
 
 <script setup lang="ts">
 definePageMeta({
-  pageTransition: {
-    name: "rotate",
-  },
-  layoutTransition: {
-    name: "slide-in",
-  },
   banner: '/img/header/about-header.jpg',
   title: '关于我们',
   wrapperHeight: 'h-80',

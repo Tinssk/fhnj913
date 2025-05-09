@@ -1,5 +1,8 @@
 /* app/assets/css/main.css */
 @import "tailwindcss";
+@config {
+  content: [ "~/error.vue"];
+}
 @theme {
   --font-display: "Satoshi", "sans-serif";
   --breakpoint-3xl: 1920px;

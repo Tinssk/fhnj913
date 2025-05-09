@@ -4,6 +4,10 @@ import remarkBreaks from "remark-breaks"; // ✅ 引入插件本体
 export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
   devtools: { enabled: false },
+  devServer: {
+    host: "192.168.0.170",
+    port: 3000,
+  },
 
   modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt"],
 

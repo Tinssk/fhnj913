@@ -42,7 +42,13 @@ function loadAndPickRandomSegment() {
   if (data.value?.segments && Array.isArray(data.value.segments)) {
     segments = data.value.segments
     const random = segments[Math.floor(Math.random() * segments.length)]
-    randomLine.value = `—— ${random}`
+    const result = `—— ${random}`
+    if (result !== randomLine.value) { //如果不同,返回结果
+      randomLine.value = `—— ${random}`
+    }
+    else { //如果相同,再递归调用一次
+      loadAndPickRandomSegment()
+    }
   }
   else {
     console.log("语录数据获取失败")
