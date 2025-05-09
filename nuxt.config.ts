@@ -3,11 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import remarkBreaks from "remark-breaks"; // ✅ 引入插件本体
 export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
-  devtools: { enabled: true },
-  devServer: {
-    host: "0.0.0.0",
-    port: 3000,
-  },
+  devtools: { enabled: false },
 
   modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt"],
 

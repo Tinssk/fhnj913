@@ -187,6 +187,12 @@ useSeoMeta(page.value?.seo || {});
   font-size: 2rem;
 }
 
+.prose h2 a {
+  pointer-events: none;
+  color: inherit;
+  /* 可选，防止链接变色 */
+}
+
 .prose h3 {
   border-left: 8px solid #21bb6b;
   padding-left: 1rem;
