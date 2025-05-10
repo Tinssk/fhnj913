@@ -8,7 +8,7 @@ dist
 
 #dev
 js
-archived
+python
 # Node dependencies
 node_modules
 

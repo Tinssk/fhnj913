@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <!-- 文章目录 -->
-    <div class="w-1/5 p-4 bg-emerald-100 text-black rounded-xl shadow-md">
+    <div class="hidden lg:block w-1/5 p-4 bg-emerald-100 text-black rounded-xl shadow-md">
       <div
         class="sticky top-25 h-screen p-4 max-h-[80vh] overflow-y-auto rounded-md scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
         <ul>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- 右侧内容 -->
-    <div class="w-4/5 p-4">
+    <div class="w-full lg:w-4/5 p-4">
       <ContentRenderer v-if="page" :value="page"
         class="prose prose-lg text-black max-w-none prose-headings:scroll-mt-16 prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-xl prose-img:shadow-lg prose-table:border-collapse" />
     </div>
@@ -99,6 +99,7 @@ onMounted(() => {
       scrollToSection(id);
     }, 100); // 延迟一点，等页面渲染完
   }
+  wrapTables()
   watchEffect(() => {
     if (currentId.value) {
       // 找到当前高亮的目录链接
@@ -134,8 +135,6 @@ function scrollToSection(id) {
       top: offsetPosition,
       behavior: "smooth",
     });
-
-
   }
 }
 
@@ -178,8 +177,21 @@ function onScroll() {
 
   currentId.value = current;
 }
-useSeoMeta(page.value?.seo || {});
 
+// 查找所有表格并外部添加div
+function wrapTables() {
+  const markdownContainer = document.querySelector('.prose');
+  if (markdownContainer) {
+    const tables = markdownContainer.querySelectorAll('table');
+    tables.forEach(table => {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('table-container');
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+  }
+}
+useSeoMeta(page.value?.seo || {});
 </script>
 <style>
 /* Markdown内容样式 */
@@ -212,6 +224,10 @@ useSeoMeta(page.value?.seo || {});
   /* 首行缩进两个中文字符宽度 */
   margin-bottom: 1rem;
   line-height: 1.8;
+}
+
+.prose p.compact {
+  text-indent: 0;
 }
 
 .prose ul {
@@ -282,10 +298,20 @@ useSeoMeta(page.value?.seo || {});
   /* 可选：使其水平居中 */
 }
 
+.prose .table-container {
+  overflow-x: auto;
+  max-width: 100vw;
+}
+
 .prose table {
   width: 100%;
+  max-width: none;
+  table-layout: auto;
+  overflow-x: auto;
+  /* 让表格宽度适应其容器并启用水平滚动 */
   border-collapse: collapse;
   margin: 1.5rem 0;
+  overflow-x: auto;
 }
 
 .prose th,

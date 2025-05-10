@@ -13,7 +13,7 @@
 
 
       <!-- 导航栏 -->
-      <nav class="flex-5 hidden lg:flex flex-nowrap justify-around items-center space-x-6">
+      <nav class=" flex-5 hidden lg:flex flex-nowrap justify-around items-center space-x-6">
         <div class="nav-dot dot-green">
           <nuxt-link to="/"
             class="text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">主页</nuxt-link>
@@ -97,9 +97,6 @@
             class="h-9 bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white text-sm font-medium py-1 px-6 transition-transform duration-300 focus:outline-none focus:ring-0 rounded-full mr-0.5 hover:shadow-lg transform hover:scale-105 will-change-transform">
             搜索
           </button>
-
-
-
         </div>
       </div>
       <!-- 女书logo -->
