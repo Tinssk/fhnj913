@@ -1,0 +1,291 @@
+<template>
+  <div class="video-box">
+    <video class="video-background" preload="auto" loop playsinline autoplay src="./bg.mp4" tabindex="-1"
+      muted="muted"></video>
+    <div class="layer">
+      <img src="./by.png" class="fade-in" alt="log" />
+      <div class="slogan">
+        <div class="subtitle fade-in">碧瑶的专属个人网站</div>
+        <div class="title fade-in">伤心花开人未还</div>
+        <div id="try-btn" class="try-btn fade-in" onclick="postNow()" tabindex="0">立即参与</div>
+      </div>
+      <div class="author fade-in"><img src="./雨落制作,落款.png" ale="雨落制作" /></div>
+    </div>
+    <div class="music-btn fade-in">
+      <img src="./iocn/music50-off.png" class="music" id="music" />
+    </div>
+  </div>
+  <div class="content">
+    <div class="avatar-box">
+      <img class="avatar" src="./by.png" alt="未来" />
+      <p class="nickname">未来</p>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+definePageMeta({
+  layout: false,
+  layoutTransition: {
+    name: 'slide-in'
+  }
+})
+</script>
+
+<style scoped>
+.video-box {
+  position: relative;
+  height: 100vh;
+  background-color: #c1cff7;
+  /*进行视频裁剪*/
+  overflow: hidden;
+}
+
+.video-box .video-background {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /*保证视频内容始终居中*/
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  /* 设置宽度为视口宽度 */
+  height: 100vh;
+  /* 设置高度为视口高度 */
+  object-fit: cover;
+  min-height: 800px;
+}
+
+/*添加启动时的浮现效果*/
+.fade-in {
+  opacity: 0;
+  /* 初始透明度 */
+  transform: translateY(-20px);
+  /* 初始位置向上 */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  /* 动画效果 */
+}
+
+.fade-in.active {
+  opacity: 1;
+  /* 最终完全显示 */
+  transform: translateY(0);
+  /* 最终位置 */
+}
+
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(19, 60, 154, 0.1);
+}
+
+.layer img {
+  width: 170px;
+  /* 设置图片宽度为 170 像素 */
+  margin-top: 15px;
+  margin-left: 100px;
+}
+
+.author {
+  position: absolute;
+  right: 10%;
+  /* 距离右边 10 像素 */
+  bottom: 10%;
+  /* 距离底部 10 像素 */
+  font-size: 40px;
+  /* 设置字体大小 */
+  font-weight: 600;
+  background: linear-gradient(to right, #f4f4f5, #06a877);
+  -webkit-background-clip: text;
+  /* Safari/Chrome */
+  background-clip: text;
+  /* 在支持的浏览器中 */
+  color: transparent;
+  /* 文字本身颜色设置为透明 */
+}
+
+.slogan {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 684px;
+  color: white;
+  text-align: center;
+}
+
+.slogan .subtitle {
+  font-weight: 550;
+  font-size: 20px;
+  letter-spacing: 10px;
+  margin: 0 0 16px;
+}
+
+/*为副标题后面添加图标*/
+.slogan .subtitle::after {
+  content: "";
+  /* 必须设置 content，伪元素才会显示 */
+  display: inline-block;
+  /* 让伪元素像图片一样展示 */
+  width: 20px;
+  /* 图标宽度 */
+  height: 20px;
+  /* 图标高度 */
+  background: url("../iocn.png") no-repeat center;
+  /* 替换为你的图标路径 */
+  background-size: contain;
+  /* 确保图标适应大小 */
+  vertical-align: middle;
+  /* 对齐文字 */
+}
+
+.slogan .title {
+  font-weight: 550;
+  font-size: 56px;
+  margin: 0 0 16px;
+}
+
+.slogan .try-btn {
+  position: relative;
+  left: 50%;
+  width: 156px;
+  height: 54px;
+  line-height: 54px;
+  margin-top: 40px;
+  margin-left: -78px;
+  color: #ffffff;
+  background: linear-gradient(45deg, #f4f4f5, #3dcba0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  text-align: center;
+  border-radius: 100px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+  /* 添加平滑过渡效果 */
+}
+
+/*为渐变背景添加平滑过渡,通过给伪元素添加透明层,然后给透明层添加过渡的方式*/
+.try-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3dcba0, #f4f4f5);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 100px;
+  z-index: -1;
+}
+
+.try-btn:hover::before {
+  opacity: 1;
+}
+
+.try-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  /* 悬停效果 */
+  transition: transform 0.3s ease;
+  /* 悬停时向上浮动 */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  /* 增强阴影效果 */
+}
+
+.try-btn:active {
+  transform: translateY(0);
+  /* 点击时恢复位置 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 点击时减少阴影 */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+.content .avatar-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.content .avatar-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+.content .avatar-box .nickname {
+  font-size: 35px;
+  font-weight: 550;
+}
+
+/*音乐开关*/
+.music-btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 3%;
+  /* 距离右边 10 像素 */
+  top: 1%;
+  /* 距离底部 10 像素 */
+
+  border-radius: 100px;
+  overflow: hidden;
+  /* 裁剪超出部分 */
+  background: linear-gradient(45deg, #f4f4f5, #3dcba0);
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.music-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+/*为渐变背景添加平滑过渡,通过给伪元素添加透明层,然后给透明层添加过渡的方式*/
+.music-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3dcba0, #f4f4f5);
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.music-btn:hover::before {
+  opacity: 1;
+}
+
+.music-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  /* 悬停效果 */
+  transition: transform 0.3s ease;
+  /* 悬停时向上浮动 */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  /* 增强阴影效果 */
+}
+
+.music-btn:active {
+  transform: translateY(0);
+  /* 点击时恢复位置 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 点击时减少阴影 */
+}
+</style>

@@ -42,7 +42,7 @@
               <nuxt-link to="/feature2"
                 class="nav-dot dot-teal block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">铃音渺</nuxt-link>
               <nuxt-link to="/feature2"
-                class="nav-dot dot-amber block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">半面妆</nuxt-link>
+                class="nav-dot dot-amber block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">趣事物</nuxt-link>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@
                 @click="closeMenu">铃音渺</nuxt-link>
               <nuxt-link to="/feature2"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">半面妆</nuxt-link>
+                @click="closeMenu">趣事物</nuxt-link>
             </div>
           </transition>
         </div>
