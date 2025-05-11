@@ -1,7 +1,7 @@
 <template>
   <div class="px-6 mt-5">
     <div class="text-center">
-      <p class="text-black">是的,上面的搜索框是个纯摆设,搜图功能后续待开发~敬请期待</p>
+      <p class="text-black mt-10">是的,上面的搜索框是个纯摆设,搜图功能后续待开发~敬请期待</p>
       <h2 class="text-black text-xl">很抱歉,因为521流量太大,为了防止一觉醒来房子归移动,暂时不提供原图下载,想下载原图的花瓣们移步微博碧瑶主页</h2>
       <Button class="bg-green-400 hover:bg-green-600"><a href="https://weibo.com/u/2461312731" target="_blank"
           rel="noopener noreferrer"><svg class="mr-2 inline" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

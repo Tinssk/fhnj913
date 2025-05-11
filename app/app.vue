@@ -1,4 +1,5 @@
 <template>
+  <BrowserCompatibilityCheck />
   <!-- 页面切换过渡层 -->
   <CustomLoading />
   <!-- 🔥 视频特效层 -->
