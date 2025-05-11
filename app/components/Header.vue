@@ -3,15 +3,14 @@
   <div ref="headerRef"
     :class="{ 'bg-transparent': isTop, 'bg-gradient-to-r from-green-500/75 to-teal-500/75 shadow-xl backdrop-blur-lg': !isTop }"
     class="fixed top-0 w-full h-16 transition-all duration-500 text-white z-20 border-b border-white/10">
-    <div class="container mx-auto h-full flex items-center justify-between px-6 lg:px-20 relative">
+    <div
+      class="container mx-auto h-full flex items-center justify-between pl-0 pr-2 lg:px-10 relative w-full gap-4 lg:gap-0">
       <!-- Logo 区域 -->
-      <div class="flex items-start relative overflow-visible flex-2">
-        <nuxt-link to="/" class="flex items-start space-x-3 transform translate-y-1/6">
+      <div class="flex items-start relative overflow-visible w-45 xl:w-65 scale-150 lg:scale-100">
+        <nuxt-link to="/" class="flex items-start space-x-3 transform lg:translate-y-1/6">
           <img src="/img/title.png" alt="标题图片" class="w-full max-h-full rounded-full" />
         </nuxt-link>
       </div>
-
-
       <!-- 导航栏 -->
       <nav class=" flex-5 hidden lg:flex flex-nowrap justify-around items-center space-x-6">
         <div class="nav-dot dot-green">
@@ -75,43 +74,26 @@
         </div>
       </nav>
 
-      <!-- 搜索框 - 直接显示在页头上 -->
-      <div id="search" class="flex items-center ml-auto mr-4">
-        <div
-          class="bg-white/80 backdrop-blur-md rounded-full overflow-hidden flex items-center shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group hover:bg-white/90">
-          <div class="relative flex-1">
-            <div
-              class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none group-hover:scale-110 transition-transform duration-300">
-              <svg class="h-5 w-5 text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clip-rule="evenodd" />
-              </svg>
-            </div>
-            <input type="text" v-model="searchQuery" @keyup.enter="handleSearch"
-              class="block w-52 pl-12 pr-3 py-2 border-0 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 text-sm h-9 bg-transparent transition-all duration-300 focus:w-72 hover:w-72"
-              placeholder="搜索网站内容" ref="searchInput" />
-          </div>
-          <button @click="handleSearch"
-            class="h-9 bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white text-sm font-medium py-1 px-6 transition-transform duration-300 focus:outline-none focus:ring-0 rounded-full mr-0.5 hover:shadow-lg transform hover:scale-105 will-change-transform">
-            搜索
-          </button>
-        </div>
-      </div>
+      <MobileSearch />
+
       <!-- 女书logo -->
-      <div class="flex-1 flex justify-end">
+      <div class="hidden lg:flex justify-end w-20">
         <a href="https://weibo.com/6191654993/5161784295035068" target="_blank" rel="noopener noreferrer">
           <img src="/img/logo-biyao.svg" alt="Logo"
-            class="w-14 h-14 transition-transform duration-300 hover:scale-110 select-none" />
+            class="w-10 h-10 lg:w-14 lg:h-14 transition-transform duration-300 hover:scale-110 select-none" />
         </a>
       </div>
 
       <!-- 移动端菜单 -->
       <div class="lg:hidden">
-        <button class="focus:outline-none focus:ring-2 focus:ring-teal-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <button class="focus:outline-none" @click="toggleMenu">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" :class="{ 'open': isMenuOpen }" stroke="currentColor" fill="none">
+            <path class="transition-all duration-300" :class="{ 'rotate-45 translate-y-[3px]': isMenuOpen }" d="M4 6h16"
+              stroke-width="2" stroke-linecap="round" />
+            <path class="transition-all duration-300" :class="{ 'opacity-0': isMenuOpen }" d="M4 12h16" stroke-width="2"
+              stroke-linecap="round" />
+            <path class="transition-all duration-300" :class="{ '-rotate-45 -translate-y-[3px]': isMenuOpen }"
+              d="M4 18h16" stroke-width="2" stroke-linecap="round" />
           </svg>
         </button>
       </div>
@@ -120,18 +102,12 @@
 </template>
 
 <script setup>
-const searchQuery = ref("");
-const searchInput = ref(null);
 const isTop = ref(true); // 控制页头透明度
-
 const headerRef = ref(null);
+const isMenuOpen = ref(false);
 
-// 处理搜索
-const handleSearch = () => {
-  if (searchQuery.value.trim()) {
-    console.log("搜索内容:", searchQuery.value);
-    // 这里添加搜索逻辑，后续可以添加API调用
-  }
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
 };
 
 // 监听滚动事件，检测页面滚动位置
@@ -158,3 +134,9 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 </script>
+<style scoped>
+svg {
+  transform-origin: center center;
+  /* 确保旋转中心在 SVG 的中心 */
+}
+</style>

@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     port: 3000,
   },
 
-  modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt"],
+  modules: ["@nuxt/content", "@nuxt/image", "@nuxt/scripts", "@nuxt/test-utils", "@pinia/nuxt", "shadcn-nuxt"],
 
   app: {
     head: {
@@ -24,6 +24,17 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "out-in" },
+  },
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: "",
+    /**
+     * Directory that the component lives in.
+     * @default "./app/components/ui"
+     */
+    componentDir: "./app/components/ui",
   },
   content: {
     build: {

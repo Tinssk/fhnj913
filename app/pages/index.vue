@@ -42,6 +42,69 @@
       </div>
     </div>
 
+    <!-- 移动端目录 -->
+    <div class="lg:hidden">
+      <StickyFixed>
+        <button @click="drawerOpen = true"
+          class=" sticky top-1/2   z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
+          <svg :class="['transition-transform duration-300', drawerOpen ? 'rotate-180' : '']" width="24" height="24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+        <transition name="fade">
+          <div v-if="drawerOpen" class="fixed inset-0 z-30 bg-transparent" @click="drawerOpen = false"></div>
+        </transition>
+        <transition name="slide">
+          <aside v-if="drawerOpen"
+            class="sticky top-25  left-0 h-screen  max-h-[80vh] overflow-y-auto z-40  w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400"
+            @click.stop @click="drawerOpen = false">
+            <div class="flex items-center mb-4">
+
+              <span class="ml-2 text-lg font-bold text-emerald-600">目录</span>
+            </div>
+            <ul>
+              <li v-for="(section, index) in sections" :key="index" class="mb-2">
+                <div class="flex items-center justify-between">
+                  <a :href="'#' + section.id" :id="'link-' + section.id"
+                    class="block px-3 py-2 rounded-lg text-base font-medium transition-colors"
+                    :class="isActive(section.id) ? 'bg-emerald-500 text-white' : 'hover:bg-emerald-100 text-emerald-700'"
+                    @click.prevent="
+                      scrollToSection(section.id);
+                    drawerOpen = false;
+                    ">
+                    {{ section.text }}
+                  </a>
+                  <button v-if="section.children && section.children.length" @click="toggleSection(index)"
+                    class="ml-2 p-1 rounded-full hover:bg-emerald-50">
+                    <svg :class="['transition-transform duration-300', collapsedSections[index] ? '' : 'rotate-90']"
+                      width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                </div>
+                <transition name="fade">
+                  <ul v-if="section.children && section.children.length && !collapsedSections[index]" class="pl-4 mt-1">
+                    <li v-for="(child, childIndex) in section.children" :key="childIndex">
+                      <a :href="'#' + child.id" :id="'link-' + child.id"
+                        class="block px-3 py-1 rounded text-sm font-normal transition-colors"
+                        :class="isActive(child.id) ? 'bg-emerald-400 text-white' : 'hover:bg-emerald-50 text-emerald-700'"
+                        @click.prevent="
+                          scrollToSection(child.id);
+                        drawerOpen = false;
+                        ">
+                        {{ child.text }}
+                      </a>
+                    </li>
+                  </ul>
+                </transition>
+              </li>
+            </ul>
+          </aside>
+        </transition>
+      </StickyFixed>
+    </div>
     <!-- 右侧内容 -->
     <div class="w-full lg:w-4/5 p-4">
       <ContentRenderer v-if="page" :value="page"
@@ -56,7 +119,6 @@ definePageMeta({
   title: "碧瑶角色介绍",
   wrapperHeight: "h-120",
 });
-
 const route = useRoute();
 const { data: page } = await useAsyncData(`role`, () => {
   return queryCollection("content").path(route.path).first();
@@ -70,7 +132,7 @@ if (!page.value) {
 // 提取页面中的标题作为目录
 const toc = page.value?.body?.toc || [];
 const sections = ref([]);
-
+const drawerOpen = ref(false);
 if (toc.links && Array.isArray(toc.links[0].children)) {
   sections.value = toc.links[0].children;
 } else {
@@ -99,7 +161,6 @@ onMounted(() => {
       scrollToSection(id);
     }, 100); // 延迟一点，等页面渲染完
   }
-  wrapTables()
   watchEffect(() => {
     if (currentId.value) {
       // 找到当前高亮的目录链接
@@ -178,19 +239,6 @@ function onScroll() {
   currentId.value = current;
 }
 
-// 查找所有表格并外部添加div
-function wrapTables() {
-  const markdownContainer = document.querySelector('.prose');
-  if (markdownContainer) {
-    const tables = markdownContainer.querySelectorAll('table');
-    tables.forEach(table => {
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('table-container');
-      table.parentNode.insertBefore(wrapper, table);
-      wrapper.appendChild(table);
-    });
-  }
-}
 useSeoMeta(page.value?.seo || {});
 </script>
 <style>

@@ -25,7 +25,7 @@
 
 .rotate-enter-active,
 .rotate-leave-active {
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 
 .rotate-enter-from,

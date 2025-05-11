@@ -1,10 +1,10 @@
 <template>
   <footer
-    class="relative bg-[url('/img/footer.jpg')] bg-cover bg-[center_20%] bg-no-repeat text-neutral-content h-70 flex flex-col justify-between">
+    class="relative bg-[url('/img/footer.jpg')] bg-cover bg-[center_20%] bg-no-repeat text-neutral-content  h-auto flex flex-col justify-between">
     <div class="container mx-auto flex flex-col flex-1 md:flex-row justify-center items-center gap-8 py-10">
       <img src="/img/byIcon.png" alt="Loading" class="w-16 h-9 my-auto" />
-      <div class="flex flex-col flex-1 md:flex-row md:justify-center gap-8 flex-grow">
-        <div class="flex-2 mx-20">
+      <div class="flex flex-col flex-1 md:flex-row  justify-center gap-8 flex-grow min-w-80">
+        <div class="flex-2 lg:mx-20">
           <h6 class="font-bold mb-2">联系我们：</h6>
           <div class="w-fit">
             <a href="https://weibo.com/u/2461312731" target="_blank" rel="noopener noreferrer"
@@ -122,7 +122,7 @@
             </a>
           </div>
         </div>
-        <div class="flex-2 mx-20">
+        <div class="flex-2 lg:mx-20">
           <h6 class="font-bold mb-2">快速链接：</h6>
           <ul class="list-none p-0">
             <li><nuxt-link to="/" class="link link-hover text-sm">首页</nuxt-link></li>
@@ -136,7 +136,7 @@
             <h6 class="font-bold mb-2">社区</h6>
           </CommunityLink>
         </div>
-        <div class="flex-1 flex justify-end">
+        <div class="absolute bottom-3 right-3">
           <a href="https://weibo.com/6191654993/5161784295035068" target="_blank" rel="noopener noreferrer">
             <img src="/img/logo-biyao.svg" alt="Logo"
               class="w-24 h-24 transition-transform duration-300 hover:scale-110 select-none hover:shadow-lg" />

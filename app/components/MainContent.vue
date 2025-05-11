@@ -1,9 +1,10 @@
 <template>
-  <main ref="contentRef"
-    class="relative flex-1 container mx-auto -translate-y-12 animate-fadeUp  px-4 py-0 rounded-lg z-1 ">
+  <main ref="contentRef" class=" flex-1 container mx-auto -translate-y-12 animate-fadeUp  px-4 py-0 rounded-lg z-1">
     <slot />
     <!-- 这里放页面内容 -->
+
   </main>
+
 </template>
 
 <script setup>
@@ -20,3 +21,19 @@ watch(() => route.fullPath, () => {
 })
 
 </script>
+<style scoped>
+.wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  margin-inline: auto;
+  transform: scale(1);
+  pointer-events: none;
+}
+
+.target {
+  position: sticky;
+  top: 200px;
+  pointer-events: auto;
+}
+</style>
