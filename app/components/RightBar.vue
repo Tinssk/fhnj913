@@ -3,12 +3,12 @@
     class="fixed right-4 top-1/2 -translate-y-1/2 w-15 h-80 z-30 bg-gray-200/50 backdrop-blur-md rounded-xl shadow-lg border border-white/30">
     <div class="follow_us w-7 h-full mx-auto my-0 pt-3 flex flex-col flex-nowrap justify-between relative"
       @mouseleave="hideCodeBox">
-      <a href="#" id="bilibili" class="follow-btn bg-position-[0_0]" @mouseenter="showCodeBox(0)"></a>
-      <a href="#" id="weibo" class="follow-btn bg-position-[0_-6rem]" @mouseenter="showCodeBox(2)"></a>
-      <a href="#" id="qq" class="follow-btn bg-position-[0_-9.5rem]" @mouseenter="showCodeBox(1)"></a>
-      <a href="#" id="douyin" class="follow-btn bg-position-[0_-12.5rem]" @mouseenter="showCodeBox(3)"></a>
-      <a href="#" id="redBook" class="follow-btn bg-position-[0_-22.2rem]" @mouseenter="showCodeBox(4)"></a>
-      <a href="#" id="shop" class="follow-btn bg-position-[0_-19.5rem]" @mouseenter="showCodeBox(5)"></a>
+      <a href="#" id="bilibili" class="catBtn follow-btn bg-position-[0_0]" @mouseenter="showCodeBox(0)"></a>
+      <a href="#" id="weibo" class="catBtn follow-btn bg-position-[0_-6rem]" @mouseenter="showCodeBox(2)"></a>
+      <a href="#" id="qq" class="catBtn follow-btn bg-position-[0_-9.5rem]" @mouseenter="showCodeBox(1)"></a>
+      <a href="#" id="douyin" class="catBtn follow-btn bg-position-[0_-12.5rem]" @mouseenter="showCodeBox(3)"></a>
+      <a href="#" id="redBook" class="catBtn follow-btn bg-position-[0_-22.2rem]" @mouseenter="showCodeBox(4)"></a>
+      <a href="#" id="shop" class="catBtn follow-btn bg-position-[0_-19.5rem]" @mouseenter="showCodeBox(5)"></a>
 
       <!-- 弹出二维码框 -->
       <div id="code_box" class="absolute left-[-35rem] top-0 w-140 h-full z-30 flex items-center justify-center"

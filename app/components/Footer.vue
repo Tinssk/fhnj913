@@ -8,7 +8,7 @@
           <h6 class="font-bold mb-2">联系我们：</h6>
           <div class="w-fit">
             <a href="https://weibo.com/u/2461312731" target="_blank" rel="noopener noreferrer"
-              class="text-white hover:text-green-600 hover:underline transition duration-300">
+              class="catBtn text-white hover:text-green-600 hover:underline transition duration-300">
               <p class="text-sm flex items-center mb-1">
                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
                   viewBox="0 0 48 48">
@@ -33,7 +33,7 @@
           <div class="w-fit">
             <a href="https://www.xiaohongshu.com/user/profile/5fa2f4700000000001004dd9" target="_blank"
               rel="noopener noreferrer" class="text-white hover:text-green-600 hover:underline transition duration-300">
-              <p class="text-sm flex items-center mb-1">
+              <p class="catBtn text-sm flex items-center mb-1">
                 <svg class="icon mr-2" t="1745839419518" viewBox="0 0 1024 1024" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" p-id="9217" width="24" height="24">
                   <path
@@ -49,7 +49,7 @@
           </div>
           <div class="w-fit">
             <a href="https://space.bilibili.com/337382742" target="_blank" rel="noopener noreferrer"
-              class="text-white hover:text-green-600 hover:underline transition duration-300">
+              class="catBtn text-white hover:text-green-600 hover:underline transition duration-300">
               <p class="text-sm flex items-center mb-1">
                 <svg t="1746269439435" class="icon mr-2" viewBox="0 0 1024 1024" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" p-id="5093" width="24" height="24">
@@ -85,7 +85,7 @@
           <div class="w-fit">
             <a href="https://www.douyin.com/user/MS4wLjABAAAACL5cJEKrH7o8DIQlzqzqoJjZ8otDgk2MlA1rl6NauENl8cPyumPkgA4y6qG2QydC?from_tab_name=main"
               target="_blank" rel="noopener noreferrer"
-              class="text-white hover:text-green-600 hover:underline transition duration-300">
+              class="catBtn text-white hover:text-green-600 hover:underline transition duration-300">
               <p class="text-sm flex items-center mb-1">
                 <svg t="1745839532196" class="icon mr-2" viewBox="0 0 1024 1024" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" p-id="13651" width="24" height="24">
@@ -109,7 +109,7 @@
           <div class="w-fit">
             <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=-_ynRSB-4wrhtUv3v3ZbJXDzzaJNPiwA&authKey=qw26XyVjkJCFowJ5uGYDbrOJbECEEv9%2BcI95ncFBOLG528%2FAeVhTGIO503ax9WjE&noverify=0&group_code=885918809"
               target="_blank" rel="noopener noreferrer"
-              class="text-white hover:text-green-600 hover:underline transition duration-300">
+              class="catBtn text-white hover:text-green-600 hover:underline transition duration-300">
               <p class="text-sm flex items-center">
                 <svg class="icon mr-2" t="1745840213783" viewBox="0 0 1024 1024" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" p-id="9160" width="24" height="24">
@@ -125,10 +125,10 @@
         <div class="flex-2 lg:mx-20">
           <h6 class="font-bold mb-2">快速链接：</h6>
           <ul class="list-none p-0">
-            <li><nuxt-link to="/" class="link link-hover text-sm">首页</nuxt-link></li>
-            <li><nuxt-link to="/about" class="link link-hover text-sm">关于我们</nuxt-link></li>
-            <li><nuxt-link to="/thank" class="link link-hover text-sm">致谢</nuxt-link></li>
-            <li><nuxt-link to="/thank" class="link link-hover text-sm">相关声明</nuxt-link></li>
+            <li><nuxt-link to="/" class="catBtn link link-hover text-sm">首页</nuxt-link></li>
+            <li><nuxt-link to="/about" class="catBtn link link-hover text-sm">关于我们</nuxt-link></li>
+            <li><nuxt-link to="/thank" class="catBtn link link-hover text-sm">致谢</nuxt-link></li>
+            <li><nuxt-link to="/thank" class="catBtn link link-hover text-sm">相关声明</nuxt-link></li>
           </ul>
         </div>
         <div class="flex-2">

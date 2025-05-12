@@ -6,14 +6,14 @@
         <div v-for="(tag, index) in selectedTags" :key="index"
           class="flex items-center bg-green-600/40 text-green-50 px-2 py-1 rounded-full text-sm">
           <span>{{ tag }}</span>
-          <button @click="removeTag(index)" class="ml-1 hover:text-red-300 focus:outline-none">
+          <button @click="removeTag(index)" class="catBtn ml-1 hover:text-red-300 focus:outline-none">
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
         <input v-model="searchQuery" type="text" :placeholder="selectedTags.length ? '' : placeholder"
-          class="flex-1 min-w-[100px] bg-transparent focus:outline-none" @keyup.enter="handleSearch" />
+          class="texto flex-1 min-w-[100px] bg-transparent focus:outline-none" @keyup.enter="handleSearch" />
       </div>
       <div class="absolute inset-y-0 left-0 flex items-center pl-3">
         <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -26,7 +26,7 @@
 
     <div class="w-full max-w-3xl flex flex-row overflow-x-auto space-x-2 pb-2 scrollbar-hide">
       <button v-for="(tag, index) in tags" :key="index" @click="selectTag(tag)"
-        class="flex-shrink-0 px-4 py-2 text-sm font-semibold rounded-full bg-green-600/40 text-green-50 hover:bg-green-600/90 transform hover:scale-105 transition-all duration-200 ">
+        class="catBtn flex-shrink-0 px-4 py-2 text-sm font-semibold rounded-full bg-green-600/40 text-green-50 hover:bg-green-600/90 transform hover:scale-105 transition-all duration-200 ">
         {{ tag }}
       </button>
     </div>

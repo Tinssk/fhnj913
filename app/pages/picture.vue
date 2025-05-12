@@ -3,9 +3,9 @@
     <div class="text-center">
       <p class="text-black mt-10">是的,上面的搜索框是个纯摆设,搜图功能后续待开发~敬请期待</p>
       <h2 class="text-black text-xl">很抱歉,因为521流量太大,为了防止一觉醒来房子归移动,暂时不提供原图下载,想下载原图的花瓣们移步微博碧瑶主页</h2>
-      <Button class="bg-green-400 hover:bg-green-600"><a href="https://weibo.com/u/2461312731" target="_blank"
-          rel="noopener noreferrer"><svg class="mr-2 inline" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-            width="24" height="24" viewBox="0 0 48 48">
+      <Button class="catBtn bg-green-400 hover:bg-green-600"><a href="https://weibo.com/u/2461312731" target="_blank"
+          class="catBtn " rel="noopener noreferrer"><svg class="mr-2 inline" xmlns="http://www.w3.org/2000/svg" x="0px"
+            y="0px" width="24" height="24" viewBox="0 0 48 48">
             <path fill="#FFF"
               d="M34,29c-0.6-5.8-7.6-9.8-16-8.9c-4.9,0.5-9.4,2.6-11.9,5.6C4.5,27.6,3.8,29.8,4,32c0.5,5.3,6.4,9,13.8,9c0.7,0,1.4,0,2.2-0.1c4.9-0.5,9.4-2.6,11.9-5.6C33.5,33.4,34.2,31.2,34,29z">
             </path>
@@ -27,7 +27,7 @@
         @click.stop="handleImageClickShow(idx)">
         <img :src="img" :alt="'img' + idx" loading="lazy" class="w-full block transition-all duration-300" />
         <button @click.stop="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
-          class="absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
+          class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
           <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

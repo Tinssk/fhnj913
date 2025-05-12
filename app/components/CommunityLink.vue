@@ -4,8 +4,8 @@
     <div class="flex space-x-4">
       <!-- 微博 -->
       <a href="https://weibo.com/p/1008082ba2304bd954b238b1684564e6818499"
-        class="link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none" target="_blank"
-        rel="noopener noreferrer">
+        class="catBtn link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none"
+        target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
           <path fill="#FFF"
             d="M34,29c-0.6-5.8-7.6-9.8-16-8.9c-4.9,0.5-9.4,2.6-11.9,5.6C4.5,27.6,3.8,29.8,4,32c0.5,5.3,6.4,9,13.8,9c0.7,0,1.4,0,2.2-0.1c4.9-0.5,9.4-2.6,11.9-5.6C33.5,33.4,34.2,31.2,34,29z">
@@ -24,8 +24,8 @@
       </a>
       <!-- 贴吧 -->
       <a href="https://tieba.baidu.com/f?kw=%E7%A2%A7%E7%91%B6&fr=index"
-        class="link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none" target="_blank"
-        rel="noopener noreferrer">
+        class="catBtn link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none"
+        target="_blank" rel="noopener noreferrer">
         <svg t="1745839341175" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
           p-id="4778" width="24" height="24">
           <path
@@ -38,8 +38,8 @@
       </a>
       <!-- LOFTER  -->
       <a href="https://www.lofter.com/tag/%E7%A2%A7%E7%91%B6"
-        class="link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none" target="_blank"
-        rel="noopener noreferrer">
+        class="catBtn link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none"
+        target="_blank" rel="noopener noreferrer">
         <svg t="1746275317114" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
           p-id="5003" width="24" height="24">
           <path
@@ -49,9 +49,9 @@
       </a>
       <!-- 抖音 -->
       <a href="https://www.douyin.com/search/%E7%A2%A7%E7%91%B6"
-        class="link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none" target="_blank"
-        rel="noopener noreferrer"><svg t="1745839532196" class="icon" viewBox="0 0 1024 1024" version="1.1"
-          xmlns="http://www.w3.org/2000/svg" p-id="13651" width="24" height="24">
+        class="catBtn link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none"
+        target="_blank" rel="noopener noreferrer"><svg t="1745839532196" class="icon" viewBox="0 0 1024 1024"
+          version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13651" width="24" height="24">
           <path
             d="M0 0m184.32 0l655.36 0q184.32 0 184.32 184.32l0 655.36q0 184.32-184.32 184.32l-655.36 0q-184.32 0-184.32-184.32l0-655.36q0-184.32 184.32-184.32Z"
             fill="#111111" p-id="13652"></path>
@@ -67,9 +67,9 @@
         </svg></a>
       <!-- b站 -->
       <a href="https://search.bilibili.com/all?keyword=%E7%A2%A7%E7%91%B6"
-        class="link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none" target="_blank"
-        rel="noopener noreferrer"><svg t="1746269439435" class="icon" viewBox="0 0 1024 1024" version="1.1"
-          xmlns="http://www.w3.org/2000/svg" p-id="5093" width="24" height="24">
+        class="catBtn link link-hover text-sm transition-transform duration-300 hover:scale-130 select-none"
+        target="_blank" rel="noopener noreferrer"><svg t="1746269439435" class="icon" viewBox="0 0 1024 1024"
+          version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5093" width="24" height="24">
           <path
             d="M0 0m184.32 0l655.36 0q184.32 0 184.32 184.32l0 655.36q0 184.32-184.32 184.32l-655.36 0q-184.32 0-184.32-184.32l0-655.36q0-184.32 184.32-184.32Z"
             fill="#EC5D85" p-id="5094"></path>

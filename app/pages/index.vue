@@ -1,390 +1,167 @@
 <template>
-  <div class="flex">
-    <!-- 文章目录 -->
-    <div class="hidden lg:block w-1/5 p-4 bg-emerald-100 text-black rounded-xl shadow-md">
+  <Header />
+  <RightBar class="hidden lg:block" />
+  <div class="relative h-[100vh] bg-transparent overflow-hidden">
+    <video ref="backgroundVideo" class="absolute  w-full h-[100vh] object-cover min-height-[800px]" preload="auto" loop
+      playsinline autoplay tabindex="-1" muted>
+      <source src="/video/bgav1.mp4" type="video/mp4; codecs=av01.0.01M.08" />
+      <source src="/video/bg.mp4" type="video/mp4" />
+      您的浏览器不支持 HTML5 视频。
+    </video>
+    <div ref="contentRef" class="absolute left-0 top-0 w-full h-[100vh] select-none animate-fadeUp">
       <div
-        class="sticky top-25 h-screen p-4 max-h-[80vh] overflow-y-auto rounded-md scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
-        <ul>
-          <li v-for="(section, index) in sections" :key="index" class="py-2">
-            <div class="flex items-center justify-between">
-              <a :href="'#' + section.id" :id="'link-' + section.id"
-                class="hover:text-blue-500 transition-colors py-1 px-2 block rounded-md text-lg flex-grow" :class="{
-                  'bg-emerald-800 text-white ': isActive(section.id),
-                  'bg-emerald-800 text-white': section.children?.some((child) => isActive(child.id)),
-                }" @click.prevent="scrollToSection(section.id)">
-                {{ section.text }}
-              </a>
-              <!-- 修改折叠按钮样式 -->
-              <button v-if="section.children && section.children.length" @click="toggleSection(index)"
-                class="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md ml-2">
-                <span class="inline-block transition-transform duration-300"
-                  :class="{ '-rotate-180': collapsedSections[index] }"> ▼ </span>
-              </button>
-            </div>
-
-            <!-- 子目录 -->
-            <ul v-if="section.children && section.children.length"
-              class="pl-4 mt-2 transition-all duration-300 origin-top" :class="{
-                'h-0 opacity-0 scale-y-0': collapsedSections[index],
-                'h-auto opacity-100 scale-y-100': !collapsedSections[index],
-              }">
-              <li v-for="(child, childIndex) in section.children" :key="childIndex" class="py-1">
-                <a :href="'#' + child.id" :id="'link-' + child.id"
-                  class="text-sm hover:text-blue-500 transition-colors py-1 px-2 block rounded-md"
-                  :class="{ 'bg-emerald-600 text-white': isActive(child.id) }"
-                  @click.prevent="scrollToSection(child.id)">
-                  {{ child.text }}
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+        class="font-[汉仪文黑-85w] absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 text-white text-center">
+        <div class="subtitle fade-in font-medium  text-lg  lg:text-2xl tracking-[10px] mb-4">碧瑶の狐歧资料站</div>
+        <div class="title font-medium text-5xl lg:text-6xl mb-4">伤心花开人未还</div>
+        <nuxt-link to="/main" class="catBtn"><button id="try-btn"
+            class="cursor-pointer catBtn w-40 h-13 mt-3 relative text-white  bg-gradient-to-br from-gray-100 to-emerald-400 shadow-xl text-center rounded-full text-lg transition-all duration-300 ease-in-out"
+            tabindex="0">立刻进入</button></nuxt-link>
+        <div class="title font-medium text-sm lg:text-2xl mt-4">狐歧资料站献给碧瑶与所有陪伴在她身边的花瓣们</div>
+      </div>
+      <div
+        class="absolute right-4 lg:right-20 bottom-40 lg:bottom-50  text-base lg:text-3xl font-semibold text-green-300">
+        ———— 在互联网上完全属于我们的资料站
+      </div>
+      <div id="music-btn"
+        class="absolute w-12 h-12 right-10 top-18 rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-emerald-400 shadow-xl transition-all duration-300 ease-in-out"
+        @click="toggleMute">
+        <svg t="1746972615065" class="icon w-full h-full" viewBox="0 0 1024 1024" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" p-id="7653" width="200" height="200">
+          <path
+            d="M918.3 74.7c-13.3-11.2-30.8-15.9-47.9-12.8l-503.3 88.8c-28.1 5-48.5 29.3-48.5 57.8v500.8c-24.9-21.2-57.1-34.1-92.3-34.1-78.6 0-142.6 64-142.6 142.6s64 142.6 142.6 142.6 142.6-64 142.6-142.6V369.2L889 277.4v331.2c-24.9-21.2-57.1-34.1-92.3-34.1-78.6 0-142.6 64-142.6 142.6s64 142.6 142.6 142.6 142.6-64 142.6-142.6V119.7c0-17.4-7.6-33.8-21-45zM226.3 910c-50.9 0-92.3-41.4-92.3-92.3s41.4-92.3 92.3-92.3 92.3 41.4 92.3 92.3-41.4 92.3-92.3 92.3z m142.6-591.9V208.5c0-4.1 2.9-7.6 6.9-8.3l503.3-88.8c3.4-0.5 5.7 0.9 6.8 1.9 1.1 0.9 3 3 3 6.4v106.7l-520 91.7z m427.8 491.3c-50.9 0-92.3-41.4-92.3-92.3s41.4-92.3 92.3-92.3 92.3 41.4 92.3 92.3-41.4 92.3-92.3 92.3z"
+            fill="#3CB87F" p-id="7654"></path>
+          <!-- 添加一条红色斜线表示禁止 -->
+          <line v-if="isMuted" x1="100" y1="100" x2="924" y2="924" stroke="#d0fae5" stroke-width="60"
+            stroke-linecap="round" />
+        </svg>
       </div>
     </div>
-
-    <!-- 移动端目录 -->
-    <div class="lg:hidden">
-      <StickyFixed>
-        <button @click="drawerOpen = true"
-          class=" sticky top-1/2   z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
-          <svg :class="['transition-transform duration-300', drawerOpen ? 'rotate-180' : '']" width="24" height="24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18l6-6-6-6" />
-          </svg>
-        </button>
-        <transition name="fade">
-          <div v-if="drawerOpen" class="fixed inset-0 z-30 bg-transparent" @click="drawerOpen = false"></div>
-        </transition>
-        <transition name="slide">
-          <aside v-if="drawerOpen"
-            class="sticky top-25  left-0 h-screen  max-h-[80vh] overflow-y-auto z-40  w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400"
-            @click.stop @click="drawerOpen = false">
-            <div class="flex items-center mb-4">
-
-              <span class="ml-2 text-lg font-bold text-emerald-600">目录</span>
-            </div>
-            <ul>
-              <li v-for="(section, index) in sections" :key="index" class="mb-2">
-                <div class="flex items-center justify-between">
-                  <a :href="'#' + section.id" :id="'link-' + section.id"
-                    class="block px-3 py-2 rounded-lg text-base font-medium transition-colors"
-                    :class="isActive(section.id) ? 'bg-emerald-500 text-white' : 'hover:bg-emerald-100 text-emerald-700'"
-                    @click.prevent="
-                      scrollToSection(section.id);
-                    drawerOpen = false;
-                    ">
-                    {{ section.text }}
-                  </a>
-                  <button v-if="section.children && section.children.length" @click="toggleSection(index)"
-                    class="ml-2 p-1 rounded-full hover:bg-emerald-50">
-                    <svg :class="['transition-transform duration-300', collapsedSections[index] ? '' : 'rotate-90']"
-                      width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round">
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </button>
-                </div>
-                <transition name="fade">
-                  <ul v-if="section.children && section.children.length && !collapsedSections[index]" class="pl-4 mt-1">
-                    <li v-for="(child, childIndex) in section.children" :key="childIndex">
-                      <a :href="'#' + child.id" :id="'link-' + child.id"
-                        class="block px-3 py-1 rounded text-sm font-normal transition-colors"
-                        :class="isActive(child.id) ? 'bg-emerald-400 text-white' : 'hover:bg-emerald-50 text-emerald-700'"
-                        @click.prevent="
-                          scrollToSection(child.id);
-                        drawerOpen = false;
-                        ">
-                        {{ child.text }}
-                      </a>
-                    </li>
-                  </ul>
-                </transition>
-              </li>
-            </ul>
-          </aside>
-        </transition>
-      </StickyFixed>
-    </div>
-    <!-- 右侧内容 -->
-    <div class="w-full lg:w-4/5 p-4">
-      <ContentRenderer v-if="page" :value="page"
-        class="prose prose-lg text-black max-w-none prose-headings:scroll-mt-16 prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-xl prose-img:shadow-lg prose-table:border-collapse" />
+  </div>
+  <div class="flex justify-center items-center w-full h-[100vh] bg-black">
+    <div class="flex justify-between items-center text-white">
+      <img class="w-30 mr-7" src="/img/by.png" alt="未来" />
+      <p class="font-medium text-4xl">未来</p>
     </div>
   </div>
+  <Footer />
 </template>
 
-<script setup>
+<script lang="js" setup>
 definePageMeta({
-  banner: "/img/header/index-header.jpg",
-  title: "碧瑶角色介绍",
-  wrapperHeight: "h-120",
-});
-const route = useRoute();
-const { data: page } = await useAsyncData(`role`, () => {
-  return queryCollection("content").path(route.path).first();
-});
-if (!page.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Page not found",
-  });
-}
-// 提取页面中的标题作为目录
-const toc = page.value?.body?.toc || [];
-const sections = ref([]);
-const drawerOpen = ref(false);
-if (toc.links && Array.isArray(toc.links[0].children)) {
-  sections.value = toc.links[0].children;
-} else {
-  sections.value = [];
-}
-// 当前激活的目录 id
-const currentId = ref("");
-// 添加折叠状态数组
-const collapsedSections = ref(Array(sections.value.length).fill(false));
+  layout: false,
+  layoutTransition: {
+    name: 'slide-in'
+  }
+})
 
-// 切换折叠状态的方法
-const toggleSection = (index) => {
-  collapsedSections.value[index] = !collapsedSections.value[index];
+const backgroundVideo = ref(null);
+const isMuted = ref(true);
+const route = useRoute()
+const contentRef = ref(null)
+//检测当切换页面时,触发一次浮动动画
+watch(() => route.fullPath, () => {
+  const el = contentRef.value
+  if (el) {
+    el.classList.remove('animate-fadeUp')
+    void el.offsetWidth // 触发重排
+    el.classList.add('animate-fadeUp')
+  }
+})
+const toggleMute = () => {
+  if (backgroundVideo.value) {
+    backgroundVideo.value.muted = !backgroundVideo.value.muted;
+    isMuted.value = backgroundVideo.value.muted;
+    // 你可以在这里添加一些视觉反馈，例如改变音乐按钮的图标
+  }
 };
-
-//初始高亮第一个目录标题
-if (sections.value.length > 0) {
-  currentId.value = sections.value[0].id;
-}
-onMounted(() => {
-  window.addEventListener("scroll", onScroll);
-  // 如果初始有 hash，滚动到位置
-  if (route.hash) {
-    const id = route.hash.replace("#", "");
-    setTimeout(() => {
-      scrollToSection(id);
-    }, 100); // 延迟一点，等页面渲染完
-  }
-  watchEffect(() => {
-    if (currentId.value) {
-      // 找到当前高亮的目录链接
-      const activeLink = document.getElementById(`link-${currentId.value}`);
-      if (activeLink) {
-        activeLink.scrollIntoView({
-          behavior: "smooth", // 平滑滚动
-          block: "nearest", // 只滚动到刚好能看到
-          inline: "nearest",
-        });
-      }
-    }
-  });
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", onScroll);
-});
-// 判断高亮
-function isActive(id) {
-  // 找到当前激活的 section
-  return currentId.value === id;
-}
-
-// 点击目录滚动
-function scrollToSection(id) {
-  const target = document.getElementById(id);
-  if (target) {
-    const headerOffset = 80; // 根据你的实际页头高度调整
-    const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  }
-}
-
-// 监听滚动，实时切换高亮
-function onScroll() {
-  const scrollTop = window.scrollY;
-  const headerOffset = 90; // 页头高度偏移
-  const translateOffset = 48; // -translate-y-12 对应的像素值 (12 * 4 = 48px)
-  const allSections = document.querySelectorAll("h3, h4"); // 根据你的需要选择标题级别
-
-  let current = "";
-  for (let i = 0; i < allSections.length; i++) {
-    const section = allSections[i];
-    const rect = section.getBoundingClientRect();
-    const top = rect.top + window.scrollY - translateOffset;
-    if (scrollTop + headerOffset >= top) {
-      current = section.id;
-    } else {
-      break;
-    }
-  }
-
-  // 页面最上方，强制高亮第一个目录
-  if (!current && sections.value.length > 0) {
-    current = sections.value[0].id;
-    //同时也罢目录滚动到顶部
-    const directoryContainer = document.querySelector(".sticky"); // 获取目录容器
-    if (directoryContainer) {
-      directoryContainer.scrollTop = 0; // 将目录滚动到顶部
-    }
-  }
-  // 检查是否滚动到页面底部
-  const scrollHeight = document.documentElement.scrollHeight;
-  const clientHeight = document.documentElement.clientHeight;
-  if (scrollTop + clientHeight >= scrollHeight - 10) {
-    // 滚动到距离底部 10px 时
-    // 获取最后一个目录项 ID
-    current = allSections[allSections.length - 1].id;
-  }
-
-  currentId.value = current;
-}
-
-useSeoMeta(page.value?.seo || {});
 </script>
-<style>
-/* Markdown内容样式 */
-.prose h1 {
-  font-size: 2rem;
+
+<style scoped>
+.subtitle::after {
+  content: "";
+  /* 必须设置 content，伪元素才会显示 */
+  display: inline-block;
+  /* 让伪元素像图片一样展示 */
+  width: 20px;
+  /* 图标宽度 */
+  height: 20px;
+  /* 图标高度 */
+  background: url("/img/icon1.png") no-repeat center;
+  /* 替换为你的图标路径 */
+  background-size: contain;
+  /* 确保图标适应大小 */
+  vertical-align: middle;
+  /* 对齐文字 */
 }
 
-.prose h2 a {
-  pointer-events: none;
-  color: inherit;
-  /* 可选，防止链接变色 */
-}
 
-.prose h3 {
-  border-left: 8px solid #21bb6b;
-  padding-left: 1rem;
-  color: #2563eb;
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
-}
 
-.prose h4 {
-  color: #4b5563;
-  margin-top: 1.25rem;
-  font-size: 1.25rem;
-}
-
-.prose p {
-  text-indent: 2em;
-  /* 首行缩进两个中文字符宽度 */
-  margin-bottom: 1rem;
-  line-height: 1.8;
-}
-
-.prose p.compact {
-  text-indent: 0;
-}
-
-.prose ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose ol {
-  list-style-type: decimal;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose code {
-  background-color: #f3f4f6;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
-  font-family: monospace;
-  font-size: 0.9em;
-}
-
-.prose pre {
-  background-color: #1e293b;
-  color: #e2e8f0;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-}
-
-.prose blockquote {
-  border-left: 4px solid #e5e7eb;
-  padding-left: 1rem;
-  font-style: italic;
-  margin: 1.5rem 0;
-  color: #6b7280;
-}
-
-.prose blockquote p {
-  text-indent: 0;
-  /* 引用块取消首行缩进 */
-}
-
-.prose img {
-  float: right;
-  width: 450px;
-  height: auto;
-  margin: 1rem 1rem;
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  /*图片无法选中 */
-  user-select: none;
-  -webkit-user-drag: none;
-  /* 禁止拖动 */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.prose .by15 {
-  float: none !important;
-  /* 取消浮动，必须覆盖原 float:right */
-  width: 300px !important;
-  /* 明确覆盖宽度 */
-  margin: 1rem auto;
-  /* 可选：使其水平居中 */
-}
-
-.prose .table-container {
-  overflow-x: auto;
-  max-width: 100vw;
-}
-
-.prose table {
+/*为渐变背景添加平滑过渡,通过给伪元素添加透明层,然后给透明层添加过渡的方式*/
+#try-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: none;
-  table-layout: auto;
-  overflow-x: auto;
-  /* 让表格宽度适应其容器并启用水平滚动 */
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  overflow-x: auto;
+  height: 100%;
+  background: linear-gradient(135deg, #3dcba0, #f4f4f5);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 100px;
+  z-index: -1;
 }
 
-.prose th,
-.prose td {
-  border: 1px solid black;
-  padding: 0.75rem;
-  text-align: left;
+#try-btn:hover::before {
+  opacity: 1;
 }
 
-.prose th {
-  background-color: gray;
+#try-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  /* 悬停效果 */
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  /* 增强阴影效果 */
 }
 
-/* 暗黑模式样式 */
-.dark .prose code {
-  background-color: #374151;
-  color: #e5e7eb;
+#try-btn:active {
+  transform: translateY(0);
+  /* 点击时恢复位置 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 点击时减少阴影 */
 }
 
-.dark .prose blockquote {
-  border-left-color: #4b5563;
-  color: #9ca3af;
+/*为渐变背景添加平滑过渡,通过给伪元素添加透明层,然后给透明层添加过渡的方式*/
+#music-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3dcba0, #f4f4f5);
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
 }
 
-.dark .prose th {
-  background-color: #1f2937;
+#music-btn:hover::before {
+  opacity: 1;
+}
+
+#music-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  /* 悬停效果 */
+  transition: transform 0.3s ease;
+  /* 悬停时向上浮动 */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  /* 增强阴影效果 */
+}
+
+#music-btn:active {
+  transform: translateY(0);
+  /* 点击时恢复位置 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 点击时减少阴影 */
 }
 </style>

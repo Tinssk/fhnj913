@@ -14,14 +14,15 @@
       <!-- 导航栏 -->
       <nav class="flex-5 hidden lg:flex flex-nowrap justify-around items-center space-x-6">
         <div class="nav-dot dot-green">
-          <nuxt-link to="/"
-            class="text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">主页</nuxt-link>
+          <nuxt-link to="/main"
+            :class="['text-lg hover:text-teal-200 transition duration-300 relative after:content-[\'\'] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full', $route.path === '/main' ? 'after:w-full text-teal-200' : '']">主页</nuxt-link>
         </div>
 
         <!-- 同人合集 Dropdown -->
         <div class="nav-dot dot-amber relative group">
           <button
-            class="text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full">
+            class="text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
+            :class="$route.path.startsWith('/picture') || $route.path === '/feature2' ? 'after:w-full text-teal-200' : ''">
             同人合集
             <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +43,7 @@
               <nuxt-link to="/feature2"
                 class="nav-dot dot-teal block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">铃音渺</nuxt-link>
               <nuxt-link to="/feature2"
-                class="nav-dot dot-amber block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">趣事物</nuxt-link>
+                class="nav-dot dot-amber block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">半面妆</nuxt-link>
             </div>
           </div>
         </div>
@@ -50,7 +51,8 @@
         <!-- 资料合集 Dropdown -->
         <div class="nav-dot dot-lime relative group">
           <button
-            class="text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full">
+            class="text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
+            :class="$route.path === '/feature1' ? 'after:w-full text-teal-200' : ''">
             资料合集
             <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +72,7 @@
 
         <div class="nav-dot dot-indigo">
           <nuxt-link to="/about"
-            class="text-lg hover:text-teal-200 transition duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">关于</nuxt-link>
+            :class="['text-lg hover:text-teal-200 transition duration-300 relative after:content-[\'\'] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full', $route.path === '/about' ? 'after:w-full text-teal-200' : '']">关于</nuxt-link>
         </div>
       </nav>
 
@@ -134,7 +136,7 @@
                 @click="closeMenu">铃音渺</nuxt-link>
               <nuxt-link to="/feature2"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">趣事物</nuxt-link>
+                @click="closeMenu">半面妆</nuxt-link>
             </div>
           </transition>
         </div>

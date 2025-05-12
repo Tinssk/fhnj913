@@ -128,6 +128,13 @@
 }
 
 @font-face {
+  font-family: "汉仪文黑-65w"; /* 自定义的字体名称 */
+  src: url("/fonts/汉仪文黑-65W.ttf") format("truetype"); /* 字体文件路径 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "汉仪文黑-85w"; /* 自定义的字体名称 */
   src: url("/fonts/汉仪文黑-85W.ttf") format("truetype"); /* 字体文件路径 */
   font-weight: normal;
@@ -136,7 +143,7 @@
 
 html,
 body {
-  font-family: "汉仪文黑-85w", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "汉仪文黑-65w", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   /* 👆 这是推荐的系统字体栈，跨平台渲染速度快 */
   margin: 0;
   padding: 0;
