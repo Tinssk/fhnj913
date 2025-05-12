@@ -116,7 +116,7 @@
 
 <script setup>
 definePageMeta({
-  banner: "/img/header/index-header.jpg",
+  banner: "/img/header/main-header.jpg",
   title: "碧瑶角色主页",
   wrapperHeight: "h-120",
 });
