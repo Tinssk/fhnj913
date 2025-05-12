@@ -14,18 +14,18 @@ export default defineNuxtPlugin(() => {
       const heart = document.createElement("b");
       heart.onselectstart = () => false;
 
-      const clickani = document.createElement("video");
-      clickani.onselectstart = () => false;
-      clickani.src = "/video/clickAni.webm";
-      clickani.setAttribute("width", "150");
-      clickani.setAttribute("height", "150");
-      clickani.setAttribute("muted", "muted");
-      clickani.setAttribute("autoplay", "autoplay");
-      clickani.setAttribute("preload", "auto");
-      clickani.setAttribute("type", "video/webm");
+      // const clickani = document.createElement("video");
+      // clickani.onselectstart = () => false;
+      // clickani.src = "/video/clickAni.webm";
+      // clickani.setAttribute("width", "150");
+      // clickani.setAttribute("height", "150");
+      // clickani.setAttribute("muted", "muted");
+      // clickani.setAttribute("autoplay", "autoplay");
+      // clickani.setAttribute("preload", "auto");
+      // clickani.setAttribute("type", "video/webm");
 
       document.body.appendChild(heart).innerHTML = words[a_idx];
-      document.body.appendChild(clickani);
+      // document.body.appendChild(clickani);
 
       a_idx = (a_idx + 1) % words.length;
 
@@ -37,12 +37,12 @@ export default defineNuxtPlugin(() => {
       let s = 1.2;
 
       heart.style.cssText = "position: fixed;left:-100%;z-index:200;";
-      clickani.style.cssText = `position: fixed;left:${x}px;top:${y}px;width: 150px;height: 150px;transform: translate(-50%, -50%);z-index:200;`;
+      // clickani.style.cssText = `position: fixed;left:${x}px;top:${y}px;width: 150px;height: 150px;transform: translate(-50%, -50%);z-index:200;`;
 
-      clickani.addEventListener("ended", () => {
-        clickani.pause();
-        clickani.remove();
-      });
+      // clickani.addEventListener("ended", () => {
+      //   clickani.pause();
+      //   clickani.remove();
+      // });
 
       const timer = setInterval(() => {
         if (a <= 0) {

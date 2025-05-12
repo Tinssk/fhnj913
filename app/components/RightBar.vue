@@ -11,7 +11,7 @@
       <a href="#" id="shop" class="catBtn follow-btn bg-position-[0_-19.5rem]" @mouseenter="showCodeBox(5)"></a>
 
       <!-- 弹出二维码框 -->
-      <div id="code_box" class="absolute left-[-35rem] top-0 w-140 h-full z-30 flex items-center justify-center"
+      <div id="code_box" class="absolute left-[-35rem] top-0 w-120 h-full z-30 flex items-center justify-center"
         :class="{ hidden: !showBox }">
         <img v-for="(img, index) in qrList" :key="index" :src="img"
           :style="{ display: currentIndex === index ? 'block' : 'none' }" class="" />

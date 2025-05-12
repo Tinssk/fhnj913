@@ -106,7 +106,7 @@
       class="fixed left-0 top-16 w-full z-30 bg-gradient-to-br from-green-100 via-green-50 to-teal-100 text-green-900 shadow-2xl rounded-b-3xl overflow-hidden lg:hidden transition-all duration-500 border-b-4 border-green-300/40"
       style="max-height: 80vh" @click.self="toggleMenu">
       <div class="flex flex-col gap-2 py-4 px-6">
-        <nuxt-link to="/"
+        <nuxt-link to="/main"
           class="block py-3 px-2 text-lg font-semibold rounded-xl hover:bg-gradient-to-r hover:from-green-200 hover:to-teal-100 hover:text-green-700 border-b border-green-100 transition-all duration-200"
           @click="closeMenu">主页</nuxt-link>
         <!-- 手风琴菜单：同人合集 -->

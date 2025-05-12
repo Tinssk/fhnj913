@@ -1,6 +1,5 @@
 <template>
   <Header />
-  <RightBar class="hidden lg:block" />
   <div class="relative h-[100vh] bg-transparent overflow-hidden">
     <video ref="backgroundVideo" class="absolute  w-full h-[100vh] object-cover min-height-[800px]" preload="auto" loop
       playsinline autoplay tabindex="-1" muted>

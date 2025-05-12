@@ -5,8 +5,6 @@
     <PageWrapper :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" />
     <!-- 引入 Header 组件 -->
     <Header />
-    <!-- 右侧边栏组件 -->
-    <RightBar class="hidden lg:block" />
     <!-- 移动端目录,侧拉式菜单 -->
 
     <!-- 引入 MainContent 组件，页面内容将通过 slot 插入 -->
