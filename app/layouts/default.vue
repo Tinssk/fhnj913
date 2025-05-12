@@ -21,16 +21,16 @@
 <script setup lang="ts">
 const route = useRoute();
 const router = useRouter();
-const banner = ref(typeof route.meta?.banner === "string" ? route.meta.banner : "");
-const title = ref(typeof route.meta?.title === "string" ? route.meta.title : "");
+const banner = ref(typeof route.meta?.banner === "string" ? route.meta.banner : "/img/header/default-header.jpg");
+const title = ref(typeof route.meta?.title === "string" ? route.meta.title : "碧瑶の狐歧资料馆");
 const wrapperHeight = ref(typeof route.meta?.wrapperHeight === "string" ? route.meta.wrapperHeight : "h-120");
 const textCol = ref(typeof route.meta?.textCol === "string" ? route.meta.textCol : "text-black");
 // 监听路由变化，更新banner和title进而更新版头
 watch(
   () => route.path,
   () => {
-    banner.value = typeof route.meta?.banner === "string" ? route.meta.banner : "";
-    title.value = typeof route.meta?.title === "string" ? route.meta.title : "";
+    banner.value = typeof route.meta?.banner === "string" ? route.meta.banner : "/img/header/default-header.jpg";
+    title.value = typeof route.meta?.title === "string" ? route.meta.title : "碧瑶の狐歧资料馆";
     wrapperHeight.value = typeof route.meta?.wrapperHeight === "string" ? route.meta.wrapperHeight : "h-120";
     textCol.value = typeof route.meta?.textCol === "string" ? route.meta.textCol : "text-black";
   },

@@ -8,7 +8,8 @@
           <li v-for="(section, index) in sections" :key="index" class="py-2">
             <div class="flex items-center justify-between">
               <a :href="'#' + section.id" :id="'link-' + section.id"
-                class="hover:text-blue-500 transition-colors py-1 px-2 block rounded-md text-lg flex-grow" :class="{
+                class="catBtn hover:text-blue-500 transition-colors py-1 px-2 block rounded-md text-lg flex-grow"
+                :class="{
                   'bg-emerald-800 text-white ': isActive(section.id),
                   'bg-emerald-800 text-white': section.children?.some((child) => isActive(child.id)),
                 }" @click.prevent="scrollToSection(section.id)">
@@ -16,7 +17,7 @@
               </a>
               <!-- 修改折叠按钮样式 -->
               <button v-if="section.children && section.children.length" @click="toggleSection(index)"
-                class="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md ml-2">
+                class="catBtn p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md ml-2">
                 <span class="inline-block transition-transform duration-300"
                   :class="{ '-rotate-180': collapsedSections[index] }"> ▼ </span>
               </button>
@@ -30,7 +31,7 @@
               }">
               <li v-for="(child, childIndex) in section.children" :key="childIndex" class="py-1">
                 <a :href="'#' + child.id" :id="'link-' + child.id"
-                  class="text-sm hover:text-blue-500 transition-colors py-1 px-2 block rounded-md"
+                  class="catBtn text-sm hover:text-blue-500 transition-colors py-1 px-2 block rounded-md"
                   :class="{ 'bg-emerald-600 text-white': isActive(child.id) }"
                   @click.prevent="scrollToSection(child.id)">
                   {{ child.text }}
@@ -259,12 +260,24 @@ useSeoMeta(page.value?.seo || {});
   color: #2563eb;
   margin-top: 1.5rem;
   font-size: 1.5rem;
+  text-decoration: none;
+  /* 移除下划线 */
+  pointer-events: none;
+  /* 阻止鼠标事件（点击、悬停等） */
+  cursor: default;
+  /* 将鼠标光标改为默认箭头 */
 }
 
 .prose h4 {
   color: #4b5563;
   margin-top: 1.25rem;
   font-size: 1.25rem;
+  text-decoration: none;
+  /* 移除下划线 */
+  pointer-events: none;
+  /* 阻止鼠标事件（点击、悬停等） */
+  cursor: default;
+  /* 将鼠标光标改为默认箭头 */
 }
 
 .prose p {
