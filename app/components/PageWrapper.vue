@@ -3,12 +3,12 @@ defineProps({
   banner: {
     type: String,
     required: false,
-    default: "/img/header/default-header.jpg",
+    default: "",
   },
   title: {
     type: String,
     required: false,
-    default: "碧瑶の狐歧资料馆",
+    default: "",
   },
   wrapperHeight: {
     type: String,
