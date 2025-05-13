@@ -59,6 +59,7 @@ if (!page.value) {
 }
 
 .proseThank h1 {
+  text-align: center;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #e0e6ed;

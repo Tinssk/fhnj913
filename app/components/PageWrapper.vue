@@ -42,7 +42,6 @@ watchEffect(() => {
   }
 });
 //判断是否为novels界面
-/*判断是是否为卷丹青 */
 const novels = ref(false);
 watchEffect(() => {
   // 检查当前路由的路径是否是 '/picturess'
@@ -54,9 +53,14 @@ watchEffect(() => {
     novels.value = false;
   }
 });
+//判断是否为novels界面
+const biyaofameCh = ref(false);
+watchEffect(() => {
+  biyaofameCh.value = /^\/biyaofame\/\d+$/.test(route.path);
+});
 //小说页面时把标题设置为小说的标题
-const novelsSlug = useState('novelsSlug');
-console.log(novelsSlug.value); // => 当前小说 slug，例如 "瓶瑶"
+const biyaofameChapter = useState('biyaofameChapter');
+console.log(biyaofameChapter.value); // => 当前章节名字
 
 //设置语录数组
 let segments = [];
@@ -123,6 +127,7 @@ router.afterEach((to, from) => {
           {{ title }}
         </h1>
         <h2 v-if="novels" class="text-2xl lg:text-4xl text-black mt-5">折花笺</h2>
+        <h2 v-if="biyaofameCh" class="text-2xl lg:text-4xl text-black mt-10">{{ biyaofameChapter }}</h2>
         <!-- 右下角偏上段落 -->
         <p v-if="randomLineCheck" :class="[`${textCol}`]"
           class="absolute right-5 lg:right-25 bottom-12 lg:bottom-20 translate-y-1/3 text-sm lg:text-xl font-light text-right w-50 lg:w-200 leading-relaxed z-10">
