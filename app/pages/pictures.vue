@@ -26,14 +26,16 @@
         class="groupN group relative mb-4 overflow-hidden rounded-lg transition-all duration-300"
         @click.stop="handleImageClickShow(idx)">
         <img :src="img" :alt="'img' + idx" loading="lazy" class="w-full block transition-all duration-300" />
-        <button @click.stop="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
-          class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
-          <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-          </svg>
-        </button>
+        <a :href="img" :download="img.split('/').pop()" target="_blank" rel="noopener">
+          <button :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
+            class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
+            <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </button>
+        </a>
       </div>
     </div>
   </div>
@@ -41,7 +43,7 @@
 
 <script lang="js" setup>
 definePageMeta({
-  banner: '/img/header/picture-header.jpg',
+  banner: '/img/header/pictures-header.jpg',
   title: '卷丹青',
   wrapperHeight: 'h-160',
   textCol: "text-black"
@@ -76,14 +78,17 @@ onMounted(() => {
   });
 });
 
-const downloadImage = (imgUrl) => {
-  const link = document.createElement('a');
-  link.href = imgUrl;
-  link.download = imgUrl.split('/').pop();
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+// //js控制下载,暂时保留
+// const downloadImage = (imgUrl) => {
+//   const link = document.createElement('a');
+//   link.href = imgUrl;
+//   link.download = imgUrl.split('/').pop();
+//   document.body.appendChild(link);
+//   link.click();
+//   document.body.removeChild(link);
+// };
+
+
 
 // 处理图片点击事件
 const handleImageClickShow = (idx) => {

@@ -14,12 +14,12 @@ onMounted(() => {
   const petals = [];
   const petalCount = 30;
   const petalSrcList = [
-    "img/petal/1.png",
-    "img/petal/2.png",
-    "img/petal/3.png",
-    "img/petal/4.png",
-    "img/petal/5.png",
-    "img/petal/petal.png",
+    "/img/petal/1.png",
+    "/img/petal/2.png",
+    "/img/petal/3.png",
+    "/img/petal/4.png",
+    "/img/petal/5.png",
+    "/img/petal/petal.png",
   ];
 
   // 加载所有图片

@@ -22,7 +22,7 @@
         <div class="nav-dot dot-amber relative group">
           <button
             class="catBtn text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
-            :class="$route.path.startsWith('/picture') || $route.path === '/feature2' ? 'after:w-full text-teal-200' : ''">
+            :class="$route.path.startsWith('/pictures') || $route.path === '/feature2' ? 'after:w-full text-teal-200' : ''">
             同人集合
             <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -34,15 +34,15 @@
           <div
             class="absolute left-0 top-[calc(100%+0.5rem)] w-48 rounded-lg shadow-xl bg-white/90 backdrop-blur-sm ring-1 ring-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
             <div class="py-2" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
-              <nuxt-link to="/picture"
+              <nuxt-link to="/pictures"
                 class="catBtn nav-dot dot-green block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">卷丹青</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/biyaofame"
                 class="catBtn nav-dot dot-emerald block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">碧瑶传</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/novels"
                 class="catBtn nav-dot dot-cyan block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">折花笺</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/musics"
                 class="catBtn nav-dot dot-teal block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">铃音渺</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/games"
                 class="catBtn nav-dot dot-amber block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">趣事物</nuxt-link>
             </div>
           </div>
@@ -64,9 +64,9 @@
           <div
             class="absolute left-0 top-[calc(100%+0.5rem)] w-48 rounded-lg shadow-xl bg-white/90 backdrop-blur-sm ring-1 ring-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
             <div class="catBtn py-2" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
-              <nuxt-link to="/feature1"
+              <nuxt-link to="/official"
                 class="catBtn nav-dot dot-green block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">官方讯息</nuxt-link>
-              <nuxt-link to="/feature1"
+              <nuxt-link to="/evidence"
                 class="catBtn nav-dot dot-pink block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">证据存档</nuxt-link>
             </div>
           </div>
@@ -124,19 +124,19 @@
           <transition name="accordion">
             <div v-show="accordionOpen.fan"
               class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner">
-              <nuxt-link to="/picture"
+              <nuxt-link to="/pictures"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
                 @click="closeMenu">卷丹青</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/biyaofame"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
                 @click="closeMenu">碧瑶传</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/novels"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
                 @click="closeMenu">折花笺</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/musics"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
                 @click="closeMenu">铃音渺</nuxt-link>
-              <nuxt-link to="/feature2"
+              <nuxt-link to="/games"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
                 @click="closeMenu">趣事物</nuxt-link>
             </div>
@@ -155,7 +155,10 @@
           <transition name="accordion">
             <div v-show="accordionOpen.info"
               class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner">
-              <nuxt-link to="/feature1"
+              <nuxt-link to="/official"
+                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+                @click="closeMenu">官方讯息</nuxt-link>
+              <nuxt-link to="/evidence"
                 class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
                 @click="closeMenu">证据存档</nuxt-link>
             </div>

@@ -30,17 +30,33 @@ const contentRef = ref(null);
 const randomLine = ref("");
 const randomLineCheck = ref(true);
 /*判断是是否为卷丹青 */
-const picture = ref(false);
+const pictures = ref(false);
 watchEffect(() => {
-  // 检查当前路由的路径是否是 '/picture'
-  if (route.path === '/picture') {
-    // 如果是，将 picture.value 设置为 true
-    picture.value = true;
+  // 检查当前路由的路径是否是 '/picturess'
+  if (route.path === '/pictures') {
+    // 如果是，将 pictures.value 设置为 true
+    pictures.value = true;
   } else {
-    // 如果不是，将 picture.value 设置为 false
-    picture.value = false;
+    // 如果不是，将 pictures.value 设置为 false
+    pictures.value = false;
   }
 });
+//判断是否为novels界面
+/*判断是是否为卷丹青 */
+const novels = ref(false);
+watchEffect(() => {
+  // 检查当前路由的路径是否是 '/picturess'
+  if (route.path.startsWith('/novels')) {
+    // 如果是，将 pictures.value 设置为 true
+    novels.value = true;
+  } else {
+    // 如果不是，将 pictures.value 设置为 false
+    novels.value = false;
+  }
+});
+//小说页面时把标题设置为小说的标题
+const novelsSlug = useState('novelsSlug');
+console.log(novelsSlug.value); // => 当前小说 slug，例如 "瓶瑶"
 
 //设置语录数组
 let segments = [];
@@ -100,19 +116,20 @@ router.afterEach((to, from) => {
       <!-- 图片 -->
       <img :src="banner" alt="页面头图" class="w-full h-full object-cover object-top shadow-inner-2xl wrappimg"
         style="mask-image: linear-gradient(to bottom, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%)" />
-      <div ref="contentRef" class="absolute top-0 w-full h-full animate-fadeUp">
+      <div ref="contentRef"
+        class="absolute flex flex-col items-center justify-center top-0 w-full h-full animate-fadeUp">
         <!-- 标题 -->
-        <h1 v-if="title"
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl lg:text-5xl font-bold text-white text-center z-20">
+        <h1 v-if="title" class=" text-3xl lg:text-5xl font-bold text-white text-center z-20">
           {{ title }}
         </h1>
+        <h2 v-if="novels" class="text-2xl lg:text-4xl text-black mt-5">折花笺</h2>
         <!-- 右下角偏上段落 -->
         <p v-if="randomLineCheck" :class="[`${textCol}`]"
           class="absolute right-5 lg:right-25 bottom-12 lg:bottom-20 translate-y-1/3 text-sm lg:text-xl font-light text-right w-50 lg:w-200 leading-relaxed z-10">
           {{ randomLine }}
         </p>
         <!-- 搜索框 -->
-        <div v-if="picture" class="absolute left-1/2 transform -translate-x-1/2 top-[60%] w-full max-w-4xl px-4 z-30">
+        <div v-if="pictures" class="absolute left-1/2 transform -translate-x-1/2 top-[60%] w-full max-w-4xl px-4 z-30">
           <SearchBar placeholder="搜索您感兴趣的内容..." />
         </div>
       </div>

@@ -127,7 +127,7 @@ const { data: page } = await useAsyncData(`role`, () => {
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Page not found",
+    statusMessage: "markdowm Page not found",
   });
 }
 // 提取页面中的标题作为目录

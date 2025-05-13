@@ -13,12 +13,12 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      meta: [{ name: "referrer", content: "no-referrer" }],
+      meta: [{ name: "referrer", content: "no-referrer" }, { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角" }, { name: "keywords", content: "碧瑶,诛仙,资料,证据,同人,美图,图片,同人文" }, { name: "robots", content: "index, follow" }, { name: "author", content: "碧瑶伤心花瓣组" }, { charset: "utf-8" }],
       title: "碧瑶の狐岐资料馆", // default fallback title
       htmlAttrs: {
         lang: "zh-CN",
       },
-      link: [{ rel: "icon", type: "image/png", href: "img/icon1.png" }],
+      link: [{ rel: "icon", type: "image/png", href: "/img/icon1.png" }],
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no",
     },
@@ -37,6 +37,9 @@ export default defineNuxtConfig({
   },
   content: {
     build: {
+      pathMeta: {
+        slugifyOptions: {},
+      },
       markdown: {
         remarkPlugins: { "remark-breaks": {} },
         // 允许使用单个换行作为 <br>
