@@ -18,7 +18,14 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "zh-CN",
       },
-      link: [{ rel: "icon", type: "image/png", href: "/img/icon1.png" }],
+      link: [
+        { rel: "icon", type: "image/png", href: "/img/icon1.png" },
+        {
+          rel: "preload",
+          as: "image",
+          href: "/img/header/main-header.jpg",
+        },
+      ],
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no",
     },
