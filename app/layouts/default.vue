@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen bg-green-100">
     <!-- 图片版头 -->
-    <PageWrapper :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" />
+    <PageWrapper v-if="ready" :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" />
     <!-- 引入 Header 组件 -->
     <Header />
     <!-- 移动端目录,侧拉式菜单 -->
@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="js">
 const route = useRoute();
 const router = useRouter();
 const banner = ref("");
