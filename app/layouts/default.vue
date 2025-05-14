@@ -20,11 +20,11 @@
 <script setup lang="js">
 const route = useRoute();
 const router = useRouter();
-const banner = ref("");
-const title = ref("");
-const wrapperHeight = ref("");
-const textCol = ref("");
-const ready = ref(false); // 监听路由变化，更新banner和title进而更新版头
+const banner = ref(null);
+const title = ref(null);
+const wrapperHeight = ref(null);
+const textCol = ref(null);
+const ready = ref(false);
 function updateMeta() {
   banner.value = typeof route.meta?.banner === "string" ? route.meta.banner : "/img/header/default-header.jpg";
   title.value = typeof route.meta?.title === "string" ? route.meta.title : "碧瑶の狐歧资料馆";
