@@ -71,6 +71,12 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ["/robots.txt"],
     },
+    serverAssets: [
+      {
+        baseName: "content",
+        dir: "../content", // Relative to Nitro `srcDir`
+      },
+    ],
   },
   vite: {
     plugins: [tailwindcss()],
