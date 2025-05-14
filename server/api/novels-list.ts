@@ -1,29 +1,11 @@
-import { promises as fs } from "fs";
-import path from "path";
-
-const novelsDir = path.resolve(process.cwd(), "content/novels");
-
-async function getMarkdownFiles(dir: string): Promise<string[]> {
-  let results: string[] = [];
-  const list = await fs.readdir(dir, { withFileTypes: true });
-  for (const file of list) {
-    const filePath = path.join(dir, file.name);
-    if (file.isDirectory()) {
-      results = results.concat(await getMarkdownFiles(filePath));
-    } else if (file.isFile() && file.name.endsWith(".md")) {
-      results.push(filePath);
-    }
-  }
-  return results;
-}
-
+// server/api/novels-list.ts
 export default defineEventHandler(async (event) => {
-  try {
-    const files = await getMarkdownFiles(novelsDir);
-    // 提取文件名（去掉扩展名）
-    const names = files.map(f => path.basename(f, ".md"));
-    return names;
-  } catch (e) {
-    return [];
-  }
+  const storage = useStorage("assets:content");
+  // 获取所有 markdown 文件名（含 novels 目录下的）
+  const files = await storage.getKeys();
+  // 过滤出 novels 目录下的 .md 文件
+  const novelFiles = files.filter((f) => f.startsWith("novels:") && f.endsWith(".md"));
+  // 去掉 novels/ 前缀和 .md 后缀，只保留文件名
+  const names = novelFiles.map((f) => f.slice(7, -3));
+  return names;
 });

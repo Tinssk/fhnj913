@@ -24,7 +24,6 @@
 </template>
 
 <script lang="js" setup>
-import { Button } from '@/components/ui/button'
 import { ref, onMounted } from 'vue'
 import chapterMapRaw from '~~/public/chapter_map.json'
 
