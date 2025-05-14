@@ -4,6 +4,9 @@
 
 <script setup lang="js">
 onMounted(() => {
+  // 判断是否为移动设备，若是则不执行特效
+  const isMobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   const canvas = document.getElementById("petal-canvas");
   if (!canvas) return;
 
@@ -12,7 +15,7 @@ onMounted(() => {
   canvas.height = window.innerHeight;
 
   const petals = [];
-  const petalCount = 30;
+  const petalCount = isMobile?10:30;
   const petalSrcList = [
     "/img/petal/1.png",
     "/img/petal/2.png",
@@ -88,7 +91,6 @@ onMounted(() => {
     canvas.height = window.innerHeight;
   });
 });
-
 </script>
 
 <style></style>
