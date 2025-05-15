@@ -22,7 +22,7 @@
         <div class="nav-dot dot-amber relative group">
           <button
             class="catBtn text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
-            :class="$route.path.startsWith('/pictures') || $route.path === '/feature2' ? 'after:w-full text-teal-200' : ''">
+            :class="isHighlighted($route.path, 'opus') ? 'after:w-full text-teal-200' : ''">
             同人集合
             <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
         <div class="nav-dot dot-lime relative group">
           <button
             class="catBtn text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
-            :class="$route.path === '/feature1' ? 'after:w-full text-teal-200' : ''">
+            :class="isHighlighted($route.path, 'party') ? 'after:w-full text-teal-200' : ''">
             圈子集合
             <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -179,6 +179,16 @@ const headerRef = ref(null);
 const isMenuOpen = ref(false);
 const accordionOpen = reactive({ fan: false, info: false });
 const router = useRouter();
+
+/*检测路径应用导航栏高亮 */
+//根据导航栏的类型选择对应的路径
+const opusHighlightPaths = ["/pictures", "/biyaofame", "/novels", "/musics", "/games"];
+const partyHighlightPaths = ["/official", "/evidence"];
+const isHighlighted = (path, type) => {
+  const highlightPaths = type === 'opus' ? opusHighlightPaths : partyHighlightPaths;
+  return highlightPaths.some(highlightPath => path.startsWith(highlightPath));
+};
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
   if (!isMenuOpen.value) {
