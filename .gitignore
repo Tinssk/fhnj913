@@ -9,6 +9,7 @@ dist
 #dev
 js
 python
+temp
 # Node dependencies
 node_modules
 
