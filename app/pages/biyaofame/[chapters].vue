@@ -36,16 +36,16 @@ definePageMeta({
 
 import chapterMapRaw from '~~/public/chapter_map.json'
 const route = useRoute();
-const { data } = await useAsyncData(`content-${route.path}`, () =>
-  $fetch(`/api/content${route.path}`)
-);
-// 获取最后一段路径作为文件名（slug）
-const slugT = decodeURIComponent(route.path.split("/").filter(Boolean).pop() || "小说");
+
+const slugT = computed(() => decodeURIComponent(route.params.chapters || "小说"));// 获取最后一段路径作为文件名（slug）
+const { data } = await useAsyncData(`content-${slugT.value}`, () =>  //获取章节内容
+  $fetch(`/api/content/biyaofame/${slugT.value}`)
+)
 function getChapterTitleByNum(num) {
   const found = chapterMapRaw.find(obj => Object.keys(obj)[0] == num)
   return found ? found[num] : undefined
 }
-const slug = getChapterTitleByNum(slugT)
+const slug = getChapterTitleByNum(slugT.value)
 
 // 设置页面 <title>
 useHead({
@@ -60,7 +60,7 @@ watchEffect(() => {
 });
 const router = useRouter();
 const currentNum = computed(() => {
-  const n = parseInt(slugT, 10);
+  const n = parseInt(slugT.value, 10);
   return isNaN(n) ? 1 : n;
 });
 const maxChapterNum = computed(() => {

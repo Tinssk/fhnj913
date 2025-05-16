@@ -10,6 +10,9 @@ definePageMeta({
   title: "致谢",
   wrapperHeight: "h-140",
 });
+useHead({
+  title: `碧瑶|致谢`,
+});
 const route = useRoute();
 const { data: page } = await useAsyncData(`role`, () => {
   return queryCollection("content").path(route.path).first();

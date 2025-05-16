@@ -25,7 +25,6 @@ export default defineEventHandler(async (event) => {
   const md = new MarkdownIt({ breaks: true });
   md.disable("code");
   const html = md.render(matterResult.content);
-  console.log(html);
   return {
     frontmatter: matterResult.data,
     content: html,

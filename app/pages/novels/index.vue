@@ -7,11 +7,11 @@
     <div class="w-full max-w-2xl">
       <ul class="divide-y divide-green-200 rounded-lg shadow">
         <li v-for="novel in pagedNovels" :key="novel" class="flex items-center hover:bg-green-200">
-
           <NuxtLink :to="`/novels/${encodeURIComponent(novel)}`" class="catBtn block w-full h-full py-3 px-6"><span
               class="inline-block w-2 h-2 rounded-full bg-green-400 mr-6"></span>{{ novel }}</NuxtLink>
         </li>
       </ul>
+      <!-- 分页器逻辑 -->
       <div v-if="totalPages > 1" class="flex justify-center items-center mt-6 gap-2">
         <button @click="prevPage" :disabled="currentPage === 1"
           class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
@@ -27,21 +27,26 @@
 
 <script lang="js" setup>
 definePageMeta({
-  title: '碧瑶同人文资料库!',
+  title: '碧瑶同人文资料库',
   textCol: "text-black"
+});
+// 设置页面 <title>
+useHead({
+  title: `碧瑶|折花笺|同人文资料库`,
 });
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';
-const novels = ref([]);
 const currentPage = ref(1);
 const pageSize = 20;
 
-// 通过 Nuxt3 的 server API 读取 content/novels 目录下的所有文件名
-const fetchNovels = async () => {
-  // @ts-ignore
-  const files = await $fetch("/api/novels-list");
-  novels.value = shuffle(files);
-};
+/*请求列表数据 */
+const { data: novelsData } = await useAsyncData("novels-list", async () => {
+  const list = await $fetch("/api/novels-list");
+  return shuffle(list); // 只服务端执行重排
+});
+const novels = computed(() => novelsData.value || []);
+
+
 
 // 洗牌算法
 function shuffle(arr) {
@@ -53,7 +58,6 @@ function shuffle(arr) {
   return a;
 }
 
-fetchNovels();
 
 const totalPages = computed(() => Math.ceil(novels.value.length / pageSize));
 const pagedNovels = computed(() => {

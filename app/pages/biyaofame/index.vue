@@ -32,18 +32,17 @@ definePageMeta({
   title: '碧瑶传',
   wrapperHeight: 'h-200',
 });
-
+useHead({
+  title: `碧瑶传首页`,
+});
 const chapters = ref([])
 const sortedChapters = ref([])
 
-onMounted(() => {
-  // chapterMapRaw 是数组，每项为 {"n": "章节名"}
-  chapters.value = chapterMapRaw.map(obj => {
-    const num = Object.keys(obj)[0]
-    return { num: Number(num), title: obj[num] }
-  })
-  sortedChapters.value = chapters.value.slice().sort((a, b) => a.num - b.num)
+chapters.value = chapterMapRaw.map(obj => {
+  const num = Object.keys(obj)[0]
+  return { num: Number(num), title: obj[num] }
 })
+sortedChapters.value = chapters.value.slice().sort((a, b) => a.num - b.num)
 </script>
 
 <style>

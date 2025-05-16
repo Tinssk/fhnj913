@@ -60,7 +60,6 @@ watchEffect(() => {
 });
 //小说页面时把标题设置为小说的标题
 const biyaofameChapter = useState('biyaofameChapter');
-console.log(biyaofameChapter.value); // => 当前章节名字
 
 //设置语录数组
 let segments = [];
