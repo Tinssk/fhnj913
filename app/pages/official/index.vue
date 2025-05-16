@@ -41,6 +41,13 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  title: '碧瑶圈官方讯息|公告栏',
+  textCol: "text-black"
+});
+useHead({
+  title: `碧瑶圈官方讯息|公告栏`,
+});
 import { ref, computed } from "vue";
 
 // 设置列表

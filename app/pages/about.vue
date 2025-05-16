@@ -9,6 +9,9 @@ definePageMeta({
   wrapperHeight: 'h-80',
   textCol: "text-white"
 });
+useHead({
+  title: `碧瑶|关于我们`,
+});
 </script>
 
 <style></style>

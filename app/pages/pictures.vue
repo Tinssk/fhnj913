@@ -48,15 +48,30 @@ definePageMeta({
   wrapperHeight: 'h-160',
   textCol: "text-black"
 });
+useHead({
+  title: `碧瑶|卷丹青|图片库`,
+});
 import { Button } from '@/components/ui/button'
 const numberOfImages = 24; // 定义要构造的图片个数
+const imageLibraryTotal = 207; // 图片库总数
 const imageBaseURL = '/img/juandanqing/';
 const allImages = ref([]);
 const activeImageIndex = ref(null); // 跟踪当前被点击的图片索引
 const isMobile = ref(false); // 是否为移动设备
 
+function getRandomUniqueNumbers(count, max) {
+  const set = new Set();
+  while (set.size < count) {
+    const rand = Math.floor(Math.random() * max) + 1; // 1 ~ max
+    set.add(rand);
+  }
+  return Array.from(set);
+}
+
 onMounted(() => {
-  const images = Array.from({ length: numberOfImages }, (_, i) => `${imageBaseURL}${i + 1}.jpg`);
+  const randomIndexes = getRandomUniqueNumbers(numberOfImages, imageLibraryTotal);
+  const images = randomIndexes.map((num) => `${imageBaseURL}${num}.jpg`);
+  console.log(images.length)
   // 随机打乱数组
   for (let i = images.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
