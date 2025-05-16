@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
 
   // 解析 Markdown 内容
   const matterResult = matter(fileContent.toString("utf-8"));
-  const md = new MarkdownIt({ breaks: true });
+  const md = new MarkdownIt({ breaks: true, html: true });
   md.disable("code");
   const html = md.render(matterResult.content);
   return {

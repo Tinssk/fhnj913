@@ -2,11 +2,12 @@
   <div class="max-w-4xl mx-auto px-4 py-8 bg-gradient-to-br from-green-50 to-teal-50 min-h-screen rounded-lg shadow-sm">
     <div class="mb-10 text-center">
       <h1 class="text-3xl font-bold text-green-800 mb-2 relative inline-block">
-        官方讯息
+        网站更新日志
         <span
           class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full"></span>
       </h1>
-      <p class="text-green-600 text-sm">最新的碧瑶圈子公告讯息</p>
+      <p class="text-green-600 text-sm">网站的更新日志,最新消息</p>
+      <p class="text-green-600 text-sm">网站的更新消息都会同步在这里哦,欢迎关注</p>
     </div>
 
     <div class="space-y-4">
@@ -40,29 +41,14 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="js" setup>
 import { ref, computed } from "vue";
 
-// 设置列表
+// 构建列表
 const infoList = ref([
   {
     time: "2025-05-21",
-    content: "2025年碧瑶521生日庆典正在进行中!祝碧瑶生日快乐!点击参与!",
-    Link: "https://weibo.com/p/1008082ba2304bd954b238b1684564e6818499"
-  },
-  {
-    time: "2025-05-21",
-    content: "碧瑶的狐歧资料站正式上线啦~",
-  },
-  {
-    time: "2025-05-16",
-    content: "25年521新周边来啦~",
-    Link: "https://weibo.com/2461312731/Ps3mX0MXP"
-  },
-  {
-    time: "2025-05-16",
-    content: "25年521生日接龙活动,一起期待这不止300份的爱吧~",
-    Link: "https://weibo.com/2461312731/PrZCjzVAW"
+    content: "狐歧资料站正式上线!值得纪念的一天",
   },
 ]);
 
