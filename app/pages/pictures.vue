@@ -26,7 +26,7 @@
         class="groupN group relative mb-4 overflow-hidden rounded-lg transition-all duration-300"
         @click.stop="handleImageClickShow(idx)">
         <img :src="img" :alt="'img' + idx" loading="lazy" class="w-full block transition-all duration-300" />
-        <a :href="`/api/download?path=${encodeURIComponent(img)}`" download target="_blank" rel="noopener">
+        <a :href="`/api/download?path=${encodeURIComponent(img)}`" target="_blank" rel="noopener noreferrer">
           <button :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
             class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
             <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
