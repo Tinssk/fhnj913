@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
   const url = `${baseURL}${path}`;
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000); // 30秒超时
+  const timeout = setTimeout(() => controller.abort(), 10000); // 30秒超时
 
   let response;
   try {
