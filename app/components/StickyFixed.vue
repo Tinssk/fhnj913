@@ -11,6 +11,7 @@
 <style scoped>
 .wrap {
   position: absolute;
+  pointer-events: none;
   inset: 0;
   width: 100%;
   height: 100%;

@@ -10,16 +10,42 @@ export default defineEventHandler(async (event) => {
   const baseURL = getRequestURL(event).origin;
   const url = `${baseURL}${path}`;
 
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw createError({ statusCode: 404, statusMessage: "Image not found" });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000); // 30秒超时
+
+  let response;
+  try {
+    response = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      if (err.name === "AbortError") {
+        throw createError({ statusCode: 408, statusMessage: "Request timeout" });
+      }
+      throw err;
+    }
+    // 如果不是Error类型，也抛出或者自定义处理
+    throw createError({ statusCode: 500, statusMessage: "Unknown error" });
   }
 
-  const buffer = await response.arrayBuffer();
-  const filename = path.split("/").pop() || "downloaded.jpg";
+  if (!response.ok) {
+    throw createError({ statusCode: response.status, statusMessage: "Image not found" });
+  }
 
-  setHeader(event, "Content-Type", response.headers.get("content-type") || "application/octet-stream");
+  const contentType = response.headers.get("content-type") || "";
+  if (!contentType.startsWith("image/")) {
+    throw createError({ statusCode: 415, statusMessage: `Expected image content-type, but got: ${contentType}` });
+  }
+
+  const filename = path.split("/").pop() || "downloaded.jpg";
+  setHeader(event, "Content-Type", contentType);
   setHeader(event, "Content-Disposition", `attachment; filename="${filename}"`);
 
-  return new Uint8Array(buffer);
+  // 这里使用 Node.js 的流管道，边下载边返回
+  const stream = response.body;
+  if (!stream) {
+    throw createError({ statusCode: 500, statusMessage: "No response body stream" });
+  }
+
+  return stream;
 });

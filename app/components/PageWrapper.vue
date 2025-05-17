@@ -130,7 +130,7 @@ router.afterEach((to, from) => {
         <!-- 25年521宣传标志 -->
         <a href="https://weibo.com/p/1008082ba2304bd954b238b1684564e6818499" target="_blank"
           rel="noopener noreferrer"><img src=" /img/header/25521.png"
-            class="catBtn absolute left-20 bottom-15 hover:scale-110 w-60 h-auto" /></a>
+            class="catBtn absolute left-2 lg:left-20  bottom-10  lg:bottom-15 hover:scale-110 w-40 lg:w-60 h-auto" /></a>
         <!-- 右下角偏上段落 -->
         <p v-if="randomLineCheck" :class="[`${textCol}`]"
           class="absolute right-5 lg:right-25 bottom-12 lg:bottom-20 translate-y-1/3 text-sm lg:text-xl font-light text-right w-50 lg:w-200 leading-relaxed z-10">

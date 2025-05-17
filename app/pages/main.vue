@@ -47,18 +47,19 @@
     <div class="lg:hidden">
       <StickyFixed>
         <button @click="drawerOpen = true"
-          class=" sticky top-1/2   z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
+          class="pointer-events-auto sticky top-1/2   z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
           <svg :class="['transition-transform duration-300', drawerOpen ? 'rotate-180' : '']" width="24" height="24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18l6-6-6-6" />
           </svg>
         </button>
         <transition name="fade">
-          <div v-if="drawerOpen" class="fixed inset-0 z-30 bg-transparent" @click="drawerOpen = false"></div>
+          <div v-if="drawerOpen" class="pointer-events-auto fixed inset-0 z-30 bg-transparent"
+            @click="drawerOpen = false"></div>
         </transition>
         <transition name="slide">
           <aside v-if="drawerOpen"
-            class="sticky top-25  left-0 h-screen  max-h-[80vh] overflow-y-auto z-40  w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400"
+            class="pointer-events-auto sticky top-25  left-0 h-screen  max-h-[80vh] overflow-y-auto z-40  w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400"
             @click.stop @click="drawerOpen = false">
             <div class="flex items-center mb-4">
 

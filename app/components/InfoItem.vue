@@ -15,9 +15,9 @@
     <div class="pl-12 text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">{{ content
     }}</div>
     <a v-if="Link" :href="Link" target="_blank" rel="noopener noreferrer"
-      class="absolute right-0 bottom-1/2 top-1/2 inline-block transition-transform duration-200 ease-in-out transform hover:scale-105">
+      class="block  mt-1 lg:absolute lg:right-0 lg:bottom-1/2 lg:top-1/2 lg:inline-block transition-transform duration-200 ease-in-out transform hover:scale-105">
       <button
-        class="catBtn px-6 py-2 rounded-2xl bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white font-semibold shadow-md hover:from-green-500 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 active:scale-95 transition-all duration-200">
+        class="catBtn block mx-auto  px-6 py-2 rounded-2xl bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white font-semibold shadow-md hover:from-green-500 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 active:scale-95 transition-all duration-200">
         点击进入
       </button>
     </a>
