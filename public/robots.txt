@@ -29,6 +29,6 @@ User-agent: Sogou web spider
 Allow: /
 
 User-Agent: *
-Disallow: /
+Allow: /
 
 Sitemap: https://www.biyao521.com/sitemap.xml
