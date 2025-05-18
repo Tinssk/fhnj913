@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col items-center w-full mt-8">
     <div class="w-full max-w-xl mb-6">
-      <input type="text" placeholder="搜索证据库..."
+      <input v-model="searchKeyword" @keyup.enter="handleSearch" type="text" placeholder="搜索证据库..."
         class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
     </div>
     <div class="w-full max-w-2xl">
       <ul class="divide-y divide-green-200 rounded-lg shadow">
-        <li v-for="evidence in pagedEvidences" :key="novel" class="flex items-center hover:bg-green-200">
+        <li v-for="evidence in pagedEvidences" :key="evidence" class="flex items-center hover:bg-green-200">
           <NuxtLink :to="`/evidence/${encodeURIComponent(evidence)}`" class="catBtn block w-full h-full py-3 px-6"><span
               class="inline-block w-2 h-2 rounded-full bg-green-400 mr-6"></span>{{ evidence }}</NuxtLink>
         </li>
@@ -36,17 +36,29 @@ useHead({
 });
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';
+const route = useRoute()
+const searchKeyword = ref("");
 const currentPage = ref(1);
 const pageSize = 20;
 
 /*请求列表数据 */
 const { data: evidencesData } = await useAsyncData("evidences-list", async () => {
-  const list = await $fetch("/api/evidences-list");
+  const path = route.path;
+  const list = await $fetch("/api/areaSearch", { params: { path } });
   return shuffle(list); // 只服务端执行重排
 });
 const evidences = computed(() => evidencesData.value || []);
 
-
+//搜索函数
+async function handleSearch() {
+  const keyword = searchKeyword.value.trim();
+  console.log(keyword)
+  const path = route.path; // 可根据实际路径调整
+  const res = await $fetch("/api/areaSearch", { params: { keyword, path } });
+  console.log(res)
+  evidencesData.value = res;
+  currentPage.value = 1;
+}
 
 // 洗牌算法
 function shuffle(arr) {

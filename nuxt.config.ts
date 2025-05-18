@@ -13,8 +13,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      meta: [{ name: "referrer", content: "no-referrer" }, { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角" }, { name: "keywords", content: "碧瑶,诛仙,资料,证据,同人,美图,图片,同人文" }, { name: "robots", content: "index, follow" }, { name: "author", content: "碧瑶伤心花瓣组" }, { charset: "utf-8" }],
-      title: "碧瑶の狐岐资料馆", // default fallback title
+      meta: [{ name: "referrer", content: "no-referrer" }, { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角碧瑶专属" }, { name: "keywords", content: "碧瑶,诛仙,资料,资料库,资料馆,证据,同人,美图,图片,同人文" }, { name: "robots", content: "index, follow" }, { name: "author", content: "碧瑶伤心花瓣组" }, { charset: "utf-8" }],
+      title: "碧瑶的狐岐资料馆", // default fallback title
       htmlAttrs: {
         lang: "zh-CN",
       },

@@ -40,8 +40,8 @@
   </div>
   <div class="flex justify-center items-center w-full h-[100vh] bg-black">
     <div class="flex justify-between items-center text-white">
-      <img class="w-30 mr-7" src="/img/by.png" alt="未来" />
-      <p class="font-medium text-4xl">未来</p>
+      <img class="w-30 mr-0" src="/img/by.png" alt="未来" />
+      <p class="font-medium text-4xl">·世界·未来</p>
     </div>
   </div>
   <Footer />

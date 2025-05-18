@@ -52,7 +52,6 @@ useHead({
   title: `碧瑶|卷丹青|图片库`,
 });
 import { Button } from '@/components/ui/button'
-const numberOfImages = 24; // 定义要构造的图片个数
 const imageLibraryTotal = 207; // 图片库总数
 const imageBaseURL = '/img/juandanqing/';
 const allImages = ref([]);
@@ -69,6 +68,8 @@ function getRandomUniqueNumbers(count, max) {
 }
 
 onMounted(() => {
+  const isMobileC = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+  const numberOfImages = isMobileC ? 6 : 20; //isMobileC因为不具有响应式,所以只在一开始构建图片时临时使用
   const randomIndexes = getRandomUniqueNumbers(numberOfImages, imageLibraryTotal);
   const images = randomIndexes.map((num) => `${imageBaseURL}${num}.jpg`);
   console.log(images.length)

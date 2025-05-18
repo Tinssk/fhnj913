@@ -1,0 +1,16 @@
+[
+  { "index": "首页" },
+  { "main": "角色主页" },
+  { "about": "关于" },
+  { "think": "致谢" },
+  {
+    "biyaofame": "碧瑶传"
+  },
+  { "evidence": "证据存档" },
+  { "novels": "折花笺" },
+  { "musics": "铃音渺" },
+  { "games": "趣事物" },
+  { "official": "官方讯息" },
+  { "pictures": "卷丹青" },
+  { "updateLog": "更新日志" }
+]

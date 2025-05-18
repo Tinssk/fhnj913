@@ -1,8 +1,10 @@
 <template>
   <div class="flex flex-col items-center w-full mt-8">
     <div class="w-full max-w-xl mb-6">
-      <input type="text" placeholder="搜索小说..."
-        class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
+      <div class="flex">
+        <input v-model="searchKeyword" @keyup.enter="handleSearch" type="text" placeholder="搜索小说..."
+          class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
+      </div>
     </div>
     <div class="w-full max-w-2xl">
       <ul class="divide-y divide-green-200 rounded-lg shadow">
@@ -36,18 +38,29 @@ useHead({
 });
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';
+const route = useRoute()
 const currentPage = ref(1);
 const pageSize = 20;
-
+const searchKeyword = ref("");
+console.log(route.path)
 /*请求列表数据 */
 const { data: novelsData } = await useAsyncData("novels-list", async () => {
-  const list = await $fetch("/api/novels-list");
+  const path = route.path; // 可根据实际路径调整
+  const list = await $fetch("/api/areaSearch", { params: { path } });
   return shuffle(list); // 只服务端执行重排
 });
 const novels = computed(() => novelsData.value || []);
+const searchResult = ref(null);
 
-
-
+//搜索函数
+async function handleSearch() {
+  const keyword = searchKeyword.value.trim();
+  const path = route.path; // 可根据实际路径调整
+  const res = await $fetch("/api/areaSearch", { params: { keyword, path } });
+  console.log(res)
+  novelsData.value = res;
+  currentPage.value = 1;
+}
 // 洗牌算法
 function shuffle(arr) {
   const a = arr.slice();
