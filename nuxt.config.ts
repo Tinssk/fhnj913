@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import remarkBreaks from "remark-breaks"; // ✅ 引入插件本体
 export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   devServer: {
     host: "192.168.0.170",
     port: 3000,
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      meta: [{ name: "referrer", content: "no-referrer" }, { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角碧瑶专属" }, { name: "keywords", content: "碧瑶,诛仙,资料,资料库,资料馆,证据,同人,美图,图片,同人文" }, { name: "robots", content: "index, follow" }, { name: "author", content: "碧瑶伤心花瓣组" }, { charset: "utf-8" }],
+      meta: [{ name: "referrer", content: "no-referrer" }, { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角碧瑶专属的网站,为碧瑶粉丝,花瓣们提供服务;包括同人文,证据资料,同人美图等等" }, { name: "keywords", content: "碧瑶,诛仙,资料,资料库,资料馆,证据,同人,美图,图片,同人文" }, { name: "robots", content: "index, follow" }, { name: "author", content: "碧瑶伤心花瓣组" }, { charset: "utf-8" }],
       title: "碧瑶的狐岐资料馆", // default fallback title
       htmlAttrs: {
         lang: "zh-CN",

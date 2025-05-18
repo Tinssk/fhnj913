@@ -30,3 +30,5 @@ Allow: /
 
 User-Agent: *
 Disallow: /
+
+Sitemap: https://www.biyao521.com/sitemap.xml
