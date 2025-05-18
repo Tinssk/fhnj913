@@ -35,6 +35,8 @@ definePageMeta({
 // 设置页面 <title>
 useHead({
   title: `碧瑶|折花笺|同人文资料库`,
+  meta: [{ name: 'description', content: '碧瑶的同人文资料库,各种碧瑶的同人文,小说都在这里' },
+  { name: 'keywords', content: '碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆' },]
 });
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';

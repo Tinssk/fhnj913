@@ -13,7 +13,19 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      meta: [{ name: "referrer", content: "no-referrer" }, { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角碧瑶专属的网站,为碧瑶粉丝,花瓣们提供服务;包括同人文,证据资料,同人美图等等" }, { name: "keywords", content: "碧瑶,诛仙,资料,资料库,资料馆,证据,同人,美图,图片,同人文" }, { name: "robots", content: "index, follow" }, { name: "author", content: "碧瑶伤心花瓣组" }, { charset: "utf-8" }],
+      meta: [
+        { name: "referrer", content: "no-referrer" },
+        { name: "description", content: "碧瑶的一切相关资料网站,小说诛仙女主角碧瑶专属的网站,为碧瑶粉丝,花瓣们提供服务;包括同人文,证据资料,同人美图等等" },
+        { name: "keywords", content: "碧瑶,诛仙,资料,资料库,资料馆,证据,同人,美图,图片,同人文" },
+        { name: "robots", content: "index, follow" },
+        { name: "author", content: "碧瑶伤心花瓣组" },
+        { charset: "utf-8" },
+        { property: "og:title", content: "碧瑶的狐歧资料馆" },
+        { property: "og:description", content: "碧瑶的一切相关资料网站,小说诛仙女主角碧瑶专属的网站,为碧瑶粉丝,花瓣们提供服务;包括同人文,证据资料,同人美图等等" },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: "https://www.biyao521.com/img/wiki/by1.jpg" },
+        { property: "og:url", content: "https://www.biyao521.com" },
+      ],
       title: "碧瑶的狐岐资料馆", // default fallback title
       htmlAttrs: {
         lang: "zh-CN",

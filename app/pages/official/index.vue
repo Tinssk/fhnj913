@@ -47,6 +47,8 @@ definePageMeta({
 });
 useHead({
   title: `碧瑶圈官方讯息|公告栏`,
+  meta: [{ name: 'description', content: '碧瑶圈官方讯息,路过的小花瓣不要迷路,同步一些圈子重要的事情;' },
+  { name: 'keywords', content: '碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆,官方讯息,公告栏' },]
 });
 import { ref, computed } from "vue";
 

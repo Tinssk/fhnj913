@@ -34,6 +34,8 @@ definePageMeta({
 });
 useHead({
   title: `碧瑶传首页`,
+  meta: [{ name: 'description', content: '碧瑶同人企划碧瑶传,粉丝共建的属于碧瑶的传奇' },
+  { name: 'keywords', content: '碧瑶,碧瑶传,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆,资料站' },]
 });
 const chapters = ref([])
 const sortedChapters = ref([])

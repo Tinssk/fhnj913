@@ -33,6 +33,8 @@ definePageMeta({
 // 设置页面 <title>
 useHead({
   title: `碧瑶|证据存档库`,
+  meta: [{ name: 'description', content: '碧瑶相关的一切证据合集,存档' },
+  { name: 'keywords', content: '碧瑶,诛仙,诛仙女主角碧瑶,资料馆,证据,资料库,存档' },]
 });
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';
