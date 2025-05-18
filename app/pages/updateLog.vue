@@ -42,6 +42,14 @@
 </template>
 
 <script lang="js" setup>
+definePageMeta({
+  title: '碧瑶的狐歧资料馆|更新日志',
+  textCol: "text-black"
+});
+// 设置页面 <title>
+useHead({
+  title: `碧瑶的狐歧资料馆|更新日志`,
+});
 import { ref, computed } from "vue";
 
 // 构建列表

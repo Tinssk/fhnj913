@@ -6,9 +6,9 @@
     <div
       class="container mx-auto h-full flex items-center justify-between pl-0 pr-2 lg:px-10 relative w-full gap-4 lg:gap-0">
       <!-- Logo 区域 -->
-      <div class="flex items-start relative overflow-visible w-45 xl:w-65 scale-150 lg:scale-100">
+      <div class="flex items-start relative overflow-visible w-45 xl:w-60 scale-150 lg:scale-100">
         <nuxt-link to="/" class="catBtn flex items-start space-x-3 transform lg:translate-y-1/6">
-          <img src="/img/title.png" alt="标题图片" class="w-full max-h-full rounded-full" />
+          <img src="/img/title.png" alt="标题图片" class="w-full max-h-full rounded-full hover:scale-110" />
         </nuxt-link>
       </div>
       <!-- 导航栏 -->

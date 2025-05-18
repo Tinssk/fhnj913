@@ -25,6 +25,7 @@ const handleSearch = async () => {
   if (searchQuery.value.trim()) {
     // 仅进行路由跳转，不再调用 API
     router.push({ path: "/search", query: { q: searchQuery.value } });
+    searchQuery.value = "";
   }
 };
 </script>

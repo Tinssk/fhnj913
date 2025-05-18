@@ -157,10 +157,16 @@
         <div class="flex-2 lg:mx-20">
           <h6 class="font-bold mb-2">快速链接：</h6>
           <ul class="list-none p-0">
-            <li><nuxt-link to="/" class="catBtn link link-hover text-sm">首页</nuxt-link></li>
-            <li><nuxt-link to="/about" class="catBtn link link-hover text-sm">关于我们</nuxt-link></li>
-            <li><nuxt-link to="/thank" class="catBtn link link-hover text-sm">致谢</nuxt-link></li>
-            <li><nuxt-link to="/updateLog" class="catBtn link link-hover text-sm">更新日志</nuxt-link></li>
+            <li><nuxt-link to="/main"
+                class="catBtn link link-hover text-sm bg-black hover:bg-transparent">首页</nuxt-link></li>
+            <li><nuxt-link to="/about"
+                class="catBtn link link-hover text-sm bg-black hover:bg-transparent">关于我们</nuxt-link></li>
+            <li><nuxt-link to="/official"
+                class="catBtn link link-hover text-sm bg-black hover:bg-transparent">官方讯息</nuxt-link></li>
+            <li><nuxt-link to="/thank"
+                class="catBtn link link-hover text-sm bg-black hover:bg-transparent">致谢</nuxt-link></li>
+            <li><nuxt-link to="/updateLog"
+                class="catBtn link link-hover text-sm bg-black hover:bg-transparent">更新日志</nuxt-link></li>
           </ul>
         </div>
         <div class="flex-2">

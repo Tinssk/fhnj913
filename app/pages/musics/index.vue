@@ -9,7 +9,14 @@
 </template>
 
 <script lang="ts" setup>
-
+definePageMeta({
+  title: '碧瑶|铃音渺|音乐合集',
+  textCol: "text-black"
+});
+// 设置页面 <title>
+useHead({
+  title: `碧瑶|铃音渺|音乐合集`,
+});
 </script>
 
 <style></style>
