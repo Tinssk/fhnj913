@@ -173,7 +173,6 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
 const isTop = ref(true); // 控制页头透明度
 const headerRef = ref(null);
 const isMenuOpen = ref(false);

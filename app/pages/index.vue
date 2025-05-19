@@ -72,7 +72,6 @@ const toggleMute = () => {
   if (backgroundVideo.value) {
     backgroundVideo.value.muted = !backgroundVideo.value.muted;
     isMuted.value = backgroundVideo.value.muted;
-    // 你可以在这里添加一些视觉反馈，例如改变音乐按钮的图标
   }
 };
 </script>
@@ -88,7 +87,6 @@ const toggleMute = () => {
   height: 20px;
   /* 图标高度 */
   background: url("/img/icon1.png") no-repeat center;
-  /* 替换为你的图标路径 */
   background-size: contain;
   /* 确保图标适应大小 */
   vertical-align: middle;
