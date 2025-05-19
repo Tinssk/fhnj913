@@ -44,6 +44,10 @@
                 class="catBtn nav-dot dot-teal block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">铃音渺</nuxt-link>
               <nuxt-link to="/games"
                 class="catBtn nav-dot dot-amber block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">趣事物</nuxt-link>
+              <div
+                class="catBtn block px-6 py-2 text-sm italic text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200"
+                @click="useState('showGame').value = true">
+                瑶瑶翻翻乐小游戏<br>(临时置顶,点击游玩)</div>
             </div>
           </div>
         </div>

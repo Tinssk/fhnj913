@@ -2,7 +2,9 @@
   <div class="flex flex-col min-h-screen bg-green-100">
     <!-- 图片版头 -->
     <PageWrapper :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" />
-    <!-- 引入 Header 组件 -->
+
+
+    <GameShade /> <!-- 引入 Header 组件 -->
     <Header />
     <!-- 移动端目录,侧拉式菜单 -->
 
