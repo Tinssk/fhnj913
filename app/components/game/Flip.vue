@@ -55,7 +55,7 @@
     <transition name="fade">
       <div v-if="celebratory" class="fixed inset-0 z-[10000] flex items-center justify-center pointer-events-none">
         <div class="relative z-10 flex flex-col items-center">
-          <img src="/img/games/File/完成喝彩.png" class="w-35 lg:w-40 h-auto object-contain" />
+          <img src="/img/games/Flip/完成喝彩.png" class="w-35 lg:w-40 h-auto object-contain" />
           <div class="celebrate-text text-2xl lg:text-5xl font-extrabold text-green-700 mb-4 animate-pop">🎉
             恭喜找到了所有的瑶瑶！🎉</div>
           <div class="celebrate-fireworks">
@@ -73,7 +73,7 @@
 const showGame = useState("showGame", () => false);
 const steps = ref(0);
 // 翻翻乐图片
-const imageList = ref<string[]>(["/img/games/File/1.jpg", "/img/games/File/2.jpg", "/img/games/File/3.jpg", "/img/games/File/4.jpg", "/img/games/File/5.jpg", "/img/games/File/6.jpg", "/img/games/File/7.jpg", "/img/games/File/8.png"]);
+const imageList = ref<string[]>(["/img/games/Flip/1.jpg", "/img/games/Flip/2.jpg", "/img/games/Flip/3.jpg", "/img/games/Flip/4.jpg", "/img/games/Flip/5.jpg", "/img/games/Flip/6.jpg", "/img/games/Flip/7.jpg", "/img/games/Flip/8.png"]);
 
 interface Card {
   id: number;

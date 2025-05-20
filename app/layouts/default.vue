@@ -3,8 +3,7 @@
     <!-- 图片版头 -->
     <PageWrapper :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" />
 
-
-    <GameShade /> <!-- 引入 Header 组件 -->
+    <!-- 引入 Header 组件 -->
     <Header />
     <!-- 移动端目录,侧拉式菜单 -->
 

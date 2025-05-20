@@ -4,6 +4,8 @@
   <CustomLoading />
   <!-- 🔥 视频特效层 -->
   <ScreenEffect />
+  <!-- 游戏组件 -->
+  <GameShade />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

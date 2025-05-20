@@ -14,7 +14,6 @@ export default defineEventHandler(async (event) => {
   }
   // 获取所有 markdown 文件名（含 novels 目录下的）
   const files = await storage.getKeys();
-  console.log(files);
   // 过滤出 novels 目录下的 .md 文件
   let namesFiles = files.filter((f) => f.startsWith(`${path}:`) && f.endsWith(".md"));
 
