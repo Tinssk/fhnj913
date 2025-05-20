@@ -2,7 +2,7 @@
 export default defineNuxtPlugin(() => {
   if (process.client) {
     let a_idx = 0;
-    const words = ["❤碧瑶❤", "❤情缘❤", "❤爱恋❤", "❤生死❤", "❤痴情咒❤", "❤不悔❤", "❤合欢❤", "❤伤心❤", "❤三生七世❤", "❤九幽阴灵❤", "❤伤心花❤", "❤合欢铃❤"];
+    const words = ["❤碧瑶❤", "❤情缘❤", "❤爱恋❤", "❤花瓣❤", "❤生死❤", "❤痴情咒❤", "❤不悔❤", "❤合欢❤", "❤伤心❤", "❤三生七世❤", "❤九幽阴灵❤", "❤伤心花❤", "❤合欢铃❤"];
 
     window.addEventListener("click", function (event) {
       // 🛑 如果点击的是表单控件，就不触发动画
