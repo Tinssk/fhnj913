@@ -47,7 +47,7 @@ title: '碧瑶角色主页'
 >
 >碧瑶脸上有淡淡的红晕，树林深处吹来的轻风，轻轻掠起了她柔软的长发，拂过白皙的脸畔。
 
-<img src="/img/wiki/by13.jpg" alt="梦中情人碧瑶" class="by1 " />
+<img src="/img/wiki/by13.jpg" alt="梦中情人碧瑶" class="by1 " loading="lazy"/>
 
 〖眼睛〗：灵动大眼睛，眼波如水
 
@@ -89,7 +89,7 @@ title: '碧瑶角色主页'
 〖善良〗：
 
 > 碧瑶看了他一眼，道：“我就落在你昏迷不不远处，正好看到了你，此刻那黑水玄蛇又向我们追了过来，我抬头一看，见你扯下的那棵老树所在居然是个山洞，里面竟还有亮光透出，而且洞口不大，便躲了进去。临走前看你可怜，便把你也拉进来了，傻瓜！”
-<img src="/img/wiki/by4.jpg" alt="美丽的碧瑶" class="by1 " />
+<img src="/img/wiki/by4.jpg" alt="美丽的碧瑶" class="by1 " loading="lazy"/>
 
 〖聪慧〗：
 
@@ -123,7 +123,7 @@ title: '碧瑶角色主页'
 
 > 碧瑶拎起这个铃铛，但见铃心精巧细致，一条细细铁索系在铃身上，微一摇动，铃心轻轻撞击铃身，又一次地发出声音。“叮……叮当。”碧瑶看在眼里，少女心性，很是喜欢。
 
-<img src="/img/wiki/by18.jpg" alt="碧瑶与狐狸" class="by1 " />
+<img src="/img/wiki/by18.jpg" alt="碧瑶与狐狸" class="by1 "loading="lazy" />
 
 〖清丽无双〗：
 
@@ -155,7 +155,7 @@ title: '碧瑶角色主页'
 
 > 映入他眼里的，是那一身水绿衣裳的女子正坐在平台边上，一双脚搭在半空，有一下没一下地晃着，连带着她腰间的那只合欢铃“叮叮当当”地响着，若不是在这种环境下并且知道她的身分，张小凡几乎要以为这还是个天真无邪的少女了。
 
-<img src="/img/wiki/by2.jpg" alt="出水" class="by1 " />
+<img src="/img/wiki/by2.jpg" alt="出水" class="by1 "loading="lazy" />
 
 〖出水芙蓉〗：
 
@@ -192,7 +192,7 @@ title: '碧瑶角色主页'
 
 > （石头）却又不好意思对这一个俏生生、娇滴滴的姑娘生气，只得闷在心里。
 
-<img src="/img/wiki/by5.jpg" alt="美图" class="by1 " />
+<img src="/img/wiki/by5.jpg" alt="美图" class="by1 "loading="lazy" />
 
 〖雨中百合〗：
 
@@ -228,7 +228,7 @@ title: '碧瑶角色主页'
 
 ### 角色能力
 
-<img src="/img/wiki/by8.jpg" alt="施展伤心花" class="by1 " />
+<img src="/img/wiki/by8.jpg" alt="施展伤心花" class="by1 "loading="lazy" />
 
 #### 〖伤心花〗
 一朵会散发出幽香以及淡淡白光的小花。
@@ -271,7 +271,7 @@ title: '碧瑶角色主页'
 
 ### 人际关系
 
-<img src="/img/wiki/by14.jpg" alt="碧瑶全家" class="by1 " />
+<img src="/img/wiki/by14.jpg" alt="碧瑶全家" class="by1 " loading="lazy"/>
 
 〖父亲〗：鬼王宗宗主鬼王，博览多学，为人儒雅。
 
@@ -287,7 +287,7 @@ title: '碧瑶角色主页'
 
 ### 角色经历
 
-<img src="/img/wiki/by12.jpg" alt="童年" class="by1 " />
+<img src="/img/wiki/by12.jpg" alt="童年" class="by1 "loading="lazy" />
 
 #### 狐岐山·惊变
 
@@ -299,7 +299,7 @@ title: '碧瑶角色主页'
 ·山海苑月下折花遇到张小凡。
 首次登场时的碧瑶不过是一个十六七岁的少女，秀美绝伦，广博见识。月色下，她折花深嗅，恍如仙女一般，让张小凡哑然痴迷。几问折花，张小凡眼中的她热情灿烂、刁钻古怪，谁又知这如仙子一般天真少女的外表之下，却是一颗孤寂而脆弱的心。
 
-<img src="/img/wiki/by6.jpg" alt="智斗黑蛇" class="by1 " />
+<img src="/img/wiki/by6.jpg" alt="智斗黑蛇" class="by1 "loading="lazy" />
 
 #### 死灵渊·又相逢
 
@@ -326,7 +326,7 @@ title: '碧瑶角色主页'
 ·第一次离开张小凡。
 海云楼，她素手撑伞，明眸如水，她与他对立而站，悄然无语。她为他撑伞，他阻止她跟去流波，她说若二人能一起死在那洞中或许也不错。会有这般的表白，是深知跟他离别的时刻即将到了吧？张小凡担心碧瑶一路跟随将会有危险，但当她真的不辞而别之时，他的心却又是如此的茫然。
 
-<img src="/img/wiki/by7.jpg" alt="昌合夜雨" class="by1 " />
+<img src="/img/wiki/by7.jpg" alt="昌合夜雨" class="by1 " loading="lazy"/>
 
 #### 流波山·雨夜依偎
 
@@ -339,7 +339,7 @@ title: '碧瑶角色主页'
 
 ·大竹峰黑竹林中深情相拥，互了心意。
 竹林见她时，张小凡心中所有的难过和怨恨都被眼前的姑娘所化解，只剩下了满满的心疼和欢喜。张小凡为她擦干净了那一段断竹，万千珍宝不如拭竹之袖，此刻他的世界，只有她。放开怀抱，将这心爱的人儿拥入怀中。并在碧瑶离去之际，张小凡答应下次见面告诉她在满月井里看到了什么。
-<img src="/img/wiki/by9.jpg" alt="痴情咒" class="by1 " />
+<img src="/img/wiki/by9.jpg" alt="痴情咒" class="by1 "loading="lazy" />
 
 #### 青云殿·死别
 
@@ -351,7 +351,7 @@ title: '碧瑶角色主页'
 
 ·张小凡化鬼厉守护碧瑶。
 在碧瑶魂飞魄散的时刻，合欢铃将她一魂扣下，肉身不灭不死，却一直昏迷。张小凡化为鬼厉如恶鬼般杀戮众生，但在她面前，他却永远是那个叫做张小凡的少年，只有在她面前，他才能感到丝丝快乐，等她醒来，要与她一生一世天涯海角。还魂虽失败，却也收集到了碧瑶的三魂七魄，在寒冰室中魂魄与鬼厉相见。鬼厉的十年的执念与爱都给了躺在那里的那个温柔少女。
-<img src="/img/wiki/by10.jpg" alt="寒冰室" class="by1" />
+<img src="/img/wiki/by10.jpg" alt="寒冰室" class="by1"loading="lazy" />
 
 #### 草庙村·结局
 
@@ -368,10 +368,10 @@ title: '碧瑶角色主页'
 
 #### 戮仙传说
 《戮仙》中，碧瑶已然成为了后人口中的强大存在，圣后娘娘，并封印了小灰。传说里碧瑶封印了张小凡，封印张小凡的石棺上有一截戮仙剑残片与一只小小的风铃，石棺里是张小凡的法宝。到底发生了什么，后人不得而知，只能推测出张小凡不忍伤害碧瑶，一段昔年的旧日因果……
-<img src="/img/wiki/by15.jpg" alt="圣后碧瑶" class="by15" />
+<img src="/img/wiki/by15.jpg" alt="圣后碧瑶" class="by15"loading="lazy"/>
 
 ### 角色赏析
-<img src="/img/wiki/by1.jpg" alt="花间少女" class="by1 " />
+<img src="/img/wiki/by1.jpg" alt="花间少女" class="by1 " loading="lazy"/>
 
 六岁时，母亲小痴带碧瑶去狐岐山探望姥姥时，正道来袭，姥姥身死。碧瑶与母亲被埋狐岐山，小痴为救女儿割肉喂女。此事成为碧瑶心中最深的痛，也造成与父亲的多年隔阂。纵然往事凄苦，不堪回首，她依旧以笑容对待人世。笑颜暖艳如朝阳，心中孤寂如独月，却知世故而不世故，看尽人世薄凉而依旧情深。
 
@@ -737,7 +737,7 @@ title: '碧瑶角色主页'
 
 ### 角色评价
 
-<img src="/img/wiki/by11.jpg" alt="同光同尘" class="by1 " />
+<img src="/img/wiki/by11.jpg" alt="同光同尘" class="by1 " loading="lazy"/>
 
 1、张檬在谈及“碧瑶”时表示，她虽然貌似柔弱可人，但为了爱情而宁可牺牲自己的勇气让自己印象十分深刻，爱情的真谛不在于占有，而是为了自己的爱人敢于牺牲的勇气。
 
@@ -751,7 +751,7 @@ title: '碧瑶角色主页'
 
 ### 戮仙碧瑶
 
-<img src="/img/wiki/by17.jpg" alt="圣后娘娘" class="by1 " />
+<img src="/img/wiki/by17.jpg" alt="圣后娘娘" class="by1 "loading="lazy" />
 
 <p class="compact">
     姓名：碧瑶<br>
