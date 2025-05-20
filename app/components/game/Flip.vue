@@ -22,7 +22,7 @@
                 :class="['relative w-full h-full duration-300', card.flipped || card.matched ? 'rotate-y-180' : '', 'transform-style-preserve-3d']">
                 <!-- 背面 -->
                 <div
-                  class="absolute w-full h-full bg-green-400 rounded-lg flex items-center justify-center text-white text-2xl font-bold backface-hidden shadow-lg">
+                  class="absolute w-full h-full bg-green-400 hover:bg-emerald-600 rounded-lg flex items-center justify-center text-white text-2xl font-bold backface-hidden shadow-lg">
                   ?</div>
                 <!-- 正面 -->
                 <div
