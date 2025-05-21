@@ -1,34 +1,4 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Baiduspider-news
-Allow: /
-
-User-agent: Baiduspider-render
-Allow: /
-
-User-agent: Baiduspider-image
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: DuckDuckbot
-Allow: /
-
-User-agent: Sogou web spider
-Allow: /
-
-User-Agent: *
+User-agent: *
 Allow: /
 
 Sitemap: https://www.biyao521.com/sitemap.xml
