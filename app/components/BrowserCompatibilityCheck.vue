@@ -2,7 +2,7 @@
   <div class="hidden">
     <div class=" unsupported-browser-overlay">
       <img src="/img/errorWeep.png" />
-      <h1 class="unsupported-browser-title">出问题了!!瑶儿检测到您的浏览器版本过低</h1>
+      <h2 class="unsupported-browser-title">出问题了!!瑶儿检测到您的浏览器版本过低</h2>
       <p class="unsupported-browser-message">
         您正在使用的浏览器无法正常使用瑶瑶的资料站。请更新您的浏览器或下载一个现代浏览器。
       </p>
