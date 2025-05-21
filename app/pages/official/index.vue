@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 设置列表
 const infoList = ref([
   {
+    time: "2025-05-21 09:31",
+    content: "网站正式公布十分钟,请求人次直接超过1w人次啦~",
+  },
+  {
     time: "2025-05-21",
     content: "2025年碧瑶521生日庆典正在进行中!祝碧瑶生日快乐!点击参与!",
     Link: "https://weibo.com/p/1008082ba2304bd954b238b1684564e6818499"
