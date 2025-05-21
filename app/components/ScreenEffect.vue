@@ -15,7 +15,7 @@ onMounted(() => {
   canvas.height = window.innerHeight;
 
   const petals = [];
-  const petalCount = isMobile?10:30;
+  const petalCount = isMobile ? 10 : 30;
   const petalSrcList = [
     "/img/petal/1.png",
     "/img/petal/2.png",
@@ -90,6 +90,29 @@ onMounted(() => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   });
+});
+// 在组件卸载时清理资源
+onUnmounted(() => {
+  // 停止 requestAnimationFrame 循环
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
+  }
+
+  // 移除 window resize 事件监听器
+  if (resizeHandler) {
+    window.removeEventListener("resize", resizeHandler);
+  }
+
+  // 清理对 Canvas 的引用，虽然 JavaScript 垃圾回收器会自动处理，
+  // 但显式设置为 null 有时可以帮助垃圾回收更快地识别。
+  const canvas = document.getElementById("petal-canvas");
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除画布内容
+
+    }
+  }
 });
 </script>
 
