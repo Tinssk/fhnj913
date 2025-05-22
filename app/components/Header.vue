@@ -88,7 +88,7 @@
       <div class="hidden lg:flex justify-end w-20">
         <a href="https://weibo.com/6191654993/5161784295035068" target="_blank" rel="noopener noreferrer">
           <img src="/img/logo-biyao.svg" alt="Logo"
-            class="w-10 h-10 lg:w-14 lg:h-14 transition-transform duration-300 hover:scale-110 select-none" />
+            class="catBtn w-10 h-10 lg:w-14 lg:h-14 transition-transform duration-300 hover:scale-110 select-none" />
         </a>
       </div>
 

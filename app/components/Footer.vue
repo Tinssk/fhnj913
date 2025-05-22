@@ -177,7 +177,7 @@
         <div class="absolute bottom-3 right-3">
           <a href="https://weibo.com/6191654993/5161784295035068" target="_blank" rel="noopener noreferrer">
             <img src="/img/logo-biyao.svg" alt="Logo"
-              class="w-24 h-24 transition-transform duration-300 hover:scale-110 select-none hover:shadow-lg" />
+              class="catBtn w-24 h-24 transition-transform duration-300 hover:scale-110 select-none hover:shadow-lg" />
           </a>
         </div>
       </div>
