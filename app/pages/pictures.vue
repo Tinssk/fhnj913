@@ -52,7 +52,7 @@ useHead({
   title: `碧瑶|卷丹青|图片库`,
 });
 import { Button } from '@/components/ui/button'
-const imageLibraryTotal = 207; // 图片库总数
+const imageLibraryTotal = 245; // 图片库总数
 const imageBaseURL = '/img/juandanqing/';
 const allImages = ref([]);
 const activeImageIndex = ref(null); // 跟踪当前被点击的图片索引

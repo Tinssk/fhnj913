@@ -3,8 +3,6 @@
   <div class="relative h-[100vh] bg-transparent overflow-hidden">
     <video ref="backgroundVideo" class="absolute  w-full h-[100vh] object-cover min-height-[800px]" preload="auto" loop
       playsinline autoplay tabindex="-1" muted>
-      <source src="https://bg-1359278315.cos.ap-nanjing.myqcloud.com/bgav1.mp4"
-        type="video/mp4; codecs=av01.0.01M.08" />
       <source src="/video/bgav1.mp4" type="video/mp4; codecs=av01.0.01M.08" />
       <source src="/video/bg.mp4" type="video/mp4" />
       您的浏览器不支持 HTML5 视频。
