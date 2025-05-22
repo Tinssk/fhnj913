@@ -55,6 +55,11 @@ import { ref, computed } from "vue";
 // 设置列表
 const infoList = ref([
   {
+    time: "2025-05-21 12:00",
+    content: "碧瑶粉丝自制cg震撼发布",
+    Link: "https://weibo.com/2461312731/PsPuJg7RO"
+  },
+  {
     time: "2025-05-21 09:31",
     content: "网站正式公布十分钟,请求人次直接超过1w人次啦~",
   },
