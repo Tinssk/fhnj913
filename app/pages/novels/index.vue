@@ -16,12 +16,12 @@
       <!-- 分页器逻辑 -->
       <div v-if="totalPages > 1" class="flex justify-center items-center mt-6 gap-2">
         <button @click="prevPage" :disabled="currentPage === 1"
-          class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
-        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)"
+          class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
+        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)" class="catBtn"
           :class="['px-3 py-1 rounded border', page === currentPage ? 'bg-green-400 text-white border-green-400' : 'bg-white text-green-700 border-green-300']">{{
             page }}</button>
         <button @click="nextPage" :disabled="currentPage === totalPages"
-          class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
+          class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
       </div>
     </div>
   </div>

@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2025-05-27",
+    content: "修复了折花笺分页器鼠标样式显示不正常,无法正常显示动态鼠标",
+  },
+  {
     time: "2025-05-21",
     content: "狐歧资料站正式上线!值得纪念的一天",
   },
