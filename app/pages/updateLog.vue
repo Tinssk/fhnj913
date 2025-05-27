@@ -56,7 +56,7 @@ import { ref, computed } from "vue";
 const infoList = ref([
   {
     time: "2025-05-27",
-    content: "修复了折花笺分页器鼠标样式显示不正常,无法正常显示动态鼠标",
+    content: "修复了折花笺分页器鼠标样式显示不正常,无法正常显示动态鼠标的问题",
   },
   {
     time: "2025-05-21",
