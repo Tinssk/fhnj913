@@ -121,6 +121,13 @@ definePageMeta({
   title: "碧瑶角色主页",
   wrapperHeight: "h-120",
 });
+useHead({
+  meta:
+    [
+      { name: 'description', content: '碧瑶的角色主页介绍,碧瑶，国产小说《诛仙》及其衍生作品中的女主角。魔教鬼王宗少宗主，仙姿仪容，灵气逼人，博闻广识，妙颜无双。为救爱人张小凡使用“痴情咒”，以身挡下“诛仙剑阵”，三魂六魄受九幽之苦， 然其一魂被扣入合欢铃，不老不死。后十年，张小凡为救碧瑶化为鬼厉寻觅救治之法，于南疆寻得大巫师，虽“招魂引”因差一字失败，但成功聚碧瑶全部魂魄于合欢铃内。狐岐山崩塌时，碧瑶的身体与合欢铃一起失踪，只留下一角绿色衣裳。全书尾，张小凡带着碧瑶的绿色衣角隐居，并把碧瑶衣角与一个普通铃铛悬于屋檐下。' },
+      { name: 'keywords', content: '碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆' },
+    ]
+})
 const route = useRoute();
 const { data: page } = await useAsyncData(`role`, () => {
   return queryCollection("content").path(route.path).first();
@@ -241,7 +248,6 @@ function onScroll() {
   currentId.value = current;
 }
 
-useSeoMeta(page.value?.seo || {});
 </script>
 <style>
 /* Markdown内容样式 */
