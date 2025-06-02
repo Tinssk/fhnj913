@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2025-06-02",
+    content: "解决了使用手机端时,仍然加载动态鼠标,导致的页面卡顿问题",
+  },
+  {
     time: "2025-05-27",
     content: "修复了折花笺分页器鼠标样式显示不正常,无法正常显示动态鼠标的问题",
   },
