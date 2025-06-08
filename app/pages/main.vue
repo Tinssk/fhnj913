@@ -393,6 +393,21 @@ function onScroll() {
   background-color: gray;
 }
 
+.prose td a {
+  color: #007bff;
+  /* 蓝色，常用于链接 */
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.prose td a:hover {
+  color: #0056b3;
+  /* 悬停变深蓝 */
+  text-decoration: none;
+}
+
 /* 暗黑模式样式 */
 .dark .prose code {
   background-color: #374151;
