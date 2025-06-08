@@ -580,7 +580,7 @@ title: '碧瑶角色主页'
     </tr>
     <tr>
       <td><a class="catBtn" href="" target="_blank">《青云破》</a></td>
-      <td>萧忆情/霄磊</td>
+      <td>奇然</td>
       <td>冥凰</td>
       <td>李建衡</td>
       <td>李建衡</td>
