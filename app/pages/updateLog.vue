@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2025-06-10",
+    content: "完善了主页歌曲列表里面的歌曲,并且都添加了链接,现在可以很方便找歌啦~",
+  },
+  {
     time: "2025-06-02",
     content: "解决了使用手机端时,仍然加载动态鼠标,导致的页面卡顿问题",
   },

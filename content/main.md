@@ -443,7 +443,7 @@ title: '碧瑶角色主页'
       <td colspan="6">个人官方歌曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《铃音叹》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1383211558" target="_blank">《铃音叹》</a></td>
       <td>萧忆情/霄磊</td>
       <td>王琦（BOWI）</td>
       <td>王琦（BOWI）</td>
@@ -451,7 +451,7 @@ title: '碧瑶角色主页'
       <td>《诛仙》手游三周年 碧瑶主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《青衣谣》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV183411Q73p" target="_blank">《青衣谣》</a></td>
       <td>郁可唯</td>
       <td>周洁颖</td>
       <td>谭旋</td>
@@ -459,7 +459,7 @@ title: '碧瑶角色主页'
       <td>《诛仙青云志》 碧瑶个人曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《时光笔墨》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=451113443" target="_blank">《时光笔墨》</a></td>
       <td>张碧晨</td>
       <td>代岳东</td>
       <td>藤原育郎</td>
@@ -467,7 +467,7 @@ title: '碧瑶角色主页'
       <td>《诛仙青云志》片尾曲,讲述凡瑶感情</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《爱恨恢恢》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=327109" target="_blank">《爱恨恢恢》</a></td>
       <td>周迅</td>
       <td>林夕</td>
       <td>小柯</td>
@@ -475,7 +475,7 @@ title: '碧瑶角色主页'
       <td>《诛仙2·为爱成神》 主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《爱的时间》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=28381460" target="_blank">《爱的时间》</a></td>
       <td>Alicia</td>
       <td>小旭音乐</td>
       <td>小旭音乐</td>
@@ -483,7 +483,7 @@ title: '碧瑶角色主页'
       <td>《诛仙2·为爱成神》 碧瑶之歌</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《三生七世》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=28409871" target="_blank">《三生七世》</a></td>
       <td>李英伦</td>
       <td>小旭-若竹</td>
       <td>小旭-Tureleon</td>
@@ -491,7 +491,7 @@ title: '碧瑶角色主页'
       <td>《诛仙2·末日与曙光》碧瑶专属主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《折花》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1AJ411P7Yi" target="_blank">《折花》</a></td>
       <td>孟美岐</td>
       <td>周晓宜</td>
       <td>朱芸编</td>
@@ -499,7 +499,7 @@ title: '碧瑶角色主页'
       <td>电影《诛仙Ⅰ》无悔版角色推广曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《时间裂缝》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1xs411e7M3" target="_blank">《时间裂缝》</a></td>
       <td>李易峰</td>
       <td>李易峰</td>
       <td>陆虎</td>
@@ -507,7 +507,7 @@ title: '碧瑶角色主页'
       <td>《诛仙青云志》 由鬼厉演员演唱写给碧瑶之歌</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《伤心花》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=463262538" target="_blank">《伤心花》</a></td>
       <td>简弘亦</td>
       <td>海雷</td>
       <td>丁培峰</td>
@@ -515,7 +515,7 @@ title: '碧瑶角色主页'
       <td>《诛仙青云志》第二季真爱概念曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《诛仙青云志》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=432698897" target="_blank">《诛仙青云志》</a></td>
       <td>魏紫琪</td>
       <td>王玉壮</td>
       <td>勾辉</td>
@@ -523,7 +523,7 @@ title: '碧瑶角色主页'
       <td>《诛仙青云志》宣传曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《诛仙青云志》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV18J411v74P?p=33" target="_blank">《诛仙青云志》</a></td>
       <td>钟洁/蓝褶</td>
       <td>苏若愚</td>
       <td>钟洁</td>
@@ -531,7 +531,7 @@ title: '碧瑶角色主页'
       <td>《诛仙青云志》歌曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《为爱成神》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=28381461" target="_blank">《为爱成神》</a></td>
       <td>楚天舒</td>
       <td>小旭音乐</td>
       <td>小旭音乐</td>
@@ -539,7 +539,7 @@ title: '碧瑶角色主页'
       <td>《诛仙2·为爱成神》 鬼厉之歌</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《碧落凡尘》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=2704490980" target="_blank">《碧落凡尘》</a></td>
       <td>萧忆情</td>
       <td>冥凰</td>
       <td>陈鹏杰</td>
@@ -547,7 +547,7 @@ title: '碧瑶角色主页'
       <td>《梦幻诛仙》手游 凡瑶恋主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《刹那十年》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1is411b7yx" target="_blank">《刹那十年》</a></td>
       <td>音频怪物</td>
       <td>湘行散记</td>
       <td>陈鹏杰</td>
@@ -555,7 +555,7 @@ title: '碧瑶角色主页'
       <td>《梦幻诛仙》手游 鬼厉主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《一念成魔》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=543798058" target="_blank">《一念成魔》</a></td>
       <td>曹格</td>
       <td>曹格、罗媛</td>
       <td>曹格</td>
@@ -563,7 +563,7 @@ title: '碧瑶角色主页'
       <td>《诛仙》手游新马版 主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《情醉》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=224338" target="_blank">《情醉》</a></td>
       <td>董贞，盛威</td>
       <td>董贞</td>
       <td>董贞</td>
@@ -571,7 +571,7 @@ title: '碧瑶角色主页'
       <td>《新诛仙·六道轮回》 主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《只为情故》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1fx4y1u7kK" target="_blank">《只为情故》</a></td>
       <td>应嘉俐</td>
       <td>阿都沁</td>
       <td>李泳良</td>
@@ -579,7 +579,7 @@ title: '碧瑶角色主页'
       <td>《诛仙》动画插曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《青云破》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=465531087" target="_blank">《青云破》</a></td>
       <td>奇然</td>
       <td>冥凰</td>
       <td>李建衡</td>
@@ -590,7 +590,7 @@ title: '碧瑶角色主页'
       <td colspan="6">官方主题歌</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《梦回诛仙》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1398843022" target="_blank">《梦回诛仙》</a></td>
       <td>李玉刚</td>
       <td>冥凰、陈鹏杰</td>
       <td>陈鹏杰</td>
@@ -598,7 +598,7 @@ title: '碧瑶角色主页'
       <td>《诛仙》手游情怀主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《梦幻诛仙》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=438456232" target="_blank">《梦幻诛仙》</a></td>
       <td>汪苏泷，张碧晨</td>
       <td>汪苏泷</td>
       <td>汪苏泷</td>
@@ -606,7 +606,7 @@ title: '碧瑶角色主页'
       <td>《梦幻诛仙》手游 同名主题曲。娓娓道来张小凡与碧瑶的爱情</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《为爱诛仙》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1B4411a7zM" target="_blank">《为爱诛仙》</a></td>
       <td>叶炫清</td>
       <td>李岩</td>
       <td>杜雯媞</td>
@@ -614,7 +614,7 @@ title: '碧瑶角色主页'
       <td>《诛仙》游戏主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《情动诛仙》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1383211548" target="_blank">《情动诛仙》</a></td>
       <td>河图<br />念白：流浪的蛙蛙</td>
       <td>焰31</td>
       <td>小新/魅子</td>
@@ -622,7 +622,7 @@ title: '碧瑶角色主页'
       <td>《诛仙》手游三周年 主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《相思引》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=224327" target="_blank">《相思引》</a></td>
       <td>董贞</td>
       <td>董贞</td>
       <td>小旭音乐、董贞</td>
@@ -630,7 +630,7 @@ title: '碧瑶角色主页'
       <td>《诛仙·王者归来》 主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《诛仙剑》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=370560" target="_blank">《诛仙剑》</a></td>
       <td>痞克四</td>
       <td>自从</td>
       <td>黄韵玲&amp;钟兴民&amp;自从</td>
@@ -638,7 +638,7 @@ title: '碧瑶角色主页'
       <td>《诛仙Online》台服主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《梦诛缘·春生》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=475072197" target="_blank">《梦诛缘·春生》</a></td>
       <td>戚薇</td>
       <td>汪苏泷</td>
       <td>汪苏泷</td>
@@ -646,7 +646,7 @@ title: '碧瑶角色主页'
       <td>《梦幻诛仙》手游半周年庆主题曲。讲述张小凡与碧瑶的爱情</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《梦诛缘·忆暖冬》</a></td>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV15y4y157Ek" target="_blank">《梦诛缘·忆暖冬》</a></td>
       <td>庄心妍</td>
       <td>蔡晓恩</td>
       <td>蔡晓恩</td>
@@ -654,7 +654,7 @@ title: '碧瑶角色主页'
       <td>《梦幻诛仙》手游之歌</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《梦诛缘·锁清秋》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=495848288" target="_blank">《梦诛缘·锁清秋》</a></td>
       <td>费玉清</td>
       <td>Willen</td>
       <td>何亮</td>
@@ -662,7 +662,7 @@ title: '碧瑶角色主页'
       <td>《梦幻诛仙》手游“正邪之战”主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《风吟诛仙》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1890190009" target="_blank">《风吟诛仙》</a></td>
       <td>毛不易</td>
       <td>江珂</td>
       <td>钱雷</td>
@@ -670,7 +670,7 @@ title: '碧瑶角色主页'
       <td>新《诛仙》手游2021年全新品牌主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《缘起诛仙》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1477857419" target="_blank">《缘起诛仙》</a></td>
       <td>胡夏</td>
       <td>刘默君</td>
       <td>吴梦奇</td>
@@ -678,7 +678,7 @@ title: '碧瑶角色主页'
       <td>《诛仙3》十三周年主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《梦终归》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1844435726" target="_blank">《梦终归》</a></td>
       <td>黄明昊</td>
       <td>高维纶</td>
       <td>高维纶</td>
@@ -686,7 +686,7 @@ title: '碧瑶角色主页'
       <td>《梦幻新诛仙》手游重逢主题曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《九游青云志》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=429459767" target="_blank">《九游青云志》</a></td>
       <td>哦漏</td>
       <td>杰克</td>
       <td>擎天</td>
@@ -694,7 +694,7 @@ title: '碧瑶角色主页'
       <td>青云志手游主题曲,讲述凡瑶的命运相恋</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《陌上拾年》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=540614811" target="_blank">《陌上拾年》</a></td>
       <td>心然</td>
       <td>月吟诗</td>
       <td>月吟诗 古奇光</td>
@@ -705,7 +705,7 @@ title: '碧瑶角色主页'
       <td colspan="6">同人歌曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《诛仙·十年》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=480756673" target="_blank">《诛仙·十年》</a></td>
       <td>云の泣</td>
       <td>龙庭</td>
       <td>满江红(原曲)</td>
@@ -713,7 +713,7 @@ title: '碧瑶角色主页'
       <td>翻唱填词歌曲,讲述诛仙张小凡对碧瑶十年间刻骨铭心的爱</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《生死劫》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=470759298" target="_blank">《生死劫》</a></td>
       <td>五音JW/银临</td>
       <td>梦殇碧落</td>
       <td>Tide潮汐</td>
@@ -721,7 +721,7 @@ title: '碧瑶角色主页'
       <td>张小凡与碧瑶跨越生死的痴缠眷恋</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《伤心碧落》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=27901604" target="_blank">《伤心碧落》</a></td>
       <td>不知所云</td>
       <td>不知所云</td>
       <td>千草仙</td>
@@ -729,7 +729,7 @@ title: '碧瑶角色主页'
       <td>千草仙和不知所云为诛仙游戏原创的歌曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《诛仙·碧落琼瑶》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=467963084" target="_blank">《诛仙·碧落琼瑶》</a></td>
       <td>Tacke竹桑</td>
       <td>七手</td>
       <td>小旭音乐</td>
@@ -737,7 +737,7 @@ title: '碧瑶角色主页'
       <td>讲述了碧瑶炽烈的爱恋与凡瑶跨越正魔之别的爱情</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《凡心》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=29544523" target="_blank">《凡心》</a></td>
       <td>许多葵</td>
       <td>小鱼萝莉</td>
       <td>小旭-Lie</td>
@@ -745,7 +745,7 @@ title: '碧瑶角色主页'
       <td>讲述了张小凡对碧瑶的心意与命运的无奈</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《浮生芳华》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1949677542" target="_blank">《浮生芳华》</a></td>
       <td>雪息</td>
       <td>菱零</td>
       <td>诺(原曲)</td>
@@ -753,7 +753,7 @@ title: '碧瑶角色主页'
       <td>翻唱填词自《诺》</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《灼灼心上花》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1449669945" target="_blank">《灼灼心上花》</a></td>
       <td>小卷鹅</td>
       <td>云无月</td>
       <td>断译</td>
@@ -761,7 +761,7 @@ title: '碧瑶角色主页'
       <td>碧瑶521生日同人曲</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《诛仙·生死恋》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=27890493" target="_blank">《诛仙·生死恋》</a></td>
       <td>HITA</td>
       <td>为了狮子头/咿咿</td>
       <td>千草仙</td>
@@ -769,7 +769,7 @@ title: '碧瑶角色主页'
       <td>献给惋惜小凡碧瑶的朋友们的一首歌</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="" target="_blank">《伤心花·念碧瑶》</a></td>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=462473946" target="_blank">《伤心花·念碧瑶》</a></td>
       <td>玄觞</td>
       <td>二花</td>
       <td>二花</td>
@@ -783,6 +783,78 @@ title: '碧瑶角色主页'
       <td>小旭游戏音乐</td>
       <td>小旭游戏音乐</td>
       <td>讲述碧瑶为爱付出无怨无悔的炽烈情感</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV153411P72e" target="_blank">《故梦依稀》</a></td>
+      <td>Alvin清风</td>
+      <td>Alvin清风</td>
+      <td>七月原创音乐工作室</td>
+      <td>七月原创音乐工作室</td>
+      <td>记诛仙张小凡碧瑶</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1949476073" target="_blank">《合欢落时梦尚轻》</a></td>
+      <td>ACE虚拟歌姬</td>
+      <td>菱蕶</td>
+      <td></td>
+      <td></td>
+      <td>记诛仙张小凡碧瑶</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1949687695" target="_blank">《谁家故裳》</a></td>
+      <td>怜瑶</td>
+      <td>菱蕶</td>
+      <td>原曲:経田康子-涟漪</td>
+      <td>原曲:経田康子-涟漪</td>
+      <td>诛仙碧瑶印象曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1949476146" target="_blank">《绿衣·记碧瑶》</a></td>
+      <td>ACE虚拟歌姬</td>
+      <td>菱蕶</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/青衣铃音.mp3" target="_blank">《青衣铃音》</a></td>
+      <td>ACE虚拟歌姬张大爷</td>
+      <td>慕江映寒</td>
+      <td>原曲《渡红尘》</td>
+      <td>原曲《渡红尘》</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/凡尘瑶泪.mp3" target="_blank">《凡尘瑶泪》</a></td>
+      <td>小隗</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>诛仙碧凡之恋 注:这首歌如果听不清的话<a class="catBtn" href="https://tv.sohu.com/v/cGwvNTIzMjU2MC81Mzk2NzQ4MS5zaHRtbA==.html?vid=53967481&wx=0&channeled=1211020100&aid=5232560" target="_blank">点击跳转视频</a></td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/碧水寻瑶.mp3" target="_blank">《碧水寻瑶》</a></td>
+      <td>轩辕芸诗大仙</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1dW411g7bH" target="_blank">《痴情的谣》</a></td>
+      <td>文芃芃&温浔云</td>
+      <td>古原</td>
+      <td>王华年</td>
+      <td>王华年</td>
+      <td>诛仙碧瑶主题</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.kugou.com/mixsong/soziqbf.html" target="_blank">《诛仙·伤心花》</a></td>
+      <td>惟韵</td>
+      <td>颜苍澜</td>
+      <td>惟韵</td>
+      <td>雪皓</td>
+      <td>碧瑶主题</td>
     </tr>
   </tbody>
 </table>
