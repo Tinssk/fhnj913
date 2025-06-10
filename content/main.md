@@ -856,6 +856,22 @@ title: '碧瑶角色主页'
       <td>雪皓</td>
       <td>碧瑶主题</td>
     </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1hW411g7wT" target="_blank">《碧落凡心》</a></td>
+      <td>惟韵</td>
+      <td>古原</td>
+      <td>王华年</td>
+      <td>张耀阳</td>
+      <td>诛仙青云志主题</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1TW411g7kF" target="_blank">《青云》</a></td>
+      <td>寄明</td>
+      <td>古原</td>
+      <td>张耀阳</td> 
+      <td>张耀阳</td>
+      <td>诛仙青云志主题</td>
+    </tr>
   </tbody>
 </table>
 </div>
