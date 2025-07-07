@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 import { decodeURIComponentSafe } from "~~/server/utils/decode-url";
-import tableWrapperPlugin from "~~/server/plugins/tableWrapperPlugin";
+import tableWrapperPlugin from "~~/server/utils/tableWrapperPlugin";
 export default defineEventHandler(async (event) => {
   const { slug } = event.context.params || {};
 
