@@ -44,11 +44,17 @@ const currentPage = ref(1);
 const pageSize = 20;
 
 /*请求列表数据 */
-const { data: evidencesData } = await useAsyncData("evidences-list", async () => {
-  const path = route.path;
-  const list = await $fetch("/api/areaSearch", { params: { path } });
-  return shuffle(list); // 只服务端执行重排
-});
+/*设置缓存保证一次访问的顺序一致性 */
+const cachedEvidences = useState('evidencesList-cache', () => null);
+if (!cachedEvidences.value) {
+  const { data } = await useAsyncData("evidences-list", async () => {
+    const path = route.path;
+    const list = await $fetch("/api/areaSearch", { params: { path } });
+    return shuffle(list); // 只服务端执行重排
+  });
+  cachedEvidences.value = data.value
+}
+const evidencesData = ref(cachedEvidences.value || [])
 const evidences = computed(() => evidencesData.value || []);
 
 //搜索函数

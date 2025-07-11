@@ -7,6 +7,8 @@ const progress = ref(0);
 const fadeOut = ref(false);
 
 const router = useRouter();
+// 存储访问过的路径
+const visitedPaths = ref<string[]>([]);
 
 // // 设置首次加载时触发的动画
 // onMounted(() => {
@@ -29,13 +31,15 @@ const router = useRouter();
 
 router.beforeEach((to, from, next) => {
   // 只在进行页面跳转时触发加载动画，避免#跳转触发
-  if (!to.hash) {
+  if (!to.hash && !visitedPaths.value.includes(to.path)) {
     isLoading.value = true;
     fadeOut.value = false;
     progress.value = 0;
     simulateProgress();
   }
   next();
+  // 添加到访问列表中
+  visitedPaths.value.push(to.path);
 });
 
 router.afterEach(() => {

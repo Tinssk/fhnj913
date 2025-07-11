@@ -46,13 +46,19 @@ const pageSize = 20;
 const searchKeyword = ref("");
 console.log(route.path)
 /*请求列表数据 */
-const { data: novelsData } = await useAsyncData("novels-list", async () => {
-  const path = route.path; // 可根据实际路径调整
-  const list = await $fetch("/api/areaSearch", { params: { path } });
-  return shuffle(list); // 只服务端执行重排
-});
+/*设置缓存保证一次访问的顺序一致性 */
+const cachedNovels = useState('novelsList-cache', () => null);
+
+if (!cachedNovels.value) {
+  const { data } = await useAsyncData("novels-list", async () => {
+    const path = route.path;
+    const list = await $fetch("/api/areaSearch", { params: { path } });
+    return shuffle(list);
+  });
+  cachedNovels.value = data.value;
+}
+const novelsData = ref(cachedNovels.value || []);
 const novels = computed(() => novelsData.value || []);
-const searchResult = ref(null);
 
 //搜索函数
 async function handleSearch() {
