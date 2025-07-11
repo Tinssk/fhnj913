@@ -7,9 +7,12 @@ const progress = ref(0);
 const fadeOut = ref(false);
 
 const router = useRouter();
+const route = useRoute();
+
 // 存储访问过的路径
 const visitedPaths = ref<string[]>([]);
-
+// 首次访问时将当前路径加入 visitedPaths
+visitedPaths.value.push(route.path);
 // // 设置首次加载时触发的动画
 // onMounted(() => {
 //   isLoading.value = true;
