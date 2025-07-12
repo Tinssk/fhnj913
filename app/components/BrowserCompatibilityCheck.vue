@@ -1,51 +1,57 @@
 <template>
-  <div class="hidden">
-    <div class=" unsupported-browser-overlay">
-      <img src="/img/errorWeep.png" />
-      <h2 class="unsupported-browser-title">出问题了!!瑶儿检测到您的浏览器版本过低</h2>
-      <p class="unsupported-browser-message">
-        您正在使用的浏览器无法正常使用瑶瑶的资料站。请更新您的浏览器或下载一个现代浏览器。
-      </p>
-      <div class="unsupported-browser-links">
-        <p>网盘下载(选择网盘里面的一个下载即可):</p>
-        <a href="https://pan.baidu.com/s/1sDIf6HLsE-7v08bUvFtmGQ?pwd=1234" target="_blank" rel="noopener noreferrer"
-          class="browser-link chrome">
-          百度网盘下载
-        </a>
-        <a href="https://www.jianguoyun.com/p/DSUh5bIQ8Iy3DRiPkfcFIAA" target="_blank" rel="noopener noreferrer"
-          class="browser-link jianguo">
-          坚果云下载
-        </a>
-        <a href="https://www.123912.com/s/mVOKVv-zdUKA" target="_blank" rel="noopener noreferrer"
-          class="browser-link yao23">
-          123云盘下载
-        </a>
-      </div>
-      <div class="unsupported-browser-links">
-        <p>电脑浏览器官网下载:</p>
-        <a href="https://www.mozilla.org/firefox/new/" target="_blank" rel="noopener noreferrer"
-          class="browser-link firefox">
-          下载 Firefox
-        </a>
-        <a href="https://www.microsoft.com/edge" target="_blank" rel="noopener noreferrer" class="browser-link edge">
-          下载 Edge
-        </a>
-      </div>
-      <p class="unsupported-browser-suggestion">
-        经我们检查,很多手机自带浏览器的最新版本依然版本十分落后无法,所以请下载上面更好的现代浏览器;
-      </p>
-      <p>安卓手机端用户请直接选择网盘下载,Windows电脑端用户如果无法访问官网,也可通过网盘下载</p>
-      <p>Firefox链接可能弹出警告</p>
+  <div v-if=show class=" unsupported-browser-overlay">
+    <img src="/img/errorWeep.png" />
+    <h2 class="unsupported-browser-title">出问题了!!瑶儿检测到您的浏览器版本过低</h2>
+    <p class="unsupported-browser-message">
+      您正在使用的浏览器无法正常使用瑶瑶的资料站。请更新您的浏览器或下载一个现代浏览器。
+    </p>
+    <div class="unsupported-browser-links">
+      <p>网盘下载(选择网盘里面的一个下载即可):</p>
+      <a href="https://pan.baidu.com/s/1sDIf6HLsE-7v08bUvFtmGQ?pwd=1234" target="_blank" rel="noopener noreferrer"
+        class="browser-link chrome">
+        百度网盘下载
+      </a>
+      <a href="https://www.jianguoyun.com/p/DSUh5bIQ8Iy3DRiPkfcFIAA" target="_blank" rel="noopener noreferrer"
+        class="browser-link jianguo">
+        坚果云下载
+      </a>
+      <a href="https://www.123912.com/s/mVOKVv-zdUKA" target="_blank" rel="noopener noreferrer"
+        class="browser-link yao23">
+        123云盘下载
+      </a>
     </div>
+    <div class="unsupported-browser-links">
+      <p>电脑浏览器官网下载:</p>
+      <a href="https://www.mozilla.org/firefox/new/" target="_blank" rel="noopener noreferrer"
+        class="browser-link firefox">
+        下载 Firefox
+      </a>
+      <a href="https://www.microsoft.com/edge" target="_blank" rel="noopener noreferrer" class="browser-link edge">
+        下载 Edge
+      </a>
+    </div>
+    <p class="unsupported-browser-suggestion">
+      经我们检查,很多手机自带浏览器的最新版本依然版本十分落后无法,所以请下载上面更好的现代浏览器;
+    </p>
+    <p>安卓手机端用户请直接选择网盘下载,Windows电脑端用户如果无法访问官网,也可通过网盘下载</p>
+    <p>Firefox链接可能弹出警告</p>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
-
+const show = ref(false);
 
 onMounted(() => {
+  // 简单检测 Tailwind 是否工作：通过动态插入元素并读取样式
+  const el = document.createElement("div");
+  el.className = "bg-green-500 hidden";
+  document.body.appendChild(el);
+  const computed = window.getComputedStyle(el).backgroundColor;
+  document.body.removeChild(el);
 
+  if (!computed || computed === 'rgba(0, 0, 0, 0)' || computed === 'transparent') {
+    show.value = true;
+  }
 });
 </script>
 

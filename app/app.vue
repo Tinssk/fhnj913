@@ -1,5 +1,8 @@
 <template>
-  <BrowserCompatibilityCheck />
+  <ClientOnly>
+    <!-- 浏览器检测层 -->
+    <BrowserCompatibilityCheck />
+  </ClientOnly>
   <!-- 页面切换过渡层 -->
   <CustomLoading />
   <!-- 🔥 视频特效层 -->
