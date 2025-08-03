@@ -2,38 +2,37 @@
   <div class="flex">
     <!-- 文章目录 -->
     <div class="hidden lg:block w-1/5 p-4 bg-emerald-100 text-black rounded-xl shadow-md">
-      <div
-        class="sticky top-25 h-screen p-4 max-h-[80vh] overflow-y-auto rounded-md scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+      <div class="sticky top-25 h-screen p-4 max-h-[80vh] overflow-y-auto rounded-md scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
         <ul>
           <li v-for="(section, index) in sections" :key="index" class="py-2">
             <div class="flex items-center justify-between">
-              <a :href="'#' + section.id" :id="'link-' + section.id"
+              <a
+                :href="'#' + section.id"
+                :id="'link-' + section.id"
                 class="catBtn hover:text-blue-500 transition-colors py-1 px-2 block rounded-md text-lg flex-grow"
                 :class="{
                   'bg-emerald-800 text-white ': isActive(section.id),
                   'bg-emerald-800 text-white': section.children?.some((child) => isActive(child.id)),
-                }" @click.prevent="scrollToSection(section.id)">
+                }"
+                @click.prevent="scrollToSection(section.id)">
                 {{ section.text }}
               </a>
               <!-- 修改折叠按钮样式 -->
-              <button v-if="section.children && section.children.length" @click="toggleSection(index)"
-                class="catBtn p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md ml-2">
-                <span class="inline-block transition-transform duration-300"
-                  :class="{ '-rotate-180': collapsedSections[index] }"> ▼ </span>
+              <button v-if="section.children && section.children.length" @click="toggleSection(index)" class="catBtn p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md ml-2">
+                <span class="inline-block transition-transform duration-300" :class="{ '-rotate-180': collapsedSections[index] }"> ▼ </span>
               </button>
             </div>
 
             <!-- 子目录 -->
-            <ul v-if="section.children && section.children.length"
-              class="pl-4 mt-2 transition-all duration-300 origin-top" :class="{
+            <ul
+              v-if="section.children && section.children.length"
+              class="pl-4 mt-2 transition-all duration-300 origin-top"
+              :class="{
                 'h-0 opacity-0 scale-y-0': collapsedSections[index],
                 'h-auto opacity-100 scale-y-100': !collapsedSections[index],
               }">
               <li v-for="(child, childIndex) in section.children" :key="childIndex" class="py-1">
-                <a :href="'#' + child.id" :id="'link-' + child.id"
-                  class="catBtn text-sm hover:text-blue-500 transition-colors py-1 px-2 block rounded-md"
-                  :class="{ 'bg-emerald-600 text-white': isActive(child.id) }"
-                  @click.prevent="scrollToSection(child.id)">
+                <a :href="'#' + child.id" :id="'link-' + child.id" class="catBtn text-sm hover:text-blue-500 transition-colors py-1 px-2 block rounded-md" :class="{ 'bg-emerald-600 text-white': isActive(child.id) }" @click.prevent="scrollToSection(child.id)">
                   {{ child.text }}
                 </a>
               </li>
@@ -46,42 +45,35 @@
     <!-- 移动端目录 -->
     <div class="lg:hidden">
       <StickyFixed>
-        <button @click="drawerOpen = true"
-          class="pointer-events-auto sticky top-1/2   z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
-          <svg :class="['transition-transform duration-300', drawerOpen ? 'rotate-180' : '']" width="24" height="24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button @click="drawerOpen = true" class="pointer-events-auto sticky top-1/2 z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
+          <svg :class="['transition-transform duration-300', drawerOpen ? 'rotate-180' : '']" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18l6-6-6-6" />
           </svg>
         </button>
         <transition name="fade">
-          <div v-if="drawerOpen" class="pointer-events-auto fixed inset-0 z-30 bg-transparent"
-            @click="drawerOpen = false"></div>
+          <div v-if="drawerOpen" class="pointer-events-auto fixed inset-0 z-30 bg-transparent" @click="drawerOpen = false"></div>
         </transition>
         <transition name="slide">
-          <aside v-if="drawerOpen"
-            class="pointer-events-auto sticky top-25  left-0 h-screen  max-h-[80vh] overflow-y-auto z-40  w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400"
-            @click.stop @click="drawerOpen = false">
+          <aside v-if="drawerOpen" class="pointer-events-auto sticky top-25 left-0 h-screen max-h-[80vh] overflow-y-auto z-40 w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400" @click.stop @click="drawerOpen = false">
             <div class="flex items-center mb-4">
-
               <span class="ml-2 text-lg font-bold text-emerald-600">目录</span>
             </div>
             <ul>
               <li v-for="(section, index) in sections" :key="index" class="mb-2">
                 <div class="flex items-center justify-between">
-                  <a :href="'#' + section.id" :id="'link-' + section.id"
+                  <a
+                    :href="'#' + section.id"
+                    :id="'link-' + section.id"
                     class="block px-3 py-2 rounded-lg text-base font-medium transition-colors"
                     :class="isActive(section.id) ? 'bg-emerald-500 text-white' : 'hover:bg-emerald-100 text-emerald-700'"
                     @click.prevent="
                       scrollToSection(section.id);
-                    drawerOpen = false;
+                      drawerOpen = false;
                     ">
                     {{ section.text }}
                   </a>
-                  <button v-if="section.children && section.children.length" @click="toggleSection(index)"
-                    class="ml-2 p-1 rounded-full hover:bg-emerald-50">
-                    <svg :class="['transition-transform duration-300', collapsedSections[index] ? '' : 'rotate-90']"
-                      width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round">
+                  <button v-if="section.children && section.children.length" @click="toggleSection(index)" class="ml-2 p-1 rounded-full hover:bg-emerald-50">
+                    <svg :class="['transition-transform duration-300', collapsedSections[index] ? '' : 'rotate-90']" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M6 9l6 6 6-6" />
                     </svg>
                   </button>
@@ -89,12 +81,14 @@
                 <transition name="fade">
                   <ul v-if="section.children && section.children.length && !collapsedSections[index]" class="pl-4 mt-1">
                     <li v-for="(child, childIndex) in section.children" :key="childIndex">
-                      <a :href="'#' + child.id" :id="'link-' + child.id"
+                      <a
+                        :href="'#' + child.id"
+                        :id="'link-' + child.id"
                         class="block px-3 py-1 rounded text-sm font-normal transition-colors"
                         :class="isActive(child.id) ? 'bg-emerald-400 text-white' : 'hover:bg-emerald-50 text-emerald-700'"
                         @click.prevent="
                           scrollToSection(child.id);
-                        drawerOpen = false;
+                          drawerOpen = false;
                         ">
                         {{ child.text }}
                       </a>
@@ -109,8 +103,7 @@
     </div>
     <!-- 右侧内容 -->
     <div class="w-full lg:w-4/5 p-4">
-      <ContentRenderer v-if="page" :value="page"
-        class="prose prose-lg text-black max-w-none prose-headings:scroll-mt-16 prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-xl prose-img:shadow-lg prose-table:border-collapse" />
+      <ContentRenderer v-if="page" :value="page" class="prose prose-lg text-black max-w-none prose-headings:scroll-mt-16 prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-xl prose-img:shadow-lg prose-table:border-collapse" />
     </div>
   </div>
 </template>
@@ -122,12 +115,11 @@ definePageMeta({
   wrapperHeight: "h-120",
 });
 useHead({
-  meta:
-    [
-      { name: 'description', content: '碧瑶的角色主页介绍,碧瑶，国产小说《诛仙》及其衍生作品中的女主角。魔教鬼王宗少宗主，仙姿仪容，灵气逼人，博闻广识，妙颜无双。为救爱人张小凡使用“痴情咒”，以身挡下“诛仙剑阵”，三魂六魄受九幽之苦， 然其一魂被扣入合欢铃，不老不死。后十年，张小凡为救碧瑶化为鬼厉寻觅救治之法，于南疆寻得大巫师，虽“招魂引”因差一字失败，但成功聚碧瑶全部魂魄于合欢铃内。狐岐山崩塌时，碧瑶的身体与合欢铃一起失踪，只留下一角绿色衣裳。全书尾，张小凡带着碧瑶的绿色衣角隐居，并把碧瑶衣角与一个普通铃铛悬于屋檐下。' },
-      { name: 'keywords', content: '碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆' },
-    ]
-})
+  meta: [
+    { name: "description", content: "碧瑶的角色主页介绍,碧瑶，国产小说《诛仙》及其衍生作品中的女主角。魔教鬼王宗少宗主，仙姿仪容，灵气逼人，博闻广识，妙颜无双。为救爱人张小凡使用“痴情咒”，以身挡下“诛仙剑阵”，三魂六魄受九幽之苦， 然其一魂被扣入合欢铃，不老不死。后十年，张小凡为救碧瑶化为鬼厉寻觅救治之法，于南疆寻得大巫师，虽“招魂引”因差一字失败，但成功聚碧瑶全部魂魄于合欢铃内。狐岐山崩塌时，碧瑶的身体与合欢铃一起失踪，只留下一角绿色衣裳。全书尾，张小凡带着碧瑶的绿色衣角隐居，并把碧瑶衣角与一个普通铃铛悬于屋檐下。" },
+    { name: "keywords", content: "碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆" },
+  ],
+});
 const route = useRoute();
 const { data: page } = await useAsyncData(`role`, () => {
   return queryCollection("content").path(route.path).first();
@@ -247,7 +239,6 @@ function onScroll() {
 
   currentId.value = current;
 }
-
 </script>
 <style>
 /* Markdown内容样式 */
@@ -408,6 +399,21 @@ function onScroll() {
   text-decoration: none;
 }
 
+/* 移动端优化设置 */
+@media (max-width: 768px) {
+  /* 文字缩小 */
+  .prose {
+    font-size: 0.9rem; /* 缩小整体文字大小，默认为1rem */
+    line-height: 1.5;
+  }
+
+  /* 图片减小 */
+  .prose img {
+    float: none;
+    display: block;
+    width: 250px; /* 更改图片宽度*/
+  }
+}
 /* 暗黑模式样式 */
 .dark .prose code {
   background-color: #374151;

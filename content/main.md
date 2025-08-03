@@ -872,6 +872,134 @@ title: '碧瑶角色主页'
       <td>张耀阳</td>
       <td>诛仙青云志主题</td>
     </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV13x411c7ya" target="_blank">《绿兮衣兮》</a></td>
+      <td>洛天依</td>
+      <td>小莫</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>虚拟歌姬同人音乐作品</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1ax411W7y4" target="_blank">《诛仙·了尘》</a></td>
+      <td>腾云驾雾琉璃仙</td>
+      <td>流光</td>
+      <td>腾云驾雾琉璃仙</td> 
+      <td>司晗</td>
+      <td>贺剧凡瑶一周年</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1rs411b7fq" target="_blank">《手掌心·解铃》</a></td>
+      <td>丁当</td>
+      <td>陈没</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>凡瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV13s411f7qy" target="_blank">《碧玉瑶》</a></td>
+      <td>洛天依</td>
+      <td>皓月</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>虚拟歌姬演唱的碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV134411j7jQ" target="_blank">《我有故人待瑶归》</a></td>
+      <td>九莙</td>
+      <td>菱蕶</td>
+      <td>原曲：如果记忆干涸</td> 
+      <td>原曲：如果记忆干涸</td>
+      <td>那年我合书低叹抚页眉，梦中你绿衣仍明媚……</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=1846495258" target="_blank">《春风过境后的喁喁私语》</a></td>
+      <td>颜璱</td>
+      <td>菱蕶</td>
+      <td>原曲：树藤</td> 
+      <td>原曲：树藤</td>
+      <td>粉丝向同人曲（翻自 林欣彤）</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://y.qq.com/n/ryqq/songDetail/001GUyo039RtVQ" target="_blank">《半卷青裘》</a></td>
+      <td>怜瑶</td>
+      <td>未知</td>
+      <td>原曲:冰菊物语-李宇春</td> 
+      <td>原曲:冰菊物语-李宇春</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.kuwo.cn/play_detail/157122379" target="_blank">《碧海情凝·悲嗔情碎》</a></td>
+      <td>未知</td>
+      <td>未知</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://5sing.kugou.com/fc/16220123.html" target="_blank">《彼时月光》</a></td>
+      <td>雨尘</td>
+      <td>菱蕶</td>
+      <td>原曲:步步梦归尘</td> 
+      <td>原曲:步步梦归尘</td>
+      <td>记诛仙碧瑶</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/绿影红颜.mp3" target="_blank">《绿影红颜》</a></td>
+      <td>夏衣衣</td>
+      <td>夏衣衣</td>
+      <td>原曲:九张机</td> 
+      <td>原曲:九张机</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/昔年归.mp3" target="_blank">《昔年归》</a></td>
+      <td>未知</td>
+      <td>驿路云岚</td>
+      <td>原曲星之所在</td> 
+      <td>原曲星之所在</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/媱·予你.mp3" target="_blank">《媱·予你》</a></td>
+      <td>未知</td>
+      <td>未知</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>【记碧瑶／汝嫣／雪女】</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/瑶影.mp3" target="_blank">《瑶影》</a></td>
+      <td>未知</td>
+      <td>未知</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/问剑.mp3" target="_blank">《问剑》</a></td>
+      <td>未知</td>
+      <td>未知</td>
+      <td>未知</td> 
+      <td>未知</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/素笔华年·叹.mp3" target="_blank">《素笔华年·叹》</a></td>
+      <td>风晚林</td>
+      <td>未知</td>
+      <td>原曲:あなたのいない雨</td> 
+      <td>原曲:あなたのいない雨</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/夕颜.mp3" target="_blank">《夕颜》</a></td>
+      <td>安素公子【凰朝古风社】</td>
+      <td>菱蕶</td>
+      <td>原曲:胡碧乔【十年言心】</td> 
+      <td>原曲:胡碧乔【十年言心】</td>
+      <td>碧瑶同人曲</td>
+    </tr>
   </tbody>
 </table>
 </div>
