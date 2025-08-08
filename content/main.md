@@ -1000,6 +1000,22 @@ title: '碧瑶角色主页'
       <td>原曲:胡碧乔【十年言心】</td>
       <td>碧瑶同人曲</td>
     </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/诛仙情感MV碧瑶.mp3" target="_blank">《诛仙情感MV·碧瑶》</a></td>
+      <td>南宸梅儿</td>
+      <td>冷缃凝</td>
+      <td>原曲：梦回雨巷</td> 
+      <td>原曲：梦回雨巷</td>
+      <td>碧瑶同人曲</td>
+    </tr>
+    <tr>
+      <td><a class="catBtn" href="https://www.bilibili.com/video/BV1d4411j7J5" target="_blank">《碧影深情长牵念》</a></td>
+      <td>千澈</td>
+      <td>冬病夏治</td>
+      <td>原曲：《花水月》-V.K克</td> 
+      <td>原曲：《花水月》-V.K克</td>
+      <td>凡瑶同人曲</td>
+    </tr>
   </tbody>
 </table>
 </div>
