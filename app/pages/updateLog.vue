@@ -50,6 +50,11 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2025-10-12",
+    content: "碧瑶的狐歧信箱上线啦,已上线提问箱",
+    Link:"https://www.biyao521.com/mailbox"
+  },
+  {
     time: "2025-08-03",
     content: "初步优化了移动端主页的大小设置,看起来更加方便",
   },

@@ -52,6 +52,11 @@ import { ref, computed } from "vue";
 // 设置列表
 const infoList = ref([
   {
+    time: "2025-10-12",
+    content: "瑶圈提问箱正式上线,欢迎大家参与",
+    Link: "https://weibo.com/7513872091/Q8MMIdio5",
+  },
+  {
     time: "2025-07-24 17:51",
     content: "521流麻周边来啦",
     Link: "https://weibo.com/2461312731/5191991475307629",

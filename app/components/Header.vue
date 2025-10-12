@@ -130,7 +130,7 @@ const router = useRouter();
 /*检测路径应用导航栏高亮 */
 //根据导航栏的类型选择对应的路径
 const opusHighlightPaths = ["/pictures", "/biyaofame", "/novels", "/musics", "/games"];
-const partyHighlightPaths = ["/official", "/evidence"];
+const partyHighlightPaths = ["/official", "/evidence", "/mailbox"];
 const isHighlighted = (path, type) => {
   const highlightPaths = type === "opus" ? opusHighlightPaths : partyHighlightPaths;
   return highlightPaths.some((highlightPath) => path.startsWith(highlightPath));
