@@ -1016,6 +1016,14 @@ title: '碧瑶角色主页'
       <td>原曲：《花水月》-V.K克</td>
       <td>凡瑶同人曲</td>
     </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/情不苦.mp3" target="_blank">《情不苦》</a></td>
+      <td>影杀【岁时记】</td>
+      <td>Nazys【途说工作室】</td>
+      <td>原曲：《微笑みの彼方》</td> 
+      <td>原曲：《微笑みの彼方》</td>
+      <td>碧瑶同人曲</td>
+    </tr>
   </tbody>
 </table>
 </div>
