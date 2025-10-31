@@ -26,8 +26,10 @@
 
 <script lang="js" setup>
 definePageMeta({
-  title: "碧瑶圈信箱 | 狐歧信箱",
-  textCol: "text-black",
+  banner: "/img/header/mailbox-header.jpg",
+  title: "狐歧信箱",
+  wrapperHeight: "h-170",
+  titleCol:"text-black"
 });
 
 useHead({

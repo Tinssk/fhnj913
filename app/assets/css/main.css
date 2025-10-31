@@ -140,6 +140,12 @@
   font-weight: normal;
   font-style: normal;
 }
+/*启用浏览器的自动中英文间距*/
+:root {
+  -ms-text-autospace: normal; /* 旧IE专用 */
+  font-kerning: normal; /* 控制字体字距 */
+  text-spacing-trim: normal; /* 部分新浏览器支持 */
+}
 
 html,
 body {

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen bg-green-100">
     <!-- 图片版头 -->
-    <PageWrapper :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" />
+    <PageWrapper :banner="banner" :title="title" :wrapperHeight="wrapperHeight" :textCol="textCol" :titleCol="titleCol" />
 
     <!-- 引入 Header 组件 -->
     <Header />
@@ -25,7 +25,9 @@ const banner = computed(() => typeof route.meta?.banner === "string" ? route.met
 const title = computed(() => typeof route.meta?.title === "string" ? route.meta.title : "碧瑶の狐歧资料馆");
 const wrapperHeight = computed(() => typeof route.meta?.wrapperHeight === "string" ? route.meta.wrapperHeight : "h-120");
 const textCol = computed(() => typeof route.meta?.textCol === "string" ? route.meta.textCol : "text-black");
+const titleCol=computed(() => typeof route.meta?.titleCol === "string" ? route.meta.titleCol : "text-white");
 
+/*重复前往当前目录时,移动至顶端 */
 router.afterEach((to, from) => {
   if (to.fullPath === from.fullPath) {
     window.scrollTo({ top: 0 });
