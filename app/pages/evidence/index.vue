@@ -1,25 +1,19 @@
 <template>
   <div class="flex flex-col items-center w-full mt-8">
     <div class="w-full max-w-xl mb-6">
-      <input v-model="searchKeyword" @keyup.enter="handleSearch" type="text" placeholder="搜索证据库..."
-        class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
+      <input v-model="searchKeyword" @keyup.enter="handleSearch" type="text" placeholder="搜索证据库..." class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
     </div>
     <div class="w-full max-w-2xl">
       <ul class="divide-y divide-green-200 rounded-lg shadow">
         <li v-for="evidence in pagedEvidences" :key="evidence" class="flex items-center hover:bg-green-200">
-          <NuxtLink :to="`/evidence/${encodeURIComponent(evidence)}`" class="catBtn block w-full h-full py-3 px-6"><span
-              class="inline-block w-2 h-2 rounded-full bg-green-400 mr-6"></span>{{ evidence }}</NuxtLink>
+          <NuxtLink :to="`/evidence/${encodeURIComponent(evidence)}`" class="catBtn block w-full h-full py-3 px-6"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-6"></span>{{ evidence }}</NuxtLink>
         </li>
       </ul>
       <!-- 分页器逻辑 -->
       <div v-if="totalPages > 1" class="flex justify-center items-center mt-6 gap-2">
-        <button @click="prevPage" :disabled="currentPage === 1"
-          class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
-        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)"
-          :class="['px-3 py-1 rounded border', page === currentPage ? 'bg-green-400 text-white border-green-400' : 'bg-white text-green-700 border-green-300']">{{
-            page }}</button>
-        <button @click="nextPage" :disabled="currentPage === totalPages"
-          class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
+        <button @click="prevPage" :disabled="currentPage === 1" class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
+        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)" :class="['px-3 py-1 rounded border', page === currentPage ? 'bg-green-400 text-white border-green-400' : 'bg-white text-green-700 border-green-300']">{{ page }}</button>
+        <button @click="nextPage" :disabled="currentPage === totalPages" class="px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
       </div>
     </div>
   </div>
@@ -34,7 +28,7 @@ definePageMeta({
 useHead({
   title: `碧瑶|证据存档库`,
   meta: [{ name: 'description', content: '碧瑶相关的一切证据合集,存档' },
-  { name: 'keywords', content: '碧瑶,诛仙,诛仙女主角碧瑶,资料馆,证据,资料库,存档' },]
+  { name: 'keywords', content: '碧瑶,诛仙,诛仙女主角碧瑶,资料站,证据,资料库,存档' },]
 });
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';

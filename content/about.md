@@ -22,6 +22,6 @@
 这个网站现在也只是一个开始,以后会不断完善内容,完善资料库,创造更多的可能,让它真正可以发挥出最大最好的作用;
 所以也欢迎有想参与资料库建设的花瓣联系我们~参与进来,一起帮忙;
 参与方式:
-1.直接发送邮件到:<a href="mailto:huqishan521@outlook.com?subject=碧瑶狐歧资料馆联系" target="_blank" rel="noopener noreferrer"
+1.直接发送邮件到:<a href="mailto:huqishan521@outlook.com?subject=碧瑶狐岐资料站联系" target="_blank" rel="noopener noreferrer"
               class="catBtn"><span>huqishan521@outlook.com</span></a>
 2.加入运营QQ群:1047605674

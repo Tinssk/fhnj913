@@ -7,7 +7,7 @@
             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
           </svg>
         </div>
-        <input type="text" v-model="searchQuery" @keyup.enter="handleSearch" class="texto block w-52 pl-12 pr-3 py-2 border-0 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 text-sm h-9 bg-transparent transition-all duration-300 lg:focus:w-72 lg:hover:w-72" placeholder="搜索资料馆内容" ref="searchInput" />
+        <input type="text" v-model="searchQuery" @keyup.enter="handleSearch" class="texto block w-52 pl-12 pr-3 py-2 border-0 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 text-sm h-9 bg-transparent transition-all duration-300 lg:focus:w-72 lg:hover:w-72" placeholder="搜索资料站内容" ref="searchInput" />
       </div>
       <button @click="handleSearch" class="catBtn hidden lg:block w-20 h-9 bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white text-sm font-medium py-1 px-6 transition-transform duration-300 focus:outline-none focus:ring-0 rounded-full mr-0.5 hover:shadow-lg transform hover:scale-105 will-change-transform">搜索</button>
     </div>

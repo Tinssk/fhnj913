@@ -38,12 +38,12 @@
 
 <script lang="js" setup>
 definePageMeta({
-  title: '碧瑶的狐歧资料馆|更新日志',
+  title: '碧瑶的狐岐资料站|更新日志',
   textCol: "text-black"
 });
 // 设置页面 <title>
 useHead({
-  title: `碧瑶的狐歧资料馆|更新日志`,
+  title: `碧瑶的狐岐资料站|更新日志`,
 });
 import { ref, computed } from "vue";
 
@@ -51,7 +51,7 @@ import { ref, computed } from "vue";
 const infoList = ref([
   {
     time: "2025-10-12",
-    content: "碧瑶的狐歧信箱上线啦,已上线提问箱",
+    content: "碧瑶的狐岐信箱上线啦,已上线提问箱",
     Link:"https://www.biyao521.com/mailbox"
   },
   {
@@ -76,7 +76,7 @@ const infoList = ref([
   },
   {
     time: "2025-05-21",
-    content: "狐歧资料站正式上线!值得纪念的一天",
+    content: "狐岐资料站正式上线!值得纪念的一天",
   },
 ]);
 

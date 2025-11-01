@@ -1,7 +1,18 @@
 // server/api/search
-import data from "~/../server/data/Search.json";
+import PageData from "~/../server/data/Search.json";
+import biyaofameData from "~/../server/data/chapter_map.json";
 
 export default defineEventHandler(async (event) => {
+  /*定义搜索结果的结构类型
+  full为导向结果的链接,prefix为前缀,用来进行标签分类,name则为搜索的结果名字;
+  */
+  interface globalSearchInfo {
+    full: string;
+    prefix: string;
+    name: string;
+  }
+  /*先定义返回的数组 */
+  let results: globalSearchInfo[] = [];
   const storage = useStorage("assets:content");
   //获取查询信息
   const query = getQuery(event) || {};
@@ -35,10 +46,10 @@ export default defineEventHandler(async (event) => {
       }
     });
 
-  let results: any[] = [];
   if (keyword) {
-    // 首先搜索文件名是否匹配
+    // 对搜索参数格式化,防止大小写影响
     const lowerKeyword = keyword.toLowerCase();
+    // 首先搜索文件名是否匹配
     for (const mdName of mdFiles) {
       if (mdName.name.toLowerCase().includes(lowerKeyword)) {
         // 检查是否已存在，避免重复
@@ -48,10 +59,10 @@ export default defineEventHandler(async (event) => {
       }
     }
     // 然后搜索页面是否匹配
-    for (const item of data) {
+    for (const item of PageData) {
       const prefix = Object.keys(item)[0];
       const cname = item[prefix as keyof typeof item];
-      if (cname && cname.toLowerCase().includes(lowerKeyword)) {
+      if (prefix && cname && cname.toLowerCase().includes(lowerKeyword)) {
         // 检查是否已存在，避免重复
         if (!results.some((r) => r.full === prefix)) {
           results.push({
@@ -65,6 +76,22 @@ export default defineEventHandler(async (event) => {
       }
     }
     //然后是针对碧瑶传章节的特殊搜索:
+    for (const item of biyaofameData) {
+      const prefix = Object.keys(item)[0];
+      const cname = item[prefix as keyof typeof item];
+      if (prefix && cname && cname.toLowerCase().includes(lowerKeyword)) {
+        // 检查是否已存在，避免重复
+        if (!results.some((r) => r.full === prefix)) {
+          results.push({
+            full: `biyaofame/${prefix}`,
+
+            prefix: `biyaofame`,
+
+            name: cname,
+          });
+        }
+      }
+    }
   }
   return results;
 });

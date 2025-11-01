@@ -22,7 +22,7 @@
 const route = useRoute();
 const router = useRouter();
 const banner = computed(() => typeof route.meta?.banner === "string" ? route.meta.banner : "/img/header/default-header.jpg");
-const title = computed(() => typeof route.meta?.title === "string" ? route.meta.title : "碧瑶の狐歧资料馆");
+const title = computed(() => typeof route.meta?.title === "string" ? route.meta.title : "碧瑶的狐岐资料站");
 const wrapperHeight = computed(() => typeof route.meta?.wrapperHeight === "string" ? route.meta.wrapperHeight : "h-120");
 const textCol = computed(() => typeof route.meta?.textCol === "string" ? route.meta.textCol : "text-black");
 const titleCol=computed(() => typeof route.meta?.titleCol === "string" ? route.meta.titleCol : "text-white");

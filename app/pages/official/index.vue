@@ -44,7 +44,7 @@ useHead({
   title: `碧瑶圈官方讯息|公告栏`,
   meta: [
     { name: "description", content: "碧瑶圈官方讯息,路过的小花瓣不要迷路,同步一些圈子重要的事情;" },
-    { name: "keywords", content: "碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆,官方讯息,公告栏" },
+    { name: "keywords", content: "碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料站,官方讯息,公告栏" },
   ],
 });
 import { ref, computed } from "vue";
@@ -77,7 +77,7 @@ const infoList = ref([
   },
   {
     time: "2025-05-21",
-    content: "碧瑶的狐歧资料站正式上线啦~",
+    content: "碧瑶的狐岐资料站正式上线啦~",
   },
   {
     time: "2025-05-16",

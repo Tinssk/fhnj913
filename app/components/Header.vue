@@ -46,7 +46,7 @@
             <div class="catBtn py-2" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
               <nuxt-link to="/official" class="catBtn nav-dot dot-green block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">官方讯息</nuxt-link>
               <nuxt-link to="/evidence" class="catBtn nav-dot dot-pink block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">证据存档</nuxt-link>
-              <nuxt-link to="/mailbox" class="catBtn nav-dot dot-cyan block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">狐歧信箱</nuxt-link>
+              <nuxt-link to="/mailbox" class="catBtn nav-dot dot-cyan block px-6 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors duration-200">狐岐信箱</nuxt-link>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@
             <div v-show="accordionOpen.info" class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner">
               <nuxt-link to="/official" class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200" @click="closeMenu">官方讯息</nuxt-link>
               <nuxt-link to="/evidence" class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200" @click="closeMenu">证据存档</nuxt-link>
-              <nuxt-link to="/mailbox" class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200" @click="closeMenu">狐歧信箱</nuxt-link>
+              <nuxt-link to="/mailbox" class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200" @click="closeMenu">狐岐信箱</nuxt-link>
             </div>
           </transition>
         </div>

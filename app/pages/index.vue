@@ -9,10 +9,10 @@
       </video>
       <div ref="contentRef" class="absolute left-0 top-0 w-full h-[100vh] select-none animate-fadeUp">
         <div class="font-[汉仪文黑-85w] absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 text-white text-center">
-          <div class="subtitle fade-in font-medium text-lg lg:text-2xl tracking-[10px] mb-4">碧瑶の狐歧资料站</div>
+          <div class="subtitle fade-in font-medium text-lg lg:text-2xl tracking-[10px] mb-4">碧瑶的狐岐资料站</div>
           <div class="title font-medium text-5xl lg:text-6xl mb-4">伤心花开人未还</div>
           <nuxt-link to="/main" class="catBtn"><button id="try-btn" class="cursor-pointer catBtn w-40 h-13 mt-3 relative text-white bg-gradient-to-br from-gray-100 to-emerald-400 shadow-xl text-center rounded-full text-lg transition-all duration-300 ease-in-out" tabindex="0">立刻进入</button></nuxt-link>
-          <div class="title font-medium text-sm lg:text-2xl mt-4">狐歧资料站献给碧瑶与所有陪伴在她身边的花瓣们</div>
+          <div class="title font-medium text-sm lg:text-2xl mt-4">狐岐资料站献给碧瑶与所有陪伴在她身边的花瓣们</div>
         </div>
         <div class="absolute right-4 lg:right-20 bottom-40 lg:bottom-50 text-base lg:text-3xl font-semibold text-green-300">———— 在互联网上完全属于我们的资料站</div>
         <div id="music-btn" class="absolute w-12 h-12 right-10 top-18 rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-emerald-400 shadow-xl transition-all duration-300 ease-in-out" @click="toggleMute">

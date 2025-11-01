@@ -1,6 +1,6 @@
 [
   { "index": "首页" },
-  { "main": "角色主页" },
+  { "main": "碧瑶角色主页" },
   { "about": "关于" },
   { "think": "致谢" },
   {
@@ -12,5 +12,6 @@
   { "games": "趣事物" },
   { "official": "官方讯息" },
   { "pictures": "卷丹青" },
-  { "updateLog": "更新日志" }
+  { "updateLog": "更新日志" },
+  { "mailbox": "狐岐信箱" }
 ]

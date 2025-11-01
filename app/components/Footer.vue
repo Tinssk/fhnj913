@@ -1,7 +1,7 @@
 <template>
   <footer class="relative text-neutral-content h-auto flex flex-col justify-between">
     <div class="absolute bg-[url('/img/footer.jpg')] bg-cover bg-center inset-0 z-0"></div>
-    <span class="absolute inset-0 bg-black/75 z-1"></span>
+    <span class="absolute inset-0 bg-black/80 z-1"></span>
     <div class="z-2 container mx-auto flex flex-col flex-1 md:flex-row justify-center items-center gap-8 py-10">
       <img src="/img/byIcon.png" alt="Loading" class="w-16 h-9 my-auto" />
       <div class="flex flex-col flex-1 md:flex-row justify-center gap-8 flex-grow min-w-80">
@@ -92,7 +92,7 @@
             </a>
           </div>
           <div class="w-fit">
-            <a href="mailto:huqishan521@outlook.com?subject=碧瑶狐歧资料馆联系" class="catBtn text-white hover:text-green-600 hover:underline transition duration-300">
+            <a href="mailto:huqishan521@outlook.com?subject=碧瑶狐岐资料站联系" class="catBtn text-white hover:text-green-600 hover:underline transition duration-300">
               <p class="text-sm flex items-center">
                 <svg t="1747551797129" class="icon mr-2" viewBox="0 0 1365 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5523" width="24" height="24">
                   <path d="M838.72628 639.836488c-77.296481 61.718267-124.863547 92.280107-172.965741 92.280107-46.021136 0-92.517942-28.659157-164.40367-84.669376l-428.103588 376.552781H1278.364882l-434.881895-387.849959-4.875624 3.686447zM331.245152 515.864824A36039.187086 36039.187086 0 0 1 0 257.932412v709.819533a53.512949 53.512949 0 0 0 1.308094 6.302636l431.373824-379.64464c-31.275345-24.734874-64.810127-50.242713-101.436766-78.604576z m1030.837765 468.416676a51.134595 51.134595 0 0 0 3.329695-16.470096V227.786784a96934.068517 96934.068517 0 0 0-453.908722 354.612473z" fill="#1D85ED" p-id="5524"></path>
@@ -103,7 +103,7 @@
             </a>
           </div>
         </div>
-        <div class="flex-2 lg:mx-20">
+        <div class="flex-3 lg:mx-20">
           <h6 class="mb-2">快速链接：</h6>
           <ul class="list-none p-0">
             <li><nuxt-link to="/main" class="catBtn link link-hover text-sm hover:bg-transparent">首页</nuxt-link></li>

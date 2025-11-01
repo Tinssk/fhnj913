@@ -3,10 +3,10 @@
     <!-- 标题部分 -->
     <div class="mb-10 text-center">
       <h1 class="text-3xl font-bold text-green-800 mb-2 relative inline-block">
-        狐歧信箱
+        狐岐信箱
         <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full"></span>
       </h1>
-      <p class="text-green-600 text-sm">狐歧山小狐狸们的专属信箱</p>
+      <p class="text-green-600 text-sm">狐岐山小狐狸们的专属信箱</p>
     </div>
 
     <!-- 碧瑶圈子提问箱 -->
@@ -20,20 +20,18 @@
     </div>
 
     <!-- 其他信箱的预留位置 -->
-    <div class="text-center text-green-500 italic text-sm">更多狐歧信箱即将开放，敬请期待……</div>
+    <div class="text-center text-green-500 italic text-sm">更多狐岐信箱即将开放，敬请期待……</div>
   </div>
 </template>
 
 <script lang="js" setup>
 definePageMeta({
-  banner: "/img/header/mailbox-header.jpg",
-  title: "狐歧信箱",
+  title: "狐岐信箱",
   wrapperHeight: "h-170",
-  titleCol:"text-black"
 });
 
 useHead({
-  title: "碧瑶圈信箱 | 狐歧信箱",
+  title: "碧瑶圈信箱 | 狐岐信箱",
   meta: [
     {
       name: "description",
@@ -43,7 +41,7 @@ useHead({
     {
       name: "keywords",
       content:
-        "碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料馆,信箱,狐歧信箱,提问箱,意见,反馈,瑶圈",
+        "碧瑶,小说,同人文,诛仙,诛仙女主角碧瑶,资料站,信箱,狐岐信箱,提问箱,意见,反馈,瑶圈",
     },
   ],
 });
