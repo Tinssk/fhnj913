@@ -3,31 +3,36 @@
     <div class="mb-10 text-center">
       <h1 class="text-3xl font-bold text-green-800 mb-2 relative inline-block">
         网站更新日志
-        <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full"></span>
+        <span
+          class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full"></span>
       </h1>
       <p class="text-green-600 text-sm">网站的更新日志,最新消息</p>
       <p class="text-green-600 text-sm">网站的更新消息都会同步在这里哦,欢迎关注</p>
     </div>
 
     <div class="space-y-4">
-      <InfoItem v-for="item in paginatedList" :key="item.time" :time="item.time" :content="item.content" :Link="item.Link" />
+      <InfoItem v-for="item in paginatedList" :key="item.time" :time="item.time" :content="item.content"
+        :Link="item.Link" />
     </div>
 
     <!-- 分页控件 -->
     <div class="mt-8 flex justify-center items-center space-x-2" v-if="totalPages > 1">
-      <button @click="currentPage = Math.max(currentPage - 1, 1)" :disabled="currentPage === 1" class="px-3 py-1 rounded-md bg-white border border-green-300 text-green-700 hover:bg-green-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200">
+      <button @click="currentPage = Math.max(currentPage - 1, 1)" :disabled="currentPage === 1"
+        class="px-3 py-1 rounded-md bg-white border border-green-300 text-green-700 hover:bg-green-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <div class="flex space-x-1">
-        <button v-for="page in displayedPages" :key="page" @click="currentPage = page" :class="['px-3 py-1 rounded-md transition-colors duration-200', currentPage === page ? 'bg-green-500 text-white font-medium' : 'bg-white border border-green-300 text-green-700 hover:bg-green-50']">
+        <button v-for="page in displayedPages" :key="page" @click="currentPage = page"
+          :class="['px-3 py-1 rounded-md transition-colors duration-200', currentPage === page ? 'bg-green-500 text-white font-medium' : 'bg-white border border-green-300 text-green-700 hover:bg-green-50']">
           {{ page }}
         </button>
       </div>
 
-      <button @click="currentPage = Math.min(currentPage + 1, totalPages)" :disabled="currentPage === totalPages" class="px-3 py-1 rounded-md bg-white border border-green-300 text-green-700 hover:bg-green-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200">
+      <button @click="currentPage = Math.min(currentPage + 1, totalPages)" :disabled="currentPage === totalPages"
+        class="px-3 py-1 rounded-md bg-white border border-green-300 text-green-700 hover:bg-green-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -50,13 +55,17 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2025-11-3",
+    content: "调整了卷丹青里图片的下载逻辑,现在可以一键秒下载,而不需要再重新从服务器请求,极大优化了下载体验",
+  },
+  {
     time: "2025-11-1",
     content: "优化了搜索表现",
   },
   {
     time: "2025-10-12",
     content: "碧瑶的狐岐信箱上线啦,已上线提问箱",
-    Link:"https://www.biyao521.com/mailbox"
+    Link: "https://www.biyao521.com/mailbox"
   },
   {
     time: "2025-08-03",
