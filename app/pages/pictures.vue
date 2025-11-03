@@ -4,7 +4,7 @@
       <p class="text-black mt-10">是的,上面的搜索框是个纯摆设,搜图功能后续待开发~敬请期待</p>
       <h2 class="text-black text-xl">很抱歉,因为521流量太大,为了防止一觉醒来房子归移动,暂时不提供原图下载,想下载原图的花瓣们移步微博碧瑶主页</h2>
       <Button class="catBtn bg-green-400 hover:bg-green-600"><a href="https://weibo.com/u/2461312731" target="_blank"
-          class="catBtn " rel="noopener noreferrer"><svg class="mr-2 inline" xmlns="http://www.w3.org/2000/svg" x="0px"
+          class="catBtn" rel="noopener noreferrer"><svg class="mr-2 inline" xmlns="http://www.w3.org/2000/svg" x="0px"
             y="0px" width="24" height="24" viewBox="0 0 48 48">
             <path fill="#FFF"
               d="M34,29c-0.6-5.8-7.6-9.8-16-8.9c-4.9,0.5-9.4,2.6-11.9,5.6C4.5,27.6,3.8,29.8,4,32c0.5,5.3,6.4,9,13.8,9c0.7,0,1.4,0,2.2-0.1c4.9-0.5,9.4-2.6,11.9-5.6C33.5,33.4,34.2,31.2,34,29z">
@@ -19,23 +19,22 @@
             <path fill="#F9A825"
               d="M45.3,22C45.3,22,45.3,22,45.3,22c-0.2,0.6-0.8,1-1.4,1c-0.8,0-1.5-0.7-1.5-1.5c0-0.2,0-0.4,0.1-0.6C42.8,20,43,19,43,18c0-5-4-9-9-9c-0.4,0-0.9,0-1.3,0.1c0,0,0,0-0.1,0c0,0-0.1,0-0.1,0c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5c0,0,0,0,0,0C33,6,33.5,6,34,6c6.6,0,12,5.4,12,12C46,19.4,45.8,20.7,45.3,22z M40,18c0-3.3-2.7-6-6-6c-0.2,0-0.4,0-0.7,0c0,0,0,0-0.1,0c-0.7,0.1-1.3,0.7-1.3,1.5c0,0.8,0.7,1.5,1.5,1.5c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0.1,0,0.3,0,0.4,0c1.7,0,3,1.3,3,3c0,0.3-0.1,0.7-0.2,1c0,0,0,0,0,0c-0.1,0.2-0.1,0.3-0.1,0.5c0,0.8,0.7,1.5,1.5,1.5c0.6,0,1.1-0.4,1.4-0.9c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0-0.1,0-0.1,0.1-0.2C39.9,19.2,40,18.6,40,18z">
             </path>
-          </svg>微博:碧瑶主页(点击前往)</a> </Button>
+          </svg>微博:碧瑶主页(点击前往)</a>
+      </Button>
     </div>
     <div id="ImgContainer" class="gap-4 min-w-full mx-auto">
       <div v-for="(img, idx) in allImages" :key="idx"
         class="groupN group relative mb-4 overflow-hidden rounded-lg transition-all duration-300"
         @click.stop="handleImageClickShow(idx)">
         <img :src="img" :alt="'img' + idx" loading="lazy" class="w-full block transition-all duration-300" />
-        <a :href="`/api/download?path=${encodeURIComponent(img)}`" target="_blank" rel="noopener noreferrer">
-          <button :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
-            class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
-            <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-            </svg>
-          </button>
-        </a>
+        <button @click="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
+          class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
+          <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -94,15 +93,15 @@ onMounted(() => {
   });
 });
 
-// //js控制下载,暂时保留
-// const downloadImage = (imgUrl) => {
-//   const link = document.createElement('a');
-//   link.href = imgUrl;
-//   link.download = imgUrl.split('/').pop();
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// };
+//js控制下载,暂时保留
+const downloadImage = (imgUrl) => {
+  const link = document.createElement('a');
+  link.href = imgUrl;
+  link.download = imgUrl.split('/').pop();
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 
 
