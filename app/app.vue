@@ -2,6 +2,8 @@
   <ClientOnly>
     <!-- 浏览器检测层 -->
     <BrowserCompatibilityCheck />
+    <!-- webDriver检测层 -->
+    <WebDriverDetector />
   </ClientOnly>
   <!-- 页面切换过渡层 -->
   <CustomLoading />
@@ -14,7 +16,9 @@
   </NuxtLayout>
 </template>
 
-<script setup lang="js"></script>
+<script setup lang="js">
+
+</script>
 
 <style>
 .page-enter-active,
