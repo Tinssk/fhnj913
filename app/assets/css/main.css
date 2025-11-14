@@ -134,6 +134,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "汉仪文黑-85w"; /* 自定义的字体名称 */
+  src: url("/fonts/汉仪文黑-85W.ttf") format("truetype"); /* 字体文件路径 */
+  font-weight: normal;
+  font-style: normal;
+}
 /*启用浏览器的自动中英文间距*/
 :root {
   -ms-text-autospace: normal; /* 旧IE专用 */

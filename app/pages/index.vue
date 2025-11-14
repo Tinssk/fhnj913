@@ -11,7 +11,7 @@
       </video>
       <div ref="contentRef" class="absolute left-0 top-0 w-full h-[100vh] select-none animate-fadeUp">
         <div
-          class="font-[汉仪文黑-85w] absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 text-white text-center">
+          class="absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 text-white text-center">
           <div class="subtitle fade-in font-medium text-lg lg:text-2xl tracking-[10px] mb-4">碧瑶的狐岐资料站</div>
           <div class="title font-medium text-5xl lg:text-6xl mb-4">伤心花开人未还</div>
           <nuxt-link to="/main" class="catBtn"><button id="try-btn"
