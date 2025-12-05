@@ -5,10 +5,14 @@ export default defineNuxtPlugin(() => {
     const words = ["❤碧瑶❤", "❤情缘❤", "❤爱恋❤", "❤花瓣❤", "❤生死❤", "❤痴情咒❤", "❤不悔❤", "❤合欢❤", "❤伤心❤", "❤三生七世❤", "❤九幽阴灵❤", "❤伤心花❤", "❤合欢铃❤"];
 
     window.addEventListener("click", function (event) {
+      /*手机端检测 */
+      const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+      /*对手机端单独配置样式 */
+      const heartSize = isMobile ? 12 : 16;
       // 🛑 如果点击的是表单控件，就不触发动画
       const target = event.target; // ✅ 从 event 中获取 target
-
-      if (target.matches("input, textarea, select,a,button") || target.isContentEditable) {
+      const hasNoAnimationClass = target.closest(".no-click-animation");
+      if (target.matches("input, textarea, select,a,button") || target.isContentEditable || hasNoAnimationClass) {
         return; // 🚫 如果是输入框等表单元素，不触发动画
       }
       const heart = document.createElement("b");
@@ -21,7 +25,7 @@ export default defineNuxtPlugin(() => {
       // clickani.setAttribute("height", "150");
       // clickani.setAttribute("muted", "muted");
       // clickani.setAttribute("autoplay", "autoplay");
-      // clickani.setAttribute("preload", "auto");
+      // clickani.setAttribute("preload", "auto");gvv
       // clickani.setAttribute("type", "video/webm");
 
       document.body.appendChild(heart).innerHTML = words[a_idx];
@@ -36,7 +40,7 @@ export default defineNuxtPlugin(() => {
       let a = 1;
       let s = 1.2;
 
-      heart.style.cssText = "position: fixed;left:-100%;z-index:200;";
+      heart.style.cssText = `font-size:${heartSize}px; position: fixed;left:-100%;z-index:200;`;
       // clickani.style.cssText = `position: fixed;left:${x}px;top:${y}px;width: 150px;height: 150px;transform: translate(-50%, -50%);z-index:200;`;
 
       // clickani.addEventListener("ended", () => {
@@ -49,7 +53,7 @@ export default defineNuxtPlugin(() => {
           heart.remove();
           clearInterval(timer);
         } else {
-          heart.style.cssText = `font-size:16px;position: fixed;color:${c};left:${x}px;top:${y}px;opacity:${a};transform:scale(${s});z-index:200;`;
+          heart.style.cssText = `font-size:${heartSize}px;position: fixed;color:${c};left:${x}px;top:${y}px;opacity:${a};transform:scale(${s});z-index:200;`;
           y--;
           a -= 0.016;
           s += 0.002;
