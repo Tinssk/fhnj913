@@ -103,8 +103,6 @@ const downloadImage = (imgUrl) => {
   document.body.removeChild(link);
 };
 
-
-
 // 处理图片点击事件
 const handleImageClickShow = (idx) => {
   // 只在移动端（宽度小于1024px）时应用点击效果

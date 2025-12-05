@@ -138,6 +138,7 @@ if (!page.value) {
     statusMessage: "markdowm Page not found",
   });
 }
+
 // 提取页面中的标题作为目录
 const toc = page.value?.body?.toc || [];
 const sections = ref([]);

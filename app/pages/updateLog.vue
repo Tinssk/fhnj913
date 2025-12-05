@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2025-12-5",
+    content: "修复了搜索框提示异常问题",
+  },
+  {
     time: "2025-11-3",
     content: "调整了卷丹青里图片的下载逻辑,现在可以一键秒下载,而不需要再重新从服务器请求,极大优化了下载体验",
   },

@@ -4,18 +4,23 @@
     <div class="mb-10 text-center">
       <h1 class="text-3xl font-bold text-green-800 mb-2 relative inline-block">
         狐岐信箱
-        <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full"></span>
+        <span
+          class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full"></span>
       </h1>
       <p class="text-green-600 text-sm">狐岐山小狐狸们的专属信箱</p>
     </div>
 
     <!-- 碧瑶圈子提问箱 -->
-    <div class="bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200 rounded-2xl p-6 mb-8 shadow-sm hover:shadow-md transition-all duration-300">
+    <div
+      class="bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200 rounded-2xl p-6 mb-8 shadow-sm hover:shadow-md transition-all duration-300">
       <h2 class="text-xl font-semibold text-green-800 mb-3">【碧瑶圈子提问箱】</h2>
-      <p class="text-green-700 leading-relaxed text-sm sm:text-base mb-5">为更好地共建瑶圈，现开启专属提问箱，长期收集大家对圈子发展的所有宝贵建议 （如活动创意、内容方向等）。每一条建议我们都会认真阅读并回答。 你的每一次发声，都是瑶圈成长的重要力量。提问箱支持匿名，欢迎畅所欲言。</p>
+      <p class="text-green-700 leading-relaxed text-sm sm:text-base mb-5">为更好地共建瑶圈，现开启专属提问箱，长期收集大家对圈子发展的所有宝贵建议
+        （如活动创意、内容方向等）。每一条建议我们都会认真阅读并回答。 你的每一次发声，都是瑶圈成长的重要力量。提问箱支持匿名，欢迎畅所欲言。</p>
 
       <div class="text-center">
-        <a href="https://pome.vip/OiniU4yY" target="_blank" rel="noopener noreferrer" class="catBtn inline-block px-6 py-2 rounded-full text-white font-medium bg-gradient-to-r from-green-300 to-emerald-400 hover:from-green-400 hover:to-emerald-500 shadow-sm hover:shadow-md transition-all duration-300"> 前往提问箱 </a>
+        <a href="https://pome.vip/OiniU4yY" target="_blank" rel="noopener noreferrer"
+          class="catBtn inline-block px-6 py-2 rounded-full text-white font-medium bg-gradient-to-r from-green-300 to-emerald-400 hover:from-green-400 hover:to-emerald-500 shadow-sm hover:shadow-md transition-all duration-300">
+          前往提问箱 </a>
       </div>
     </div>
 
@@ -29,7 +34,6 @@ definePageMeta({
   title: "狐岐信箱",
   wrapperHeight: "h-170",
 });
-
 useHead({
   title: "碧瑶圈信箱 | 狐岐信箱",
   meta: [

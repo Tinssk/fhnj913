@@ -1,14 +1,18 @@
 <template>
   <div class="chapter-outer-wrapper flex flex-col items-center w-full mt-10">
     <h1 class="text-3xl font-extrabold text-green-800 mb-2 drop-shadow">欢迎大家来到我们的碧瑶传企划</h1>
-    <p class="text-green-700">这里未来会很丰富,添加无数内容,现在暂时只放碧瑶传小说,其他内容后续待跟进~</p>
-    <NuxtLink :to="`/biyaofame/1`" class="catBtn bg-green-400 hover:bg-green-600 w-30 h-auto hover:scale-110 mt-8 text-center rounded-xl px-6 py-1"> 开始阅读 </NuxtLink>
-    <div class="chapter-card bg-gradient-to-br from-green-100 via-green-50 to-white shadow-2xl rounded-2xl px-8 py-10 w-full max-w-2xl border border-green-200">
+    <p class="text-green-700">待建设,暂时只放碧瑶传小说,其他内容后续待跟进~</p>
+    <NuxtLink :to="`/biyaofame/1`"
+      class="catBtn bg-green-400 hover:bg-green-600 w-30 h-auto hover:scale-110 mt-8 text-center rounded-xl px-6 py-1">
+      开始阅读 </NuxtLink>
+    <div
+      class="chapter-card bg-gradient-to-br from-green-100 via-green-50 to-white shadow-2xl rounded-2xl px-8 py-10 w-full max-w-2xl border border-green-200">
       <h2 class="chapter-title text-2xl font-bold text-green-700 mb-6 text-center tracking-wide drop-shadow">章节目录</h2>
       <div class="text-center mb-8"></div>
       <div class="chapter-list-wrapper flex flex-col items-center gap-3 mt-8">
         <template v-for="(chapter, idx) in sortedChapters" :key="idx">
-          <NuxtLink :to="`/biyaofame/${chapter.num}`" class="catBtn chapter-link block w-full max-w-md px-6 py-1 rounded-xl shadow-md bg-gradient-to-r from-green-300 to-green-500 text-white hover:text-black font-semibold text-lg hover:from-green-400 hover:to-green-600 hover:scale-105 transition-all duration-200 border-b border-green-200 last:border-b-0">
+          <NuxtLink :to="`/biyaofame/${chapter.num}`"
+            class="catBtn chapter-link block w-full max-w-md px-6 py-1 rounded-xl shadow-md bg-gradient-to-r from-green-300 to-green-500 text-white hover:text-black font-semibold text-lg hover:from-green-400 hover:to-green-600 hover:scale-105 transition-all duration-200 border-b border-green-200 last:border-b-0">
             {{ chapter.title }}
           </NuxtLink>
         </template>

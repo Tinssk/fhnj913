@@ -1024,6 +1024,14 @@ title: '碧瑶角色主页'
       <td>原曲：《微笑みの彼方》</td>
       <td>碧瑶同人曲</td>
     </tr>
+    <tr>
+      <td><a class="catBtn" href="/audio/痴情祭.mp3" target="_blank">《情不苦》</a></td>
+      <td>虚拟歌姬</td>
+      <td>碎影朱砂</td>
+      <td>原曲：かざぐるま(风车)</td> 
+      <td>原曲：かざぐるま(风车)</td>
+      <td>碧瑶同人曲</td>
+    </tr>
   </tbody>
 </table>
 </div>

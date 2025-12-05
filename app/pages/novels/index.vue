@@ -2,32 +2,40 @@
   <div class="flex flex-col items-center w-full mt-8">
     <div class="w-full max-w-xl mb-6">
       <div class="flex">
-        <input v-model="searchKeyword" @keyup.enter="handleSearch" type="text" placeholder="搜索小说..." class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
+        <input v-model="searchKeyword" @keyup.enter="handleSearch" type="text" placeholder="搜索小说..."
+          class="texto w-full px-5 py-3 rounded-full shadow-md border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white text-green-800 placeholder-green-400 transition-all duration-200" />
       </div>
     </div>
     <!-- 搜索到内容,进行展示 -->
     <div class="w-full max-w-2xl">
       <ul class="divide-y divide-green-200 rounded-lg shadow">
         <li v-for="novel in pagedNovels" :key="novel" class="flex items-center hover:bg-green-200">
-          <NuxtLink :to="`/novels/${encodeURIComponent(novel)}`" class="catBtn block w-full h-full py-3 px-6"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-6"></span>{{ novel }}</NuxtLink>
+          <NuxtLink :to="`/novels/${encodeURIComponent(novel)}`" class="catBtn block w-full h-full py-3 px-6"><span
+              class="inline-block w-2 h-2 rounded-full bg-green-400 mr-6"></span>{{ novel }}</NuxtLink>
         </li>
       </ul>
       <!-- 分页器逻辑 -->
       <div v-if="totalPages > 1" class="flex justify-center items-center mt-6 gap-2">
-        <button @click="prevPage" :disabled="currentPage === 1" class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
-        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)" class="catBtn" :class="['px-3 py-1 rounded border', page === currentPage ? 'bg-green-400 text-white border-green-400' : 'bg-white text-green-700 border-green-300']">{{ page }}</button>
-        <button @click="nextPage" :disabled="currentPage === totalPages" class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
+        <button @click="prevPage" :disabled="currentPage === 1"
+          class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
+        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)" class="catBtn"
+          :class="['px-3 py-1 rounded border', page === currentPage ? 'bg-green-400 text-white border-green-400' : 'bg-white text-green-700 border-green-300']">{{
+            page }}</button>
+        <button @click="nextPage" :disabled="currentPage === totalPages"
+          class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
       </div>
     </div>
     <!-- 搜索中加载提示 -->
-    <div v-if="isSearching" class="mt-8 flex flex-col items-center justify-center p-6 rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 to-green-100 shadow-sm max-w-2xl text-green-800 text-center animate-fade-in">
+    <div v-if="isSearching"
+      class="mt-8 flex flex-col items-center justify-center p-6 rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 to-green-100 shadow-sm max-w-2xl text-green-800 text-center animate-fade-in">
       <div class="flex items-center justify-center gap-4">
         <div class="w-8 h-8 border-4 border-green-300 border-t-green-600 rounded-full animate-spin"></div>
         <p class="text-lg font-medium">瑶瑶正在努力搜索中，请稍候...</p>
       </div>
     </div>
     <!-- 未搜到提示 -->
-    <div v-if="searchNull" class="mt-6 flex items-center justify-center gap-4 p-5 rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 to-green-100 shadow-sm max-w-xl text-green-800 text-center transition-all duration-300">
+    <div v-if="searchNull"
+      class="mt-6 flex items-center justify-center gap-4 p-5 rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 to-green-100 shadow-sm max-w-xl text-green-800 text-center transition-all duration-300">
       <img src="/img/errorWeep.png" alt="not found" class="w-14 h-14 opacity-90" />
       <p class="text-lg font-medium">
         很抱歉，瑶瑶没有搜索到
@@ -51,7 +59,7 @@ useHead({
 import { ref, computed } from "vue";
 import { NuxtLink } from '#components';
 const route = useRoute()
-const router=useRouter()
+const router = useRouter()
 const currentPage = ref(1);
 const pageSize = 20;
 const searchKeyword = ref("");
@@ -73,9 +81,10 @@ if (!cachedNovels.value) {
 const novelsData = ref(cachedNovels.value || []);
 const novels = computed(() => novelsData.value || []);
 
+
 //搜索函数
 async function handleSearch() {
-   //判断是否为空
+  //判断是否为空
   const keyword = searchKeyword.value.trim();
   if (!keyword) return;
   // 清空旧数据与提示状态
@@ -93,6 +102,8 @@ async function handleSearch() {
   novelsData.value = res;
   currentPage.value = 1;
 }
+
+
 // 洗牌算法
 function shuffle(arr) {
   const a = arr.slice();
@@ -102,6 +113,7 @@ function shuffle(arr) {
   }
   return a;
 }
+
 
 
 const totalPages = computed(() => Math.ceil(novels.value.length / pageSize));

@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
   devtools: { enabled: false },
   devServer: {
-    host: "192.168.1.9",
+    host: "192.168.1.8",
     port: 3000,
   },
 
@@ -36,6 +36,13 @@ export default defineNuxtConfig({
           rel: "preload",
           as: "image",
           href: "/img/header/main-header.jpg",
+        },
+        {
+          rel: "preload",
+          as: "font",
+          type: "font/woff2",
+          href: "/fonts/汉仪文黑-65W.woff2",
+          crossorigin: "anonymous",
         },
       ],
       charset: "utf-8",

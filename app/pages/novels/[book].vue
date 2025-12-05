@@ -10,9 +10,6 @@ definePageMeta({
   wrapperHeight: "h-120",
 });
 const route = useRoute();
-const { data } = await useAsyncData(`content-${route.path}`, () =>
-  $fetch(`/api/content${route.path}`)
-);
 // 获取最后一段路径作为文件名（slug）
 const slug = decodeURIComponent(route.path.split("/").filter(Boolean).pop() || "小说");
 
@@ -20,6 +17,9 @@ const slug = decodeURIComponent(route.path.split("/").filter(Boolean).pop() || "
 useHead({
   title: `碧瑶|折花笺|${slug}`,
 });
+const { data } = await useAsyncData(`content-${route.path}`, () =>
+  $fetch(`/api/content${route.path}`)
+);
 //设置小说全局状态
 const novelsSlug = useState('novelsSlug', () => '');
 
