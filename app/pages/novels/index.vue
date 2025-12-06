@@ -39,7 +39,7 @@
       <img src="/img/errorWeep.png" alt="not found" class="w-14 h-14 opacity-90" />
       <p class="text-lg font-medium">
         很抱歉，瑶瑶没有搜索到
-        <span class="font-semibold text-green-700">「{{ searchKeyword }}」</span>相关的碧瑶同人小说,请尝试搜索其他。
+        <span class="font-semibold text-green-700">「{{ searchKeyword_Result }}」</span>相关的碧瑶同人小说,请尝试搜索其他。
       </p>
     </div>
   </div>
@@ -63,6 +63,7 @@ const router = useRouter()
 const currentPage = ref(1);
 const pageSize = 20;
 const searchKeyword = ref("");
+const searchKeyword_Result = ref("");
 
 const searchNull = ref(false)  // 未搜到状态
 const isSearching = ref(false); // 搜索中状态
@@ -95,6 +96,7 @@ async function handleSearch() {
   const res = await $fetch("/api/areaSearch", { params: { keyword, path } });
   isSearching.value = false; //关闭加载状态
   if (!res || res.length === 0) {
+    searchKeyword_Result.value = keyword; // 保存搜索关键字用于提示
     searchNull.value = true; // 显示“没有搜到”
     return;
   }

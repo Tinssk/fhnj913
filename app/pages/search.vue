@@ -36,7 +36,7 @@
           class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">上一页</button>
         <button v-for="page in visiblePages" :key="page" @click="goToPage(page)"
           :class="['catBtn px-3 py-1 rounded border', page === currentPage ? 'bg-green-400 text-white border-green-400' : 'bg-white text-green-700 border-green-300']">{{
-          page }}</button>
+            page }}</button>
         <button @click="nextPage" :disabled="currentPage === totalPages"
           class="catBtn px-3 py-1 rounded border border-green-300 bg-white text-green-700 disabled:opacity-50">下一页</button>
       </div>
@@ -55,7 +55,7 @@
       <img src="/img/errorWeep.png" alt="not found" class="w-14 h-14 opacity-90" />
       <p class="text-lg font-medium">
         很抱歉，瑶瑶没有搜索到您想找的
-        <span class="font-semibold text-green-700">「{{ searchKeyword }}」</span>，请尝试搜索其他。
+        <span class="font-semibold text-green-700">「{{ searchKeyword_Result }}」</span>，请尝试搜索其他。
       </p>
     </div>
   </div>
@@ -80,6 +80,7 @@ const router = useRouter()
 const currentPage = ref(1);
 const pageSize = 20;
 const searchKeyword = ref("");
+const searchKeyword_Result = ref("");
 /*请求列表数据 */
 const searchsData = ref([])
 const searchs = computed(() => searchsData.value || []);
@@ -105,6 +106,7 @@ async function handleSearch() {
   // ✅ 检查是否为空数组或返回 false
   isSearching.value = false; //关闭加载状态
   if (!res || res.length === 0) {
+    searchKeyword_Result.value = keyword; // 保存搜索关键字用于提示
     searchNull.value = true; // 显示“没有搜到”
     return;
   }
