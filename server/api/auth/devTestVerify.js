@@ -1,7 +1,7 @@
 // server/api/auth/verify.js
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const correctPassword = process.env.ACCESS_PASSWORD || "by521"; // 从环境变量获取密码
+  const correctPassword = "by521"; // 从环境变量获取密码
 
   if (body.password === correctPassword) {
     setCookie(event, "auth_passed", "1", {
