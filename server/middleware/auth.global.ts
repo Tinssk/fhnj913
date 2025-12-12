@@ -16,7 +16,6 @@ export default fromNodeMiddleware((req, res, next) => {
     "/__nuxt",
     "/favicon.ico",
     "/__nuxt_error", // 关键修复：排除错误处理路由
-    "/api", // 如果有API接口也需要排除
     "_ipx",
     "__nuxt_content",
   ];
