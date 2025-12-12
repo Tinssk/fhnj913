@@ -20,6 +20,7 @@ export default fromNodeMiddleware((req, res, next) => {
     "_ipx",
     "__nuxt_content",
   ];
+
   if (excludePaths.some((path) => req.url.startsWith(path))) {
     return next();
   }
