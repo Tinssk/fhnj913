@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
   const matterResult = matter(fileContent.toString("utf-8"));
   const md = new MarkdownIt({ breaks: true, html: true });
   md.use(tableWrapperPlugin); //为所有表格外包一层div
-  md.disable("code");
+  md.disable("code"); // 禁用内置代码块渲染
   const html = md.render(matterResult.content);
   return {
     frontmatter: matterResult.data,

@@ -7,9 +7,12 @@
       <div v-if="success" class="mb-4">
         <div class="flex justify-center mb-2">
           <!-- 加载动画 -->
-          <svg class="animate-spin h-8 w-8 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <svg class="animate-spin h-8 w-8 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
           </svg>
         </div>
         <p class="text-green-500 font-medium">密码验证成功，正在跳转...</p>
@@ -17,11 +20,16 @@
 
       <!-- 验证表单 -->
       <div v-if="!success">
-        <input v-model="input" type="password" placeholder="请输入访问密码" class="texto text-black border p-2 w-full rounded mb-4" @keyup.enter="checkPassword" />
-        <button @click="checkPassword" :disabled="loading" class="catBtn bg-blue-500 text-white px-4 py-2 rounded w-full flex justify-center items-center">
-          <svg v-if="loading" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <input v-model="input" type="password" placeholder="请输入访问密码"
+          class="texto text-black border p-2 w-full rounded mb-4" @keyup.enter="checkPassword" />
+        <button @click="checkPassword" :disabled="loading"
+          class="catBtn bg-blue-500 text-white px-4 py-2 rounded w-full flex justify-center items-center">
+          <svg v-if="loading" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
           </svg>
           {{ loading ? "验证中..." : "验证" }}
         </button>
