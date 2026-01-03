@@ -11,8 +11,10 @@ onMounted(() => {
   if (!canvas) return;
 
   const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  const dpr = isMobile ? 1 : window.devicePixelRatio;
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  ctx.scale(dpr, dpr);
 
   const petals = [];
   const petalCount = isMobile ? 10 : 30;
@@ -31,14 +33,18 @@ onMounted(() => {
     img.src = src;
     return img;
   });
+  let bitmapList = []
 
   // 确保所有图片加载完成
   Promise.all(imageList.map(img => new Promise(resolve => {
     img.onload = resolve;
-  }))).then(() => {
+  }))).then(async () => {
+    bitmapList = await Promise.all(
+      imageList.map(img => createImageBitmap(img))  //这里使用了一个gpu友好的特性,把图片直接转为gpu直接处理的纹理缓存
+    )
     class Petal {
       constructor() {
-        this.image = imageList[Math.floor(Math.random() * imageList.length)];
+        this.image = bitmapList[Math.floor(Math.random() * bitmapList.length)];
         this.reset();
       }
 

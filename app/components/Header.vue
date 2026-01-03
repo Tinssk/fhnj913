@@ -108,76 +108,78 @@
     </div>
   </div>
   <!-- 移动端下拉导航栏 -->
-  <transition name="slide-down">
-    <div v-if="isMenuOpen"
-      class="fixed left-0 top-16 w-full z-30 bg-gradient-to-br from-green-100 via-green-50 to-teal-100 text-green-900 shadow-2xl rounded-b-3xl overflow-hidden lg:hidden transition-all duration-500 border-b-4 border-green-300/40"
-      style="max-height: 80vh" @click.self="toggleMenu">
-      <div class="flex flex-col gap-2 py-4 px-6">
-        <nuxt-link to="/main"
-          class="block py-3 px-2 text-lg font-semibold rounded-xl hover:bg-gradient-to-r hover:from-green-200 hover:to-teal-100 hover:text-green-700 border-b border-green-100 transition-all duration-200"
-          @click="closeMenu">主页</nuxt-link>
-        <!-- 手风琴菜单：同人合集 -->
-        <div class="rounded-xl overflow-hidden shadow-sm mb-1">
-          <button @click="toggleAccordion('fan')"
-            class="w-full flex justify-between items-center py-3 px-2 text-lg font-semibold rounded-xl bg-gradient-to-r from-green-200/60 to-teal-100/60 hover:from-green-300 hover:to-teal-200 text-green-800 border-b border-green-100 focus:outline-none transition-all duration-200">
-            <span>同人集合</span>
-            <svg :class="accordionOpen.fan ? 'rotate-180 text-green-500' : 'text-green-400'"
-              class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <transition name="accordion">
-            <div v-show="accordionOpen.fan"
-              class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner">
-              <nuxt-link to="/pictures"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">卷丹青</nuxt-link>
-              <nuxt-link to="/biyaofame"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">碧瑶传</nuxt-link>
-              <nuxt-link to="/novels"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">折花笺</nuxt-link>
-              <nuxt-link to="/musics"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">铃音渺</nuxt-link>
-              <nuxt-link to="/games"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">趣事物</nuxt-link>
-            </div>
-          </transition>
+  <details :open="isMenuOpen"
+    class="mobile-menu fixed left-0 top-16 w-full z-30 bg-gradient-to-br from-green-100 via-green-50 to-teal-100 text-green-900 shadow-2xl rounded-b-3xl overflow-hidden lg:hidden border-b-4 border-green-300/40">
+    <!-- 隐藏原生summary，保留触发逻辑 -->
+    <summary class="hidden"></summary>
+
+    <div class="flex flex-col gap-2 py-4 px-6 overflow-y-auto">
+      <nuxt-link to="/main"
+        class="block py-3 px-2 text-lg font-semibold rounded-xl hover:bg-gradient-to-r hover:from-green-200 hover:to-teal-100 hover:text-green-700 border-b border-green-100 transition-all duration-200"
+        @click="closeMenu">主页</nuxt-link>
+
+      <!-- 手风琴菜单：同人合集（修复原生冲突 + 动画） -->
+      <div class="rounded-xl overflow-hidden shadow-sm mb-1">
+        <!-- 替换原生summary为自定义触发按钮，避免原生details冲突 -->
+        <button @click="toggleAccordion('fan')" class="w-full flex justify-between items-center py-3 px-2 text-lg font-semibold rounded-xl bg-gradient-to-r
+          from-green-200/60 to-teal-100/60 hover:from-green-300 hover:to-teal-200 text-green-800 border-b
+          border-green-100 focus:outline-none transition-all duration-200">
+          <span>同人集合</span>
+          <svg :class="accordionOpen.fan ? 'rotate-180 text-green-500' : 'text-green-400'"
+            class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <!-- 动画容器：通过max-height控制下拉动画 -->
+        <div :class="accordionOpen.fan ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
+          class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner transition-all duration-300 ease-in-out overflow-hidden">
+          <nuxt-link to="/pictures"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">卷丹青</nuxt-link>
+          <nuxt-link to="/biyaofame"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">碧瑶传</nuxt-link>
+          <nuxt-link to="/novels"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">折花笺</nuxt-link>
+          <nuxt-link to="/musics"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">铃音渺</nuxt-link>
+          <nuxt-link to="/games"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">趣事物</nuxt-link>
         </div>
-        <!-- 手风琴菜单：资料合集 -->
-        <div class="rounded-xl overflow-hidden shadow-sm mb-1">
-          <button @click="toggleAccordion('info')"
-            class="w-full flex justify-between items-center py-3 px-2 text-lg font-semibold rounded-xl bg-gradient-to-r from-green-200/60 to-teal-100/60 hover:from-green-300 hover:to-teal-200 text-green-800 border-b border-green-100 focus:outline-none transition-all duration-200">
-            <span>圈子集合</span>
-            <svg :class="accordionOpen.info ? 'rotate-180 text-green-500' : 'text-green-400'"
-              class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <transition name="accordion">
-            <div v-show="accordionOpen.info"
-              class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner">
-              <nuxt-link to="/official"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">官方讯息</nuxt-link>
-              <nuxt-link to="/evidence"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">证据存档</nuxt-link>
-              <nuxt-link to="/mailbox"
-                class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
-                @click="closeMenu">狐岐信箱</nuxt-link>
-            </div>
-          </transition>
-        </div>
-        <nuxt-link to="/about"
-          class="block py-3 px-2 text-lg font-semibold rounded-xl hover:bg-gradient-to-r hover:from-green-200 hover:to-teal-100 hover:text-green-700 border-b border-green-100 transition-all duration-200"
-          @click="closeMenu">关于</nuxt-link>
       </div>
+
+      <!-- 手风琴菜单：资料合集（同上述修复 + 动画） -->
+      <div class="rounded-xl overflow-hidden shadow-sm mb-1">
+        <button @click="toggleAccordion('info')"
+          class="w-full flex justify-between items-center py-3 px-2 text-lg font-semibold rounded-xl bg-gradient-to-r from-green-200/60 to-teal-100/60 hover:from-green-300 hover:to-teal-200 text-green-800 border-b border-green-100 focus:outline-none transition-all duration-200">
+          <span>圈子集合</span>
+          <svg :class="accordionOpen.info ? 'rotate-180 text-green-500' : 'text-green-400'"
+            class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div :class="accordionOpen.info ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'"
+          class="pl-4 flex flex-col gap-1 bg-gradient-to-r from-green-50 to-teal-50 border-l-4 border-green-200 rounded-b-xl shadow-inner transition-all duration-300 ease-in-out overflow-hidden">
+          <nuxt-link to="/official"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">官方讯息</nuxt-link>
+          <nuxt-link to="/evidence"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">证据存档</nuxt-link>
+          <nuxt-link to="/mailbox"
+            class="block py-2 px-2 text-base rounded-lg hover:bg-green-100 hover:text-green-700 transition-all duration-200"
+            @click="closeMenu">狐岐信箱</nuxt-link>
+        </div>
+      </div>
+
+      <nuxt-link to="/about"
+        class="block py-3 px-2 text-lg font-semibold rounded-xl hover:bg-gradient-to-r hover:from-green-200 hover:to-teal-100 hover:text-green-700 border-b border-green-100 transition-all duration-200"
+        @click="closeMenu">关于</nuxt-link>
     </div>
-  </transition>
+  </details>
 </template>
 
 <script setup>
@@ -196,6 +198,7 @@ const isHighlighted = (path, type) => {
   return highlightPaths.some((highlightPath) => path.startsWith(highlightPath));
 };
 
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
   if (!isMenuOpen.value) {
@@ -211,6 +214,11 @@ const closeMenu = () => {
   accordionOpen.fan = false;
   accordionOpen.info = false;
 };
+const handleMenuToggle = (e) => {
+  // 阻止原生details的默认行为，完全由isMenuOpen控制
+  e.preventDefault();
+};
+
 // 监听滚动事件，检测页面滚动位置
 const handleScroll = () => {
   if (window.scrollY === 0) {
@@ -237,53 +245,39 @@ onUnmounted(() => {
 });
 </script>
 <style scoped>
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
-}
-
-.slide-down-enter-from,
-.slide-down-leave-to {
-  max-height: 0;
-  opacity: 0;
-}
-
-.slide-down-enter-to,
-.slide-down-leave-from {
-  max-height: 80vh;
-  opacity: 1;
-}
-
-.accordion-enter-active,
-.accordion-leave-active {
-  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
-}
-
-.accordion-enter-from,
-.accordion-leave-to {
-  max-height: 0;
-  opacity: 0;
-}
-
-.accordion-enter-to,
-.accordion-leave-from {
-  max-height: 500px;
-  opacity: 1;
-}
-
 /* 绿色系现代风格手风琴菜单样式增强 */
 @media (max-width: 1023px) {
-
-  .accordion-enter-to,
-  .accordion-leave-from {
+  .mobile-menu details[open]>div {
     background: linear-gradient(90deg, #e0f7ef 0%, #f0fdf4 100%);
     border-left: 4px solid #86efac;
     box-shadow: 0 2px 8px 0 #bbf7d0;
   }
 
-  .accordion-enter-active,
-  .accordion-leave-active {
+  .mobile-menu details[open] {
     border-radius: 0 0 1rem 1rem;
   }
+}
+
+/* 手风琴菜单动画*/
+@media (max-width: 1023px) {
+
+  /* 主菜单展开/收起动画 */
+  .mobile-menu {
+    transition: all 0.5s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .mobile-menu[open] {
+    max-height: 100vh;
+    /* 足够大的高度容纳所有内容 */
+    opacity: 1;
+  }
+
+  /* 手风琴子菜单样式（已整合到模板的class中，此处补充说明） */
+  .mobile-menu button {
+    cursor: pointer;
+  }
+
 }
 </style>
