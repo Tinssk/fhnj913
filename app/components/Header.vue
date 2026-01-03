@@ -109,7 +109,7 @@
   </div>
   <!-- 移动端下拉导航栏 -->
   <details :open="isMenuOpen"
-    class="mobile-menu fixed left-0 top-16 w-full z-30 bg-gradient-to-br from-green-100 via-green-50 to-teal-100 text-green-900 shadow-2xl rounded-b-3xl overflow-hidden lg:hidden border-b-4 border-green-300/40">
+    class="mobile-menu fixed left-0 top-16 w-full z-30 bg-gradient-to-br from-green-100 via-green-50 to-teal-100 text-green-900 shadow-2xl rounded-b-3xl overflow-hidden lg:hidden border-b-4 border-green-300/40 overflow-y-auto">
     <!-- 隐藏原生summary，保留触发逻辑 -->
     <summary class="hidden"></summary>
 
