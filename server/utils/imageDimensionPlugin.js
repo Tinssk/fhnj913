@@ -13,6 +13,7 @@ export default function imageWrapperPlugin(md) {
         if (!/<img\b/i.test(token.content)) {
           continue; // 没有 img 标签，直接跳过
         }
+
         token.content = token.content.replace(/<img\s+([^>]*)>/gi, (match, attrs) => {
           // 1. 尝试提取 src
           const srcMatch = attrs.match(/src\s*=\s*["']([^"']+)["']/i);
