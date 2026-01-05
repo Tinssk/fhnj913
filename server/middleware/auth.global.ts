@@ -16,16 +16,16 @@ export default fromNodeMiddleware((req, res, next) => {
     "/__nuxt",
     "/favicon.ico",
     "/__nuxt_error", // 关键修复：排除错误处理路由
-    "/api/auth", // 如果有API接口也需要排除
+    "/api", // 如果有API接口也需要排除
     "_ipx",
     "__nuxt_content",
   ];
-
-  if (excludePaths.some((path) => req.url.startsWith(path))) {
+  const requestUrl = req.url ?? "";
+  if (requestUrl && excludePaths.some((path) => requestUrl.startsWith(path))) {
     return next();
   }
   // 在中间件中添加
-  if (req.url === "/password" && req.method === "POST") {
+  if (requestUrl === "/password" && req.method === "POST") {
     return next();
   }
   // 3. 检查Cookie中的验证标记
