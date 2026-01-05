@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2026-1-5",
+    content: "添加了图片的占位符,解决了图片加载后布局偏移的问题",
+  },
+  {
     time: "2026-1-3",
     content: "新年第一次更新,优化了移动端下拉菜单栏的性能问题",
   },
