@@ -103,8 +103,8 @@ export default defineNuxtConfig({
         dir: "../content", // Relative to Nitro `srcDir`
       },
       {
-        baseName: "public",
-        dir: "../public", // Relative to Nitro `srcDir`},
+        baseName: "wiki",
+        dir: "../public/img/wiki", // Relative to Nitro `srcDir`},
       },
     ],
   },

@@ -4,7 +4,7 @@ import sizeOf from "image-size";
 const imageSizeMap = new Map<string, { width: number; height: number }>();
 
 export async function warmupImageMeta() {
-  const storage = useStorage("assets:public:img:wiki");
+  const storage = useStorage("assets:wiki");
   const keys = await storage.getKeys();
 
   for (const key of keys) {
