@@ -24,7 +24,8 @@
             class="catBtn text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
             :class="isHighlighted($route.path, 'opus') ? 'after:w-full text-teal-200' : ''">
             同人集合
-            <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
+            <svg
+              class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 rotate-180 group-hover:rotate-0"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -57,7 +58,8 @@
             class="catBtn text-lg hover:text-teal-200 transition duration-300 focus:outline-none relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-teal-200 after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
             :class="isHighlighted($route.path, 'party') ? 'after:w-full text-teal-200' : ''">
             圈子集合
-            <svg class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 group-hover:rotate-180"
+            <svg
+              class="w-5 h-5 inline-block ml-1 transform transition-transform duration-300 rotate-180 group-hover:rotate-0"
               fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -125,7 +127,7 @@
           from-green-200/60 to-teal-100/60 hover:from-green-300 hover:to-teal-200 text-green-800 border-b
           border-green-100 focus:outline-none transition-all duration-200">
           <span>同人集合</span>
-          <svg :class="accordionOpen.fan ? 'rotate-180 text-green-500' : 'text-green-400'"
+          <svg :class="accordionOpen.fan ? ' text-green-500' : 'rotate-180 text-green-400'"
             class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -156,7 +158,7 @@
         <button @click="toggleAccordion('info')"
           class="w-full flex justify-between items-center py-3 px-2 text-lg font-semibold rounded-xl bg-gradient-to-r from-green-200/60 to-teal-100/60 hover:from-green-300 hover:to-teal-200 text-green-800 border-b border-green-100 focus:outline-none transition-all duration-200">
           <span>圈子集合</span>
-          <svg :class="accordionOpen.info ? 'rotate-180 text-green-500' : 'text-green-400'"
+          <svg :class="accordionOpen.info ? ' text-green-500' : 'rotate-180 text-green-400'"
             class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>

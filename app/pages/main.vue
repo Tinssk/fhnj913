@@ -13,9 +13,9 @@
                   'bg-emerald-800 text-white ': isActive(section.id),
                   'bg-emerald-800 text-white': section.children?.some((child) => isActive(child.id)),
                 }" @click.prevent="scrollToSection(section.id)">
-                {{ section.text }}
+                {{ section.title }}
               </a>
-              <!-- 修改折叠按钮样式 -->
+              <!-- 折叠按钮样式 -->
               <button v-if="section.children && section.children.length" @click="toggleSection(index)"
                 class="catBtn p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md ml-2">
                 <span class="inline-block transition-transform duration-300"
@@ -25,7 +25,7 @@
 
             <!-- 子目录 -->
             <ul v-if="section.children && section.children.length"
-              class="pl-4 mt-2 transition-all duration-300 origin-top" :class="{
+              class="pl-4 mt-2  transition-all duration-300 origin-top" :class="{
                 'h-0 opacity-0 scale-y-0': collapsedSections[index],
                 'h-auto opacity-100 scale-y-100': !collapsedSections[index],
               }">
@@ -34,7 +34,7 @@
                   class="catBtn text-sm hover:text-blue-500 transition-colors py-1 px-2 block rounded-md"
                   :class="{ 'bg-emerald-600 text-white': isActive(child.id) }"
                   @click.prevent="scrollToSection(child.id)">
-                  {{ child.text }}
+                  {{ child.title }}
                 </a>
               </li>
             </ul>
@@ -53,14 +53,14 @@
             <path d="M9 18l6-6-6-6" />
           </svg>
         </button>
+        <!-- 设置点击其余部位关闭目录 -->
         <transition name="fade">
           <div v-if="drawerOpen" class="pointer-events-auto fixed inset-0 z-30 bg-transparent"
             @click="drawerOpen = false"></div>
         </transition>
         <transition name="slide">
           <aside v-if="drawerOpen"
-            class="pointer-events-auto sticky top-25 left-0 h-screen max-h-[80vh] overflow-y-auto z-40 w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400"
-            @click.stop @click="drawerOpen = false">
+            class="pointer-events-auto sticky top-25 left-0 h-screen max-h-[80vh] overflow-y-auto z-40 w-4/5 max-w-xs bg-white shadow-2xl rounded-r-2xl p-4 flex flex-col gap-2 border-r-4 border-emerald-400">
             <div class="flex items-center mb-4">
               <span class="ml-2 text-lg font-bold text-emerald-600">目录</span>
             </div>
@@ -74,7 +74,7 @@
                       scrollToSection(section.id);
                     drawerOpen = false;
                     ">
-                    {{ section.text }}
+                    {{ section.title }}
                   </a>
                   <button v-if="section.children && section.children.length" @click="toggleSection(index)"
                     class="ml-2 p-1 rounded-full hover:bg-emerald-50">
@@ -95,7 +95,7 @@
                           scrollToSection(child.id);
                         drawerOpen = false;
                         ">
-                        {{ child.text }}
+                        {{ child.title }}
                       </a>
                     </li>
                   </ul>
@@ -108,8 +108,7 @@
     </div>
     <!-- 右侧内容 -->
     <div class="w-full lg:w-4/5 p-4">
-      <ContentRenderer v-if="page" :value="page"
-        class="prose prose-lg text-black max-w-none prose-headings:scroll-mt-16 prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-xl prose-img:shadow-lg prose-table:border-collapse" />
+      <div class="prose prose-lg text-black max-w-none" v-html="data?.content" />
     </div>
   </div>
 </template>
@@ -129,10 +128,10 @@ useHead({
 });
 
 const route = useRoute();
-const { data: page } = await useAsyncData(`role`, () => {
-  return queryCollection("content").path(route.path).first();
-});
-if (!page.value) {
+const { data } = await useAsyncData(`content-${route.path}`, () =>
+  $fetch(`/api/content${route.path}`)
+);
+if (!data.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "markdowm Page not found",
@@ -140,14 +139,11 @@ if (!page.value) {
 }
 
 // 提取页面中的标题作为目录
-const toc = page.value?.body?.toc || [];
+const toc = data.value?.toc || [];
 const sections = ref([]);
+sections.value = toc;
+/*折叠状态 */
 const drawerOpen = ref(false);
-if (toc.links && Array.isArray(toc.links[0].children)) {
-  sections.value = toc.links[0].children;
-} else {
-  sections.value = [];
-}
 // 当前激活的目录 id
 const currentId = ref("");
 // 添加折叠状态数组
@@ -162,6 +158,7 @@ const toggleSection = (index) => {
 if (sections.value.length > 0) {
   currentId.value = sections.value[0].id;
 }
+
 onMounted(() => {
   window.addEventListener("scroll", onScroll);
   // 如果初始有 hash，滚动到位置
@@ -364,6 +361,8 @@ function onScroll() {
   /* 明确覆盖宽度 */
   margin: 1rem auto;
   /* 可选：使其水平居中 */
+
+
 }
 
 .prose .table-container {
@@ -424,6 +423,14 @@ function onScroll() {
     display: block;
     width: 250px;
     /* 更改图片宽度*/
+  }
+
+  /* 移动端表格样式调整 */
+  .prose th,
+  .prose td {
+    font-size: 12px;
+    padding: 0.1rem;
+    text-align: left;
   }
 }
 

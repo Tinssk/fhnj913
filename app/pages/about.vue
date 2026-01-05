@@ -18,7 +18,6 @@ const route = useRoute();
 const { data } = await useAsyncData(`content-${route.path}`, () =>
   $fetch(`/api/content${route.path}`)
 );
-
 </script>
 
 <style>

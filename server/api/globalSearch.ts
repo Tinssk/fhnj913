@@ -13,7 +13,6 @@ export default defineEventHandler(async (event) => {
   }
   /*先定义返回的数组 */
   let results: globalSearchInfo[] = [];
-  const storage = useStorage("assets:content");
   //获取查询信息
   const query = getQuery(event) || {};
   const keyword = (query.q || "").toString().trim().toLowerCase();
@@ -22,13 +21,13 @@ export default defineEventHandler(async (event) => {
     return { success: false, message: "请提供查询关键字参数 ?q=xxx" };
   }
   // 获取所有 页面的md 文件名
-  const files = await storage.getKeys();
+  const files = await useStorage("assets:content").getKeys();
   const mdFiles = files
     .filter((f) => f.endsWith(".md"))
     .map((f) => {
       const cleaned = f.replace(/\.md$/, "");
       const colonIndex = cleaned.indexOf(":");
-
+      /*服务器返回的文件名列表,冒号代表前面的目录,无冒号就是没有子目录 */
       if (colonIndex !== -1) {
         const prefix = cleaned.slice(0, colonIndex);
         const name = cleaned.slice(colonIndex + 1);
