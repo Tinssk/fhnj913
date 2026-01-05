@@ -1,7 +1,4 @@
 // server/api/random-ana.ts
-
-import { readFile } from "fs/promises";
-import { join } from "path";
 import data from "~/../server/data/ana.json";
 
 export default defineEventHandler(async () => {

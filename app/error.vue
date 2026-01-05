@@ -74,8 +74,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
-
 // 接收错误信息 prop
 const props = defineProps({
     error: {
