@@ -55,6 +55,10 @@ import { ref, computed } from "vue";
 // 构建列表
 const infoList = ref([
   {
+    time: "2026-1-6",
+    content: "网站图片添加渐进式支持,增强了体验",
+  },
+  {
     time: "2026-1-5",
     content: "添加了图片的占位符,解决了图片加载后布局偏移的问题",
   },
