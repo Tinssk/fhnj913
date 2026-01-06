@@ -44,10 +44,10 @@
     </div>
 
     <!-- 移动端目录 -->
-    <div class="lg:hidden">
+    <div class="lg:hidden z-40">
       <StickyFixed>
         <button @click="drawerOpen = true"
-          class="pointer-events-auto sticky top-1/2 z-40 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
+          class="pointer-events-auto sticky top-1/2 lg:hidden flex items-center px-3 py-2 bg-emerald-500 text-white rounded-full shadow-lg focus:outline-none">
           <svg :class="['transition-transform duration-300', drawerOpen ? 'rotate-180' : '']" width="24" height="24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18l6-6-6-6" />
@@ -438,6 +438,7 @@ function onScroll() {
   overflow: hidden;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 1;
   /*缩略图配置 */
   filter: blur(8px);
 }

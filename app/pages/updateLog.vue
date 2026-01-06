@@ -56,6 +56,10 @@ import { ref, computed } from "vue";
 const infoList = ref([
   {
     time: "2026-1-6",
+    content: "上个更新带来的bug修复,修复了移动端主页菜单按钮会被图片挡住的问题",
+  },
+  {
+    time: "2026-1-6",
     content: "网站图片添加渐进式支持,增强了体验",
   },
   {
