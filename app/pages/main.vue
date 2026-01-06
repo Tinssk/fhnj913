@@ -137,7 +137,6 @@ if (!data.value) {
     statusMessage: "markdowm Page not found",
   });
 }
-
 // 提取页面中的标题作为目录
 const toc = data.value?.toc || [];
 const sections = ref([]);
@@ -181,6 +180,25 @@ onMounted(() => {
       }
     }
   });
+  /*加载渐进式图片动画 */
+  const blurredImageDivs = document.querySelectorAll(".blurred-img");
+
+  blurredImageDivs.forEach((wrapper) => {
+    const img = wrapper.querySelector("img");
+    if (!img) return;
+
+    const markLoaded = () => wrapper.classList.add("loaded");
+
+    // 已经命中缓存的图片（同步完成）
+    if (img.complete && img.naturalWidth !== 0) {
+      markLoaded();
+    } else {
+      img.addEventListener("load", markLoaded, { once: true });
+      img.addEventListener("error", () => wrapper.classList.add("error"), { once: true });
+    }
+  });
+
+
 });
 onUnmounted(() => {
   window.removeEventListener("scroll", onScroll);
@@ -337,33 +355,9 @@ function onScroll() {
   /* 引用块取消首行缩进 */
 }
 
-.prose img {
-  float: right;
-  width: 450px;
-  height: auto;
-  margin: 1rem 1rem;
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  /*图片无法选中 */
-  user-select: none;
-  -webkit-user-drag: none;
-  /* 禁止拖动 */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.prose .by15 {
-  float: none !important;
-  /* 取消浮动，必须覆盖原 float:right */
-  width: 300px !important;
-  /* 明确覆盖宽度 */
-  margin: 1rem auto;
-  /* 可选：使其水平居中 */
 
 
-}
+
 
 .prose .table-container {
   overflow-x: auto;
@@ -434,18 +428,49 @@ function onScroll() {
   }
 }
 
-/* 暗黑模式样式 */
-.dark .prose code {
-  background-color: #374151;
-  color: #e5e7eb;
+/*图片包装器实现渐进式图片 */
+.prose .blurred-img {
+  float: right;
+  width: 450px;
+  margin: 1rem 1rem;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /*缩略图配置 */
+  filter: blur(8px);
 }
 
-.dark .prose blockquote {
-  border-left-color: #4b5563;
-  color: #9ca3af;
+/*加载完后消除滤镜 */
+.prose .blurred-img.loaded {
+  filter: blur(0);
 }
 
-.dark .prose th {
-  background-color: #1f2937;
+.prose .blurred-img>img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* 初始设置不透明度为 0 */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.prose .blurred-img.loaded>img {
+  opacity: 1;
+}
+
+.prose .blurred-img.by15 {
+  float: none !important;
+  /* 取消浮动，必须覆盖原 float:right */
+  width: 300px !important;
+  /* 明确覆盖宽度 */
+  margin: 1rem auto;
+  /* 可选：使其水平居中 */
 }
 </style>

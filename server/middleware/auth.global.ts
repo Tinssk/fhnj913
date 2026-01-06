@@ -24,7 +24,7 @@ export default fromNodeMiddleware((req, res, next) => {
   if (requestUrl && excludePaths.some((path) => requestUrl.startsWith(path))) {
     return next();
   }
-  // 在中间件中添加
+  // 避免重复验证,跳过密码页面的POST请求
   if (requestUrl === "/password" && req.method === "POST") {
     return next();
   }

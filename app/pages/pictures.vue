@@ -24,9 +24,12 @@
     </div>
     <div id="ImgContainer" class="gap-4 min-w-full mx-auto">
       <div v-for="(img, idx) in allImages" :key="idx"
-        class="groupN group relative mb-4 overflow-hidden rounded-lg transition-all duration-300"
-        @click.stop="handleImageClickShow(idx)">
-        <img :src="img" :alt="'img' + idx" loading="lazy" class="w-full block transition-all duration-300" />
+        class="groupN group  relative mb-4 overflow-hidden rounded-lg transition-all duration-300 bg-no-repeat bg-cover "
+        :class="imageLoaded[idx] ? 'loaded' : 'blur-sm'" @click.stop="handleImageClickShow(idx)"
+        :style="`background-image: url('${smallImages[idx]}');aspect-ratio:[${imgSizeMap[img].width}/${imgSizeMap[img].height}]`">
+        <img :src="img" :alt="'img' + idx" loading="lazy"
+          class="w-full h-full object-cover block transition-all duration-500 ease-in-out"
+          :class="imageLoaded[idx] ? 'opacity-100' : ' opacity-0'" @load="onImageLoadSmall($event, idx)" />
         <button @click="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
           class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
           <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -54,8 +57,11 @@ import { Button } from '@/components/ui/button'
 const imageLibraryTotal = 245; // 图片库总数
 const imageBaseURL = '/img/juandanqing/';
 const allImages = ref([]);
+const smallImages = computed(() => allImages.value.map(img => img.replace(/^\/img/, '/img/small')));
 const activeImageIndex = ref(null); // 跟踪当前被点击的图片索引
 const isMobile = ref(false); // 是否为移动设备
+const imgSizeMap = ref({}); // 图片Size比例的map
+const imageLoaded = ref(Array(20).fill(false)) // 图片加载状态的数组
 
 function getRandomUniqueNumbers(count, max) {
   const set = new Set();
@@ -65,20 +71,34 @@ function getRandomUniqueNumbers(count, max) {
   }
   return Array.from(set);
 }
+// 缩略图的加载函数
+const onImageLoadSmall = (event, index) => {
+  const target = event.target;
+  if (target.complete) {
+    imageLoaded.value[index] = true
+    console.log('Small图片加载完成')
+  }
+}
+onMounted(async () => {
+  /*获取图片大小对应列表 */
+  const res = await fetch('/img/imgSizeMap.json')
+  if (!res.ok) throw new Error('无法加载 imgSizeMap.json')
+  imgSizeMap.value = await res.json();
 
-onMounted(() => {
   const isMobileC = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-  const numberOfImages = isMobileC ? 6 : 20; //isMobileC因为不具有响应式,所以只在一开始构建图片时临时使用
+  const numberOfImages = isMobileC ? 6 : 20;
   const randomIndexes = getRandomUniqueNumbers(numberOfImages, imageLibraryTotal);
   const images = randomIndexes.map((num) => `${imageBaseURL}${num}.jpg`);
-  console.log(images.length)
-  // 随机打乱数组
-  for (let i = images.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [images[i], images[j]] = [images[j], images[i]];
-  }
   allImages.value = images;
-
+  /*处理缩略图加载 */
+  const smallImgElements = document.querySelectorAll('.groupN img')
+  for (let i = 0; i < smallImgElements.length; i++) {
+    const img = smallImgElements[i]
+    if (img && img.complete) {
+      imageLoaded.value[i] = true
+      console.log('Small图片从缓存加载，直接完成')
+    }
+  }
   // 检查是否为移动设备
   isMobile.value = window.innerWidth <= 1024;
 

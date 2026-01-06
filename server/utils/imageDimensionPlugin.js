@@ -22,7 +22,7 @@ export default function imageWrapperPlugin(md) {
           }
 
           const src = srcMatch[1].trim();
-
+          const smallSrc = src.replace(/^\/img\//, "/img/small/"); //提取缩略图的src
           // 只处理我们关心的本地路径图片
           if (!src.startsWith("/")) {
             return match;
@@ -45,21 +45,27 @@ export default function imageWrapperPlugin(md) {
 
           // 3. 根据是否已有 style 属性来决定如何插入
           const hasStyle = /\bstyle\s*=\s*["']/i.test(attrs);
+          let newImgHtml;
 
           if (hasStyle) {
             // 已有 style → 在 style 内容末尾追加
-            return match.replace(/\bstyle\s*=\s*["']([^"']*)["']/i, (styleMatch, styleContent) => {
-              // 避免重复添加 aspect-ratio
+            newImgHtml = match.replace(/\bstyle\s*=\s*["']([^"']*)["']/i, (styleMatch, styleContent) => {
               if (/aspect-ratio\s*:/i.test(styleContent)) {
-                return styleMatch; // 已存在，不动
+                return styleMatch;
               }
               return `style="${styleContent.trim()}; aspect-ratio: ${aspectRatio}"`;
             });
           } else {
             // 没有 style → 直接插入新的 style 属性
             // 在 src 后面或其他位置插入都可以，这里放在开头比较常见
-            return match.replace(/<img\s+/i, `<img style="aspect-ratio: ${aspectRatio};" `);
+            newImgHtml = match.replace(/<img\s+/i, `<img style="aspect-ratio: ${aspectRatio};" `);
           }
+          //4. 获取img的类名
+          const classMatch = attrs.match(/\bclass\s*=\s*["']([^"']+)["']/i);
+          const imgClass = classMatch ? classMatch[1].trim() : "";
+
+          /*进行包装div */
+          return `<div class="blurred-img ${imgClass}" style="background-image: url('${smallSrc}');background-size: cover;background-repeat: no-repeat;inset:0;aspect-ratio: ${aspectRatio}">${newImgHtml}</div>`;
         });
       }
     }
