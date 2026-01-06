@@ -181,7 +181,7 @@
       </div>
     </div>
     <div class="z-3 text-center text-sm p-2 mx-15 border-t-white border-t-1 text-white">
-      <p>© 2003-2025 碧瑶 世界 未来</p>
+      <p>© 2003-2026 碧瑶 世界 未来</p>
     </div>
   </footer>
 </template>
