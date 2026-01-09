@@ -1,10 +1,10 @@
 /*本markdown-it插件,用来对md中的图片添加大小占位符,防止偏移 */
 import { getImageMetaSync } from "../image-meta-cache";
+import imgSizeMap from "~/../public/img/imgSizeMap.json";
 
 export default function imageWrapperPlugin(md) {
   md.core.ruler.push("image-wrapper", (state) => {
     const tokens = state.tokens;
-    console.log("image-wrapper plugin running...");
     for (let i = 0; i < tokens.length; i++) {
       const token = tokens[i];
 
@@ -31,7 +31,7 @@ export default function imageWrapperPlugin(md) {
           // 2. 获取图片元数据（宽高）
           let meta;
           try {
-            meta = getImageMetaSync(src);
+            meta = imgSizeMap[src];
             if (!meta?.width || !meta?.height) {
               return match;
             }
@@ -39,7 +39,6 @@ export default function imageWrapperPlugin(md) {
             console.warn(`Failed to get dimensions for ${src}:`, e);
             return match;
           }
-
           const { width, height } = meta;
           const aspectRatio = `${width} / ${height}`;
 

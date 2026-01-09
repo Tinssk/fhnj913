@@ -2,7 +2,7 @@
 import sizeOf from "image-size";
 
 const imageSizeMap = new Map<string, { width: number; height: number }>();
-
+//生成图片大小map
 export async function warmupImageMeta() {
   const storage = useStorage("assets:wiki");
   const keys = await storage.getKeys();
@@ -20,7 +20,7 @@ export async function warmupImageMeta() {
 
   console.log("[image-meta] warmed:", imageSizeMap.size);
 }
-
+//获取图片大小map的api
 export function getImageMetaSync(src: string) {
   const result = imageSizeMap.get(src);
   return result;

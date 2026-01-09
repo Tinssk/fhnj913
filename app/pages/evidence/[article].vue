@@ -19,6 +19,26 @@ useHead({
 const { data } = await useAsyncData(`content-${route.path}`, () =>
     $fetch(`/api/content${route.path}`)
 );
+
+onMounted(() => {
+    /*加载渐进式图片动画 */
+    const blurredImageDivs = document.querySelectorAll(".blurred-img");
+
+    blurredImageDivs.forEach((wrapper) => {
+        const img = wrapper.querySelector("img");
+        if (!img) return;
+
+        const markLoaded = () => wrapper.classList.add("loaded");
+
+        // 已经命中缓存的图片（同步完成）
+        if (img.complete && img.naturalWidth !== 0) {
+            markLoaded();
+        } else {
+            img.addEventListener("load", markLoaded, { once: true });
+            img.addEventListener("error", () => wrapper.classList.add("error"), { once: true });
+        }
+    });
+});
 </script>
 
 <style>
@@ -37,7 +57,6 @@ const { data } = await useAsyncData(`content-${route.path}`, () =>
     text-align: justify;
     letter-spacing: 0.05em;
 }
-
 
 
 .proseEvidence p {
@@ -77,6 +96,7 @@ const { data } = await useAsyncData(`content-${route.path}`, () =>
     /* 让图片成为块级元素，确保描述能在下方 */
     margin: 0 auto;
     /* 上下外边距控制间距，左右auto实现居中 */
+    width: 450px;
 }
 
 /* 图片描述样式：块级显示+居中 */
@@ -91,6 +111,43 @@ const { data } = await useAsyncData(`content-${route.path}`, () =>
     color: #666;
     /* 可选：调整描述颜色 */
 }
+
+/*图片样式 */
+/*图片包装器实现渐进式图片 */
+.proseEvidence .blurred-img {
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    /*缩略图配置 */
+    filter: blur(8px);
+}
+
+/*加载完后消除滤镜 */
+.proseEvidence .blurred-img.loaded {
+    filter: blur(0);
+}
+
+.proseEvidence .blurred-img>img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    /* 初始设置不透明度为 0 */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.proseEvidence .blurred-img.loaded>img {
+    opacity: 1;
+}
+
 
 @media (max-width: 600px) {
     .proseEvidence {

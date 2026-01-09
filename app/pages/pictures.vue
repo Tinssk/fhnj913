@@ -25,8 +25,10 @@
     <div id="ImgContainer" class="gap-4 min-w-full mx-auto">
       <div v-for="(img, idx) in allImages" :key="idx"
         class="groupN group  relative mb-4 overflow-hidden rounded-lg transition-all duration-300 bg-no-repeat bg-cover "
-        :class="imageLoaded[idx] ? 'loaded' : 'blur-sm'" @click.stop="handleImageClickShow(idx)"
-        :style="`background-image: url('${smallImages[idx]}');aspect-ratio:[${imgSizeMap[img].width}/${imgSizeMap[img].height}]`">
+        :class="imageLoaded[idx] ? 'loaded' : 'blur-sm'" @click.stop="handleImageClickShow(idx)" :style="{
+          backgroundImage: `url('${smallImages[idx]}')`,
+          aspectRatio: `${imgSizeMap[img].width}/${imgSizeMap[img].height}`
+        }">
         <img :src="img" :alt="'img' + idx" loading="lazy"
           class="w-full h-full object-cover block transition-all duration-500 ease-in-out"
           :class="imageLoaded[idx] ? 'opacity-100' : ' opacity-0'" @load="onImageLoadSmall($event, idx)" />
