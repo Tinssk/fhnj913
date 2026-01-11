@@ -31,7 +31,8 @@
         }">
         <img :src="img" :alt="'img' + idx" loading="lazy"
           class="w-full h-full object-cover block transition-all duration-500 ease-in-out"
-          :class="imageLoaded[idx] ? 'opacity-100' : ' opacity-0'" @load="onImageLoadSmall($event, idx)" />
+          :class="imageLoaded[idx] ? 'opacity-100' : ' opacity-0'" @load="onImageLoadSmall($event, idx)"
+          decoding="async" />
         <button @click="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
           class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
           <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"

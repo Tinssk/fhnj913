@@ -1,4 +1,5 @@
 // /server/image-meta-cache.ts
+/*本代码已停用 */
 import sizeOf from "image-size";
 
 const imageSizeMap = new Map<string, { width: number; height: number }>();

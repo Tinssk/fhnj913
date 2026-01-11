@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-04-01",
   devtools: { enabled: false },
   devServer: {
-    host: "192.168.1.8",
+    host: "192.168.1.3",
     port: 3000,
   },
 
@@ -101,10 +101,6 @@ export default defineNuxtConfig({
       {
         baseName: "content",
         dir: "../content", // Relative to Nitro `srcDir`
-      },
-      {
-        baseName: "wiki",
-        dir: "../public/img/wiki", // Relative to Nitro `srcDir`},
       },
     ],
   },
