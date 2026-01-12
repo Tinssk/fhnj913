@@ -224,7 +224,7 @@ onMounted(async () => {
   //启用触底器
   loadIO = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) fetchMore()
-  }, { rootMargin: '1200px' })
+  }, { rootMargin: '600px' })
   loadIO.observe(sentinel.value)
 });
 
