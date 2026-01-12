@@ -22,26 +22,36 @@
           </svg>微博:碧瑶主页(点击前往)</a>
       </Button>
     </div>
-    <div id="ImgContainer" class="gap-4 min-w-full mx-auto">
-      <div v-for="(img, idx) in allImages" :key="idx"
-        class="groupN group  relative mb-4 overflow-hidden rounded-lg transition-all duration-300 bg-no-repeat bg-cover "
-        :class="imageLoaded[idx] ? 'loaded' : 'blur-sm'" @click.stop="handleImageClickShow(idx)" :style="{
-          backgroundImage: `url('${smallImages[idx]}')`,
-          aspectRatio: `${imgSizeMap[img].width}/${imgSizeMap[img].height}`
-        }">
-        <img :src="img" :alt="'img' + idx" loading="lazy"
-          class="w-full h-full object-cover block transition-all duration-500 ease-in-out"
-          :class="imageLoaded[idx] ? 'opacity-100' : ' opacity-0'" @load="onImageLoadSmall($event, idx)"
-          decoding="async" />
-        <button @click="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === idx && isMobile }"
-          class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
-          <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-          </svg>
-        </button>
+    <div id="ImgContainer" class="mt-2">
+      <div v-for="col in columns" class="flex-1 ">
+        <div v-for="img in col" :key="img"
+          class="groupN group mb-4  relative  overflow-hidden rounded-lg transition-all duration-300 bg-no-repeat bg-cover "
+          :class="imgStates[img].loaded ? 'loaded' : 'blur-sm'" @click.stop="handleImageClickShow(img)" :style="{
+            backgroundImage: `url('${imgStates[img].bg_url}')`,
+            aspectRatio: `${imgSizeMap[img].width}/${imgSizeMap[img].height}`
+          }">
+          <img :src="img" :alt="'img'" loading="lazy"
+            class="w-full h-full min-h-[1px] object-cover  block transition-all duration-500 ease-in-out"
+            :class="imgStates[img].loaded ? 'opacity-100' : ' opacity-0'" @load="onImageLoadSmall($event, img);"
+            decoding="async" />
+          <button @click="downloadImage(img)" :class="{ 'opacity-70': activeImageIndex === img && isMobile }"
+            class="catBtn absolute top-2 right-2 opacity-0 group-hover:opacity-70 transition-all duration-300 hover:scale-120 cursor-pointer">
+            <svg class="w-8 h-8 text-gray-800 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </button>
+        </div>
       </div>
+    </div>
+    <!-- 触底感知器 -->
+    <div ref="sentinel" class="h-1"></div>
+    <!-- 加载动画 -->
+    <div v-if="loading" class="fixed bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-50">
+      <span class="dot bg-green-500"></span>
+      <span class="dot bg-green-500"></span>
+      <span class="dot bg-green-500"></span>
     </div>
   </div>
 </template>
@@ -58,14 +68,86 @@ useHead({
 });
 import { Button } from '@/components/ui/button'
 const imageLibraryTotal = 245; // 图片库总数
-const imageBaseURL = '/img/juandanqing/';
-const allImages = ref([]);
-const smallImages = computed(() => allImages.value.map(img => img.replace(/^\/img/, '/img/small')));
+const imageBaseURL = '/img/juandanqing/'; //图片基路径
+const allImages = ref([]);// 图片URL列表
 const activeImageIndex = ref(null); // 跟踪当前被点击的图片索引
 const isMobile = ref(false); // 是否为移动设备
 const imgSizeMap = ref({}); // 图片Size比例的map
-const imageLoaded = ref(Array(20).fill(false)) // 图片加载状态的数组
+// 瀑布流flex实现, 构建列数组
+const columnCount = computed(() => isMobile.value ? 1 : 4) // 列数计算
+const columns = ref([])
+const columnHeights = ref([])
+const COLUMN_WIDTH = 300; // 假设每列宽度300px
+const createImageState = (url) => ({
+  url,
+  bg_url: url.replace('/img/', '/img/small/'),
+  loaded: false
+}) //构建函数
+const imgStates = ref({}) //图片状态集合
 
+//触底感知器,检测是否滚动到底部
+const sentinel = ref(null)
+let loadIO = null
+const loading = ref(false)
+//添加图片函数
+function appendImages(imgs) {
+  const cols = columns.value.map(col => col.slice())
+  const heights = columnHeights.value.slice()
+
+  for (const img of imgs) {
+    const { width, height } = imgSizeMap.value[img]
+    const h = (height / width) * COLUMN_WIDTH
+
+    let min = 0
+    for (let i = 1; i < columnCount.value; i++) {
+      if (heights[i] < heights[min]) min = i
+    }
+
+    cols[min].push(img)
+    heights[min] += h
+    allImages.value.push(img)
+  }
+  columns.value = cols
+  columnHeights.value = heights
+}
+//图片尺寸预热
+function preloadSizes(imgs) {
+  return Promise.all(imgs.map(url =>
+    new Promise(res => {
+      const img = new Image()
+      img.src = url
+      img.onload = () => {
+        imgSizeMap.value[url] = {
+          width: img.naturalWidth,
+          height: img.naturalHeight
+        }
+        res()
+      }
+    })
+  ))
+}
+//获取函数
+async function fetchMore() {
+  if (loading.value) return //正在加载图片时不要重复加载
+  loading.value = true
+
+  const newImgs = []
+  getRandomUniqueNumbers(12, imageLibraryTotal).forEach(num => {
+    newImgs.push(`${imageBaseURL}${num}.jpg`)
+  })
+
+  // 预解码尺寸（必须）
+  await preloadSizes(newImgs)
+
+  newImgs.forEach(url => {
+    imgStates.value[url] = createImageState(url)
+  })
+
+  appendImages(newImgs)
+  loading.value = false
+}
+
+//生成指定数量的不重复随机数
 function getRandomUniqueNumbers(count, max) {
   const set = new Set();
   while (set.size < count) {
@@ -74,34 +156,57 @@ function getRandomUniqueNumbers(count, max) {
   }
   return Array.from(set);
 }
+
 // 缩略图的加载函数
-const onImageLoadSmall = (event, index) => {
+const onImageLoadSmall = (event, imgurl) => {
   const target = event.target;
   if (target.complete) {
-    imageLoaded.value[index] = true
-    console.log('Small图片加载完成')
+    imgStates.value[imgurl].loaded = true
   }
 }
+
+//瀑布流构建函数
+function rebuildColumns() {
+  const count = columnCount.value
+
+  columns.value = Array.from({ length: count }, () => [])
+  columnHeights.value = Array(count).fill(0)
+
+  for (const img of allImages.value) {
+    const { width, height } = imgSizeMap.value[img]
+    const h = (height / width) * COLUMN_WIDTH
+
+    let min = 0
+    for (let i = 1; i < count; i++) {
+      if (columnHeights.value[i] < columnHeights.value[min]) min = i
+    }
+
+    columns.value[min].push(img)
+    columnHeights.value[min] += h
+  }
+}
+
 onMounted(async () => {
   /*获取图片大小对应列表 */
   const res = await fetch('/img/imgSizeMap.json')
   if (!res.ok) throw new Error('无法加载 imgSizeMap.json')
   imgSizeMap.value = await res.json();
 
+  /*构造图片url */
   const isMobileC = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
   const numberOfImages = isMobileC ? 6 : 20;
   const randomIndexes = getRandomUniqueNumbers(numberOfImages, imageLibraryTotal);
   const images = randomIndexes.map((num) => `${imageBaseURL}${num}.jpg`);
   allImages.value = images;
-  /*处理缩略图加载 */
-  const smallImgElements = document.querySelectorAll('.groupN img')
-  for (let i = 0; i < smallImgElements.length; i++) {
-    const img = smallImgElements[i]
-    if (img && img.complete) {
-      imageLoaded.value[i] = true
-      console.log('Small图片从缓存加载，直接完成')
-    }
-  }
+  // 初始化图片状态并加入 imgStates
+  images.forEach((url) => {
+    imgStates.value[url] = createImageState(url);
+  });
+  rebuildColumns()
+  watch(columnCount, rebuildColumns) //当列数变化时,触发重排
+  //触底器逻辑
+
+  /*响应式判断与移动端图片取消选择状态 */
   // 检查是否为移动设备
   isMobile.value = window.innerWidth <= 1024;
 
@@ -114,6 +219,12 @@ onMounted(async () => {
   document.addEventListener('click', () => {
     activeImageIndex.value = null;
   });
+
+  //启用触底器
+  loadIO = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) fetchMore()
+  }, { rootMargin: '1200px' })
+  loadIO.observe(sentinel.value)
 });
 
 //js控制下载,暂时保留
@@ -127,23 +238,28 @@ const downloadImage = (imgUrl) => {
 };
 
 // 处理图片点击事件
-const handleImageClickShow = (idx) => {
+const handleImageClickShow = (imgUrl) => {
   // 只在移动端（宽度小于1024px）时应用点击效果
   if (isMobile.value) {
     // 如果点击的是当前激活的图片，则取消激活状态
-    if (activeImageIndex.value === idx) {
+    if (activeImageIndex.value === imgUrl) {
       activeImageIndex.value = null;
     } else {
       // 否则设置新的激活图片
-      activeImageIndex.value = idx;
+      activeImageIndex.value = imgUrl;
     }
   }
 };
 </script>
 
 <style scoped>
+/*悬停显示效果 */
 #ImgContainer {
-  columns: 4 300px;
+  display: flex;
+  justify-content: center;
+  /* 可选 */
+  gap: 16px;
+  /* 列间距 */
 }
 
 .groupN::before {
@@ -186,6 +302,43 @@ const handleImageClickShow = (idx) => {
   .groupN button svg {
     width: 120px;
     height: 120px;
+  }
+}
+
+/*图片加载动画 */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  display: inline-block;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+/* 点跳动的动画，三点错开 */
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.3);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 </style>

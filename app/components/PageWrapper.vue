@@ -120,8 +120,10 @@ router.afterEach((to, from) => {
     <!-- Banner 区域：设置固定高度，并保持图片的原始比例，同时裁剪下部，保留上部 -->
     <div v-if="banner" :class="[`${wrapperHeight}`, 'relative w-full overflow-hidden z-10']">
       <!-- 图片 -->
-      <img :src="banner" alt="页面头图" class="w-full h-full object-cover object-top shadow-inner-2xl wrappimg" style="mask-image: linear-gradient(to bottom, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%)" />
-      <div ref="contentRef" class="absolute flex flex-col items-center justify-center top-0 w-full h-full animate-fadeUp">
+      <img :src="banner" alt="页面头图" class="w-full h-full object-cover object-top shadow-inner-2xl wrappimg"
+        style="mask-image: linear-gradient(to bottom, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%)" />
+      <div ref="contentRef"
+        class="absolute flex flex-col items-center justify-center top-0 w-full h-full animate-fadeUp">
         <!-- 标题 -->
         <h1 v-if="title" :class="titleCol" class="text-3xl lg:text-5xl font-bold text-center z-20">
           {{ title }}
@@ -129,12 +131,13 @@ router.afterEach((to, from) => {
         <h2 v-if="novels" class="text-2xl lg:text-4xl text-black mt-5">折花笺</h2>
         <h2 v-if="biyaofameCh" class="text-2xl lg:text-4xl text-black mt-10">{{ biyaofameChapter }}</h2>
         <!-- 右下角偏上段落 -->
-        <p v-if="randomLineCheck" :class="[`${textCol}`]" class="absolute right-5 lg:right-25 bottom-12 lg:bottom-20 translate-y-1/3 text-sm lg:text-xl font-light text-right w-50 lg:w-200 leading-relaxed z-10">
+        <p v-if="randomLineCheck" :class="[`${textCol}`]"
+          class="absolute right-5 lg:right-25 bottom-12 lg:bottom-20 translate-y-1/3 text-sm lg:text-xl font-light text-right w-50 lg:w-200 leading-relaxed z-10">
           {{ randomLine }}
         </p>
         <!-- 搜索框 -->
         <div v-if="pictures" class="absolute left-1/2 transform -translate-x-1/2 top-[60%] w-full max-w-4xl px-4 z-30">
-          <SearchBar placeholder="搜索您感兴趣的内容..." />
+          <SearchBar placeholder="搜索碧瑶图库..." />
         </div>
       </div>
     </div>
