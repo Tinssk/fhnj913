@@ -26,7 +26,7 @@
       <div v-for="col in columns" class="flex-1 ">
         <div v-for="img in col" :key="img"
           class="groupN group mb-4  relative  overflow-hidden rounded-lg transition-all duration-300 bg-no-repeat bg-cover "
-          :class="imgStates[img].loaded ? 'loaded shadow-lg' : 'blur-sm border-4 border-green-400 shadow-md'"
+          :class="imgStates[img].loaded ? 'loaded shadow-lg' : 'blur-sm  shadow-md'"
           @click.stop="handleImageClickShow(img)" :style="{
             backgroundImage: `url('${imgStates[img].bg_url}')`,
             aspectRatio: `${imgSizeMap[img].width}/${imgSizeMap[img].height}`
