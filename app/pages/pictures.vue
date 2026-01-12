@@ -53,6 +53,13 @@
       <span class="dot bg-green-500"></span>
       <span class="dot bg-green-500"></span>
     </div>
+    <!-- 图片库耗尽提醒 -->
+    <div v-if="imageLibraryExhausted" class="flex justify-center mt-8">
+      <p
+        class="px-6 py-4 rounded-lg shadow-md text-green-900 font-semibold text-xl bg-gradient-to-r from-green-200 via-green-400 to-green-300 animate-shake">
+        亲爱的花瓣宝宝,我们的图片库已全部加载完毕~感谢您的浏览!
+      </p>
+    </div>
   </div>
 </template>
 
@@ -68,6 +75,8 @@ useHead({
 });
 import { Button } from '@/components/ui/button'
 const imageLibraryTotal = 245; // 图片库总数
+const imageLibraryExhausted = ref(false);
+const loadedSet = new Set(); //已加载的数字集合
 const imageBaseURL = '/img/juandanqing/'; //图片基路径
 const allImages = ref([]);// 图片URL列表
 const activeImageIndex = ref(null); // 跟踪当前被点击的图片索引
@@ -110,32 +119,20 @@ function appendImages(imgs) {
   columns.value = cols
   columnHeights.value = heights
 }
-//图片尺寸预热
-function preloadSizes(imgs) {
-  return Promise.all(imgs.map(url =>
-    new Promise(res => {
-      const img = new Image()
-      img.src = url
-      img.onload = () => {
-        imgSizeMap.value[url] = {
-          width: img.naturalWidth,
-          height: img.naturalHeight
-        }
-        res()
-      }
-    })
-  ))
-}
 //获取函数
 async function fetchMore() {
-  if (loading.value) return //正在加载图片时不要重复加载
+  if (loading.value || imageLibraryExhausted.value) return //正在加载图片,或者是图片库耗尽时不要重复加载
   loading.value = true
 
   const newImgs = []
   getRandomUniqueNumbers(12, imageLibraryTotal).forEach(num => {
     newImgs.push(`${imageBaseURL}${num}.jpg`)
   })
-
+  if (newImgs.length === 0) {  //图片库耗尽时不要继续加载
+    imageLibraryExhausted.value = true;
+    loading.value = false;
+    return;
+  }
   newImgs.forEach(url => {
     if (imgStates.value[url]) return
     imgStates.value[url] = createImageState(url)
@@ -145,15 +142,21 @@ async function fetchMore() {
   loading.value = false
 }
 
-//生成指定数量的不重复随机数
-function getRandomUniqueNumbers(count, max) {
+// 生成指定数量的不重复随机数，并排除已加载的数字
+function getRandomUniqueNumbers(count, max,) {
   const set = new Set();
   while (set.size < count) {
     const rand = Math.floor(Math.random() * max) + 1; // 1 ~ max
-    set.add(rand);
+    if (!loadedSet.has(rand)) {  // 排除已加载的
+      set.add(rand);
+      loadedSet.add(rand);
+    }
+    // 防止死循环，如果可用数量不足，直接跳出
+    if (loadedSet.size >= max) break;
   }
   return Array.from(set);
 }
+
 
 // 缩略图的加载函数
 const onImageLoadSmall = (event, imgurl) => {
@@ -338,5 +341,30 @@ const handleImageClickShow = (imgUrl) => {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+/*图片库耗尽动画 */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+
+  25% {
+    transform: translateX(-5px) scale(1.05);
+  }
+
+  50% {
+    transform: translateX(5px) scale(1.1);
+  }
+
+  75% {
+    transform: translateX(-5px) scale(1.05);
+  }
+}
+
+.animate-shake {
+  animation: shake 3s ease-in-out;
 }
 </style>
