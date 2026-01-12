@@ -136,12 +136,10 @@ async function fetchMore() {
     newImgs.push(`${imageBaseURL}${num}.jpg`)
   })
 
-  // 预解码尺寸（必须）
-  await preloadSizes(newImgs)
-
   newImgs.forEach(url => {
+    if (imgStates.value[url]) return
     imgStates.value[url] = createImageState(url)
-  })
+  })  //设置图片状态
 
   appendImages(newImgs)
   loading.value = false
