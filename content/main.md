@@ -1037,6 +1037,14 @@ title: '碧瑶角色主页'
       <td>原曲：かざぐるま(风车)</td>
       <td>碧瑶同人曲</td>
     </tr>
+    <tr>
+      <td><a class="catBtn" href="https://music.163.com/#/song?id=2048876447&" target="_blank">《情衷》</a></td>
+      <td>宁采臣丶在唱歌</td>
+      <td>知秋</td>
+      <td>papaw泡泡</td> 
+      <td>papaw泡泡</td>
+      <td>碧瑶同人曲</td>
+    </tr>
   </tbody>
 </table>
 </div>
