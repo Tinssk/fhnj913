@@ -56,6 +56,10 @@ watchEffect(() => {
   text-indent: 2em;
 }
 
+.proseNovel a {
+  color: blue;
+}
+
 @media (max-width: 600px) {
   .proseNovel {
     font-size: 16px;
