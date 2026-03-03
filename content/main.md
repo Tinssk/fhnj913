@@ -926,12 +926,12 @@ title: '碧瑶角色主页'
       <td>粉丝向同人曲（翻自 林欣彤）</td>
     </tr>
     <tr>
-      <td><a class="catBtn" href="https://y.qq.com/n/ryqq/songDetail/001GUyo039RtVQ" target="_blank">《半卷青裘》</a></td>
-      <td>怜瑶</td>
-      <td>未知</td>
+      <td><a class="catBtn" href="/audio/半卷青裘.mp3" target="_blank">《半卷青裘》</a></td>
+      <td>瑶儿姐姐的铃铛</td>
+      <td>脂绿指凉</td>
       <td>原曲:冰菊物语-李宇春</td> 
       <td>原曲:冰菊物语-李宇春</td>
-      <td>碧瑶同人曲</td>
+      <td>碧瑶吧第二期吧刊主题曲</td>
     </tr>
     <tr>
       <td><a class="catBtn" href="https://www.kuwo.cn/play_detail/157122379" target="_blank">《碧海情凝·悲嗔情碎》</a></td>
